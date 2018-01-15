@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	You under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<!-- This is a blank Struts configuration file with an example welcome action/page 
+	and other commented sample elements. Struts Validator is configured using 
+	the factory defaults and is ready-to-use. NOTE: If you have a generator tool 
+	to create the corresponding Java classes for you, you could include the details 
+	in the "form-bean" declarations. Otherwise, you would only define the "form-bean" 
+	element itself, with the corresponding "name" and "type" attributes, as shown 
+	here. -->
+
+<!-- tc-config.xml -->
+<struts-config>
+	<form-beans>
+	<!-- 유저 로그인 유효성 검사 -->
+	<!-- 쓸모없어서 삭제함! -->
+	<!-- <form-bean name="loginF"
+			   type="tc.user.forms.LoginActionForm"/> -->
+	
+	<!-- 유저 회원가입 유효성 검사 -->		   
+	<form-bean name="joinF"
+			   type="tc.user.forms.JoinActionForm"/>
+	
+	<!-- id중복확인 유효성 검사 -->		   
+	<form-bean name="idCheckF"
+			   type="tc.user.forms.IdCheckActionForm"/>
+	
+	</form-beans>
+	
+	<global-exceptions></global-exceptions>
+	<global-forwards></global-forwards>
+
+	<action-mappings>
+		<!-- ★흐름 
+			JSP페이지에서 어느 페이지로 이동할 때 그 path의 type이 액션이면
+			먼저 name에 액션폼이 있는지 확인!
+			액션 폼이 있다면
+			1. name에 있는 액션폼을 찾아서 액션 폼을 거친다.
+			2. 그 액션폼은 JSP페이지에 있는 name과 똑같은 변수의(request.getParater()와 같음) 유효성을 검사한다.
+			3. 액션을 거쳐서 코드를 실행하고 결과에 따라 foward를 한다. 
+			(결과에 따라서 포워드하는 곳이 다르다면 액션안에 forward를 여러개 두고 이름을 달리한다.)
+			
+			주의: 액션안에서 이동할 수 있는 포워드는 .jsp를 쓰지 않는다.(모델1방식 지양)
+		-->
+		<!-- 유저 메인화면 -->
+		<action path="/user/main"
+	           forward="/login/userMainview.jsp"/>
+		
+		<!-- 유저 로그인 화면 -->
+	    <action path="/user/loginForm"
+	           forward="/login/loginForm.jsp"/>
+	           
+	    <!-- 유저 로그인 ajax -->
+	  	<action path="/user/loginCheckResponse"
+				forward="/login/loginCheckResponse.jsp"/>
+	     
+	    <!-- 유저 로그인 액션! -->      
+		<action path="/user/login"
+				type="tc.user.actions.LoginAction"
+				validate="true"
+				scope="request"
+				input="/login/loginForm.jsp">
+			<forward name="success" path="/user/loginCheckResponse.do"/>		
+		</action>
+		
+		<!-- 유저 로그아웃 액션! -->
+		<action path="/user/logout"
+				type="tc.user.actions.LogoutAction">
+			<forward name="logout" path="/user/main.do"></forward>
+		</action>
+		
+		<!-- 유저회원가입 폼 -->
+		<action path="/user/joinForm"
+				forward="/login/joinForm.jsp"/>
+		
+		<!-- 유저 회원가입 액션! -->
+		<action path="/user/join"
+				type="tc.user.actions.JoinAction"
+				name="joinF"
+				validate="true"
+				scope="request"
+				input="/login/joinForm.jsp">		
+			<forward name="insert" path="/user/loginForm.do"/>
+		</action>
+		
+		<!-- 유저 id중복확인 ajax -->
+		<action path="/user/idCheckResponse"
+				forward="/login/idCheckResponse.jsp"/>
+		
+		<!-- 유저 id중복확인 액션! -->
+		<action path="/user/idCheck"
+				type="tc.user.actions.IdCheckAction"
+				name="idCheckF"
+				validate="true"
+				scope="request"
+				input="/login/joinForm.jsp">
+			<forward name="success" path="/user/idCheckResponse.do"/>
+		</action>
+		
+		
+	</action-mappings>
+
+	<!--  사용자 정의 RequestProcessor등록  -->
+	<controller processorClass="encoding.control.MyRequestProcessor" />
+	
+	<!-- 액션폼에 넣을 내용들 -->
+	<message-resources parameter="resources.application" />
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/config/tiles-defs.xml" />
+		<set-property property="definitions-debug" value="2" />
+		<set-property property="definitions-parser-details"
+			value="2" />
+		<set-property property="definitions-parser-validate"
+			value="true" />
+	</plug-in>
+
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,
+               /WEB-INF/validation.xml" />
+	</plug-in>
+
+</struts-config>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+       "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<!-- emp.xml(sql문을 저장) -->       
+<sqlMap namespace="userInfo">
+      
+   <insert id="insert" parameterClass="userInfo">
+     insert into user_info(user_id,user_pass,user_name,user_email,user_phone,user_addr,user_prio)
+     values(#user_id#,#user_pass#,#user_name#,#user_email#,#user_phone#,#user_addr#,#user_prio#)
+   </insert>
+   
+   <select id="selectAll" resultClass="userInfo">
+   	select user_id,user_pass,user_name,user_email,user_phone,user_addr,user_prio from user_info
+   </select>
+   
+   <select id="selectLogin" parameterClass="java.util.Map" resultClass="int">
+   		select count(*) from user_info where user_id=#login_id# and user_pass=#login_pass#
+   </select>
+   
+   <select id="selectId" parameterClass="String" resultClass="int">
+   		select count(*) from user_info where user_id=#user_id#
+   </select>
+</sqlMap>
