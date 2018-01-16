@@ -56,35 +56,82 @@
 			주의: 액션안에서 이동할 수 있는 포워드는 .jsp를 쓰지 않는다.(모델1방식 지양)
 		-->
 		<!-- 유저 메인화면 -->
-		<action path="/user/main"
-	           forward="/login/userMainview.jsp"/>
+		<!-- <action path="/user/main"
+	           forward="/login/userMainview.jsp"/> -->
 		
 		<!-- 유저 로그인 화면 -->
-	    <action path="/user/loginForm"
-	           forward="/login/loginForm.jsp"/>
+	    <!-- <action path="/user/loginForm"
+	           forward="/login/loginForm.jsp"/> -->
 	           
 	    <!-- 유저 로그인 ajax -->
-	  	<action path="/user/loginCheckResponse"
-				forward="/login/loginCheckResponse.jsp"/>
+	  	<!-- <action path="/user/loginCheckResponse"
+				forward="/login/loginCheckResponse.jsp"/> -->
 	     
 	    <!-- 유저 로그인 액션! -->      
-		<action path="/user/login"
+		<!-- <action path="/user/login"
 				type="tc.user.actions.LoginAction"
 				validate="true"
 				scope="request"
 				input="/login/loginForm.jsp">
+			<forward name="success" path="/user/loginCheckResponse.do"/>		
+		</action> -->
+		
+		<!-- 유저 로그아웃 액션! -->
+		<!-- <action path="/user/logout"
+				type="tc.user.actions.LogoutAction">
+			<forward name="logout" path="/user/main.do"></forward>
+		</action> -->
+		
+		<!-- 유저회원가입 폼 -->
+		<!-- <action path="/user/joinForm"
+				forward="/login/joinForm.jsp"/> -->
+		
+		<!-- 유저 회원가입 액션! -->
+		<!-- <action path="/user/join"
+				type="tc.user.actions.JoinAction"
+				name="joinF"
+				validate="true"
+				scope="request"
+				input="/login/joinForm.jsp">		
+			<forward name="insert" path="/user/loginForm.do"/>
+		</action> -->
+		
+		<!-- 유저 id중복확인 ajax -->
+		<!-- <action path="/user/idCheckResponse"
+				forward="/login/idCheckResponse.jsp"/> -->
+		
+		<!-- 유저 id중복확인 액션! -->
+		<!-- <action path="/user/idCheck"
+				type="tc.user.actions.IdCheckAction"
+				name="idCheckF"
+				validate="true"
+				scope="request"
+				input="/login/joinForm.jsp">
+			<forward name="success" path="/user/idCheckResponse.do"/>
+		</action> -->
+		
+		<!-- 유저 메인화면 -->
+		<action path="/user/main"
+				forward="/view/main/main.jsp"/>
+				
+		<!-- 유저 로그인 ajax -->
+		<action path="/user/loginCheckResponse"
+				forward="/view/user/loginCheckResponse.jsp"/>
+				
+		<!-- 유저 로그인 액션! -->      
+		<action path="/user/login"
+				type="tc.user.actions.LoginAction"
+				validate="true"
+				scope="request"
+				input="/view/main/main.jsp">
 			<forward name="success" path="/user/loginCheckResponse.do"/>		
 		</action>
 		
 		<!-- 유저 로그아웃 액션! -->
 		<action path="/user/logout"
 				type="tc.user.actions.LogoutAction">
-			<forward name="logout" path="/user/main.do"></forward>
+			<forward name="logout" path="/user/main.do" redirect="true"></forward>
 		</action>
-		
-		<!-- 유저회원가입 폼 -->
-		<action path="/user/joinForm"
-				forward="/login/joinForm.jsp"/>
 		
 		<!-- 유저 회원가입 액션! -->
 		<action path="/user/join"
@@ -92,13 +139,13 @@
 				name="joinF"
 				validate="true"
 				scope="request"
-				input="/login/joinForm.jsp">		
-			<forward name="insert" path="/user/loginForm.do"/>
+				input="/view/main/main.jsp">
+			<forward name="insert" path="/user/main.do" redirect="true"/>		
 		</action>
 		
 		<!-- 유저 id중복확인 ajax -->
 		<action path="/user/idCheckResponse"
-				forward="/login/idCheckResponse.jsp"/>
+				forward="/view/user/idCheckResponse.jsp"/>
 		
 		<!-- 유저 id중복확인 액션! -->
 		<action path="/user/idCheck"
@@ -106,10 +153,9 @@
 				name="idCheckF"
 				validate="true"
 				scope="request"
-				input="/login/joinForm.jsp">
+				input="/view/main/main.jsp">
 			<forward name="success" path="/user/idCheckResponse.do"/>
-		</action>
-		
+		</action>		
 		
 	</action-mappings>
 
