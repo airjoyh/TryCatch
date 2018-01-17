@@ -160,21 +160,15 @@
 <title>TryCatch</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<style type="text/css">
-#modalpadding {
-	padding-top: 30px;
-	padding-left: 40px;
-	padding-right: 40px;
-	padding-bottom: 30px;
-}
-</style>
+<!-- bootstrap3 for trycatch -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Custom styles -->
+<link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
+
 </head>
 <body>
 	<!--***********************************************************
