@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+       "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<!-- review.xml(sql문을 저장) -->       
+<sqlMap namespace="review">
+	<insert id="insert" parameterClass="review">
+		insert into review (review_no,review_writer,
+						review_title,review_count,review_possibility,review_welSal,review_balance,
+						review_culture,review_manager,review_strong,review_weak,review_toCEO,
+						company_id,review_wdate,user_id)
+				values(seq_review.nextval,#review_writer#,
+						#review_title#,#review_count#,#review_possibility#,#review_welSal#,#review_balance#,
+						#review_culture#,#review_manager#,#review_strong#,#review_weak#,#review_toCEO#,
+						#company_id#,sysdate,#user_id#)
+	</insert>
+	
+</sqlMap>
