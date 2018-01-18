@@ -23,6 +23,7 @@
   		});
   	});
   	
+  	
   /* 	function fnGoBoardCreate() {
 		$('#frmList').attr({action : /tcb/board/boardCreate.jsp}).submit();
 	}

@@ -9,17 +9,47 @@
 <head>
 <script type="text/javascript" src="${initParam.rootPath }/js/jquery-3.js"></script>
 <script type="text/javascript">
-	$('#write').click(function(){
-		$('form[name=inputForm] input[name=title]').val('')
-		$('form[name=inputForm] input[name=writer]').val('')
-		$('form[name=inputForm] textarea[name=strong]').text('')
-		$('form[name=inputForm] textarea[name=weak]').text('')
-		$('form[name=inputForm] textarea[name=toCEO]').text('')
+
+	function validateCheck() {
+		var f = document.inputForm;
+		if($('form[name=inputForm] input[name=title]').val()==''){
+			alert('제목을 입력하세요.');
+			f.title.focus();
 		
-	});
-	
-	function validateCheck(){
-		
+		}else if($('form[name=inputForm] input[name=writer]').val()==''){
+			alert('작성자를 입력하세요.');
+			f.writer.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=strong]').val()==''){
+			alert('기업의 장점을 입력하세요.');
+			f.strong.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=weak]').val()==''){
+			alert('기업의 단점을 입력하세요.');
+			f.weak.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=toCEO]').val()==''){
+			alert('경영진에게 바라는 점을 입력하세요.');
+			f.toCEO.focus();
+			
+		}else if(f.possibility.value==''){
+			alert('승진 기회 및 가능성에 대한 점수를 매겨주세요.');
+			
+		}else if(f.welSal.value==''){
+			alert('복지와 급여에 대한 점수를 매겨주세요.');
+			
+		}else if(f.balance.value==''){
+			alert('업무와 삶의 균형에 대한 점수를 매겨주세요..');
+			
+		}else if(f.culture.value==''){
+			alert('사내문화에 대한 점수를 매겨주세요.');
+			
+		}else if(f.manager.value==''){
+			alert('경영진에 대한 점수를 매겨주세요.');
+			
+		}else{
+			document.inputForm.submit();
+		}
 	}
 </script>
 
@@ -78,9 +108,10 @@ th {
 	<h2 style="padding: 0.1em 1em;">후기 작성</h2>
 	<div style="padding: 30px;">
 		<!-- 파일 첨부를 위해서는 multipart/form-data를 추가해야 한다. -->
-		<form action="control.do?action=insert" id="inputForm" name="inputForm" method="post">
+		<form action="control.do?action=insert" id="inputForm"
+			name="inputForm" method="post">
 			<!-- 나중에 기업아이디는 ${company_id}로 가져와야된다. -->
-			<input type="hidden" id="company_id" name="company_id" value="shinhan">
+			<input type="hidden" id="company_id" name="company_id" value="sdjsdj">
 			<table id="tcreate" border="1px dashed #EEEEEE">
 				<thead>
 					<tr>
@@ -101,20 +132,20 @@ th {
 					<tr>
 						<th>기업장점</th>
 						<!-- input type이 textarea -->
-						<td><textarea name="strong" id="strong" cols="50%"
-								rows="10%" style="color: #010101;"></textarea></td>
+						<td><textarea name="strong" id="strong" cols="50%" rows="10%"
+								style="color: #010101;"></textarea></td>
 					</tr>
 					<tr>
 						<th>기업단점</th>
 						<!-- input type이 textarea -->
-						<td><textarea name="weak" id="weak" cols="50%"
-								rows="10%" style="color: #010101;"></textarea></td>
+						<td><textarea name="weak" id="weak" cols="50%" rows="10%"
+								style="color: #010101;"></textarea></td>
 					</tr>
 					<tr>
 						<th>경영진에 바라는점</th>
 						<!-- input type이 textarea -->
-						<td><textarea id="toCEO" name="toCEO" cols="50%"
-								rows="10%" style="color: #010101;"></textarea></td>
+						<td><textarea id="toCEO" name="toCEO" cols="50%" rows="10%"
+								style="color: #010101;"></textarea></td>
 					</tr>
 				</tbody>
 				<tfoot>
@@ -301,7 +332,7 @@ th {
 			<br />
 			<div class="row" align="center">
 				<div class="col-md-2">
-					<button type="button" id="wirte" class="btn btn-default">작성
+					<button type="button" id="wirte" class="btn btn-default" onclick="validateCheck()">작성
 					</button>
 				</div>
 				<div class="col-md-2">

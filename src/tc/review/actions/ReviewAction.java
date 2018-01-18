@@ -36,6 +36,12 @@ public class ReviewAction extends Action {
 				System.out.println("로그인 안했을때");
 				response.setContentType("text/html;charset=UTF-8");
 				response.getWriter().print("<script>alert('로그인하신 후에 이용 가능합니다.');</script>");		
+				//이 알림이 안뜨고 페이지가 이동된다.
+				
+				//request.setAttribute("loginIng", "noLogin");
+				
+				forward = mapping.findForward("fail");
+				
 			}else {
 				System.out.println("로그인 했을때");
 				forward = mapping.findForward("inputForm");			
