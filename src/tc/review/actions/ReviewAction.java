@@ -32,14 +32,13 @@ public class ReviewAction extends Action {
 			String loginState=(String) session.getAttribute("loginState");
 			System.out.println("loginState="+loginState);
 			
-			if(loginState.equals("login")) {
-				System.out.println("로그인 했을때");
-				forward = mapping.findForward("inputForm");			
-			}else {
+			if(loginState==null || !loginState.equals("login")) {
 				System.out.println("로그인 안했을때");
 				response.setContentType("text/html;charset=UTF-8");
-				response.getWriter().print("<script>alert('로그인하신 후에 이용 가능합니다.');</script>");
-			
+				response.getWriter().print("<script>alert('로그인하신 후에 이용 가능합니다.');</script>");		
+			}else {
+				System.out.println("로그인 했을때");
+				forward = mapping.findForward("inputForm");			
 			}
 		}else if(action.equals("insert")) {
 			//int review_no;

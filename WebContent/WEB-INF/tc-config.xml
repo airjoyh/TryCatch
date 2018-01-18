@@ -118,6 +118,10 @@
 		<action path="/user/loginCheckResponse"
 				forward="/view/user/loginCheckResponse.jsp"/>
 				
+		<!-- 유저 로그인 상태체크 ajax 액션!-->
+		<action path="/user/logincheck" 
+		        type="tc.user.actions.LoginCheckAction"/>
+				
 		<!-- 유저 로그인 액션! -->      
 		<action path="/user/login"
 				type="tc.user.actions.LoginAction"
