@@ -22,8 +22,8 @@
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 
 <!-- Custom styles -->
-<link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet">
-<!-- <link href="../../css/com_companyInfo.css" rel="stylesheet"> -->
+<%-- <link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet"> --%>
+<link href="../../css/com_companyInfo.css" rel="stylesheet">
 
 
 </head>
@@ -35,7 +35,7 @@
 		*                                                             *
 		************************************************************-->
 		<div>
-			<jsp:include page="/view/main/nav.jsp" /> 
+			<jsp:include page="../main/nav.jsp" />
 		</div>
 	</section>
 	<br><br><br><br>
@@ -107,10 +107,10 @@
 	        </div>
 	        <div class="col-md-3">
 	          <div>
-	        	<img alt="첫번째 회사" src="${initParam.rootPath}/image/review/facebook.jpg">
+	        	<img alt="첫번째 회사" src="../../image/facebook.jpg">
 	          </div>	
 	          <div>
-	        	<img alt="두번째 회사" src="${initParam.rootPath}/image/review/ksd.jpg">
+	        	<img alt="두번째 회사" src="../../image/ksd.jpg">
 	          </div>
 	        </div>
 	      </div>
@@ -175,6 +175,6 @@
   </section>
 <!-- star js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/com_companyInfo.js"></script>
+<script type="text/javascript" src="../../js/star.js"></script>
 </body>
 </html>

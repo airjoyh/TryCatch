@@ -97,16 +97,16 @@
 						<td>
 							<span class="star-input">
 								<span class="input">
-						    	<input type="radio" name="star-input" value="1" id="p1">
-						    	<label for="p1">1</label>
-						    	<input type="radio" name="star-input" value="2" id="p2">
-						    	<label for="p2">2</label>
-						    	<input type="radio" name="star-input" value="3" id="p3">
-						    	<label for="p3">3</label>
-						    	<input type="radio" name="star-input" value="4" id="p4">
-						    	<label for="p4">4</label>
-						    	<input type="radio" name="star-input" value="5" id="p5">
-						    	<label for="p5">5</label>
+						    	<input type="radio" name="star-input" value="1" id="p6">
+						    	<label for="p6">1</label>
+						    	<input type="radio" name="star-input" value="2" id="p7">
+						    	<label for="p7">2</label>
+						    	<input type="radio" name="star-input" value="3" id="p8">
+						    	<label for="p8">3</label>
+						    	<input type="radio" name="star-input" value="4" id="p9">
+						    	<label for="p9">4</label>
+						    	<input type="radio" name="star-input" value="5" id="p10">
+						    	<label for="p10">5</label>
 						  		</span>
 						  		<output for="star-input"><b>0</b>점</output>						
 							</span>						
