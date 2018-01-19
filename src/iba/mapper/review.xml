@@ -14,4 +14,25 @@
 						#company_id#,sysdate,#user_id#)
 	</insert>
 	
+	<select id="selectPage" resultClass="review" parameterClass="java.util.Map"><![CDATA[
+  	select review_no,review_title,review_writer,review_wdate,review_count
+  	from (select review_no,review_title,review_writer,review_wdate,review_count,rownum rn
+  		from(select review_no,review_title,review_writer,review_wdate,review_count 
+  		  from review
+  		  order by review_no desc)) 
+  	where rn between #start# and #end#
+  ]]></select>
+  
+  <!-- 전체 행의 수 -->
+  <select id="selectCount" resultClass="int">
+  	select count(*) from review
+  </select>
+  
+  <select id="select" parameterClass="int" resultClass="review">
+  	select review_no,review_title,review_writer,review_wdate,review_count,review_strong,review_weak,
+  		   review_toCEO,review_possibility,review_welSal,review_balance,review_culture,review_manager
+  	from review
+  	where review_no=#review_no#
+  </select>
+	
 </sqlMap>

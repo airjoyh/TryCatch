@@ -57,30 +57,30 @@
   </style>
   <script type="text/javascript">
   /* 삭제를 실행했는지 아닌지 체크해서 삭제 실행 완료라면 목록 화면으로 간다. */
-  $(document).ready(function(){
+  /* $(document).ready(function(){
 	  if( '${frmDel}'=="true" ){
 		  alert("삭제되었습니다.");
 		  $('#frmDetail').attr({action : "/tcb/board/boardList.jsp"}).submit();
 	  }
-  });
+  }); */
 
   /* 게시판으로 간다. */
-  function fnGoBoardList(){
+  /* function fnGoBoardList(){
 	  $('#frmDetail').attr({action : "/tcb/board/boardList.jsp"}).submit();
-  }
+  } */
   
   /* 수정 화면으로 간다. */
-  function fnGoBoardModify(){
+  /* function fnGoBoardModify(){
 	  $('#frmDetail').attr({action : "/tcb/board/boardModify.jsp"}).submit();
-  }
+  } */
   
   /* 삭제를 실행한다. */
-  function fnDelete(){
+  /* function fnDelete(){
 	  $('#frmDetail').attr({action : "/board/boardDelete.do"}).submit();
-  }
+  } */
   
   /* 상세 조회를 실행할 때마다 게시글 조회수가 올라간다. */
-  function cntPlus(){
+/*   function cntPlus(){
 	  var rtn = false;
 	  $.ajax({
 		  type: "POST",
@@ -97,7 +97,7 @@
 		  }
 	  });
 	  return rtn;
-  }
+  } */
   </script>
     <title>글 상세정보</title>
   </head>
@@ -114,23 +114,32 @@
           <tr>
             <th>글번호</th>
             <!-- 컨트롤러에서 받아온 ArrayList detailAll에서 정보를 뽑는다. -->
-            <td>1</td>
+            <td>${review.review_no }</td>
             <th>제 목</th>
-            <td colspan="5">기업후기 게시글1</td>
+            <td colspan="5">${review.review_title }</td>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th>글쓴이</th>
-            <td>이성원</td>
+            <td>${review.review_writer }</td>
             <th>작성일시</th>
-            <td>2018-01-17</td>
+            <td>${review.review_wdate }</td>
             <th>조회</th>
-            <td>99</td>
+            <td>${review.review_count }</td>
           </tr>
           <tr>
             <!-- 본문 -->
-            <td colspan="8" rowspan="10" style="padding:1em;text-align:left;">엔코아는 좋은 회사입니다</td>
+            <th>기업 장점</th>
+            <td style="padding:1em;text-align:left;">${review.review_strong }</td>
+          </tr>
+          <tr>
+          	<th>기업 단점</th>
+            <td style="padding:1em;text-align:left;">${review.review_weak }</td>
+          </tr>
+          <tr>
+          	<th>경영진에게 바라는점 </th>
+            <td style="padding:1em;text-align:left;">${review.review_toCEO }</td>
           </tr>
         </tbody>
         <tfoot>
@@ -139,7 +148,7 @@
 					<div class="form-group">
 						<div id="wrapper ">
 							<label>승진기회 및 가능</label>
-							<p class="clasificacion">
+							<p class="clasificacion">${review.review_possibility }
 								<input id="radio1" type="radio" name="estrellas1" value="5">
 								<!--
 				      -->
@@ -172,7 +181,7 @@
 						</div>
 						<div id="wrapper ">
 							<label>복지와 급여</label>
-							<p class="clasificacion">
+							<p class="clasificacion">${review.review_welSal }
 								<input id="radio6" type="radio" name="estrellas2" value="5">
 								<!--
 				      -->
@@ -205,7 +214,7 @@
 
 						</div>
 						<div id="wrapper ">
-							<label>업무와 삶의 균형</label>
+							<label>업무와 삶의 균형</label>${review.review_balance }
 							<p class="clasificacion">
 								<input id="radio11" type="radio" name="estrellas3" value="5">
 								<!--
@@ -240,7 +249,7 @@
 						</div>
 						<div id="wrapper ">
 							<label>사내문화</label>
-							<p class="clasificacion">
+							<p class="clasificacion">${review.review_culture }
 								<input id="radio16" type="radio" name="estrellas4" value="5">
 								<!--
 				      -->
@@ -274,7 +283,7 @@
 						</div>
 						<div id="wrapper ">
 							<label>경영진</label>
-							<p class="clasificacion">
+							<p class="clasificacion">${review.review_manager }
 								<input id="radio21" type="radio" name="estrellas5" value="5">
 								<!--
 				      -->
@@ -308,27 +317,6 @@
 					</div>
 				</td>
         	
-<%--           <tr>
-          	<th>첨부 파일</th>
-          	<!-- C태그의 if-else문 -->
-          	<c:choose>
-          		<c:when test='${detailAll.get(8) eq "Y"}'>
-          			<td colspan="5">
-          			    <!-- onclick 결과가 true일 때만 href가 실행된다. -->
-          				<a href="/board/boardFileDownload.do?filePath=${detailAll.get(11)}&fileName=${detailAll.get(10)}" onclick="return cntPlus();">
-          					${detailAll.get(9)}
-          				</a>
-          			</td>
-          			<!-- 첨부파일의 다운로드 횟수. 첨부파일이 없으면 이 부분도 없다. -->
-          			<th>다운로드 횟수</th>
-          			<td>${detailAll.get(12)}</td>
-          		</c:when>
-          		<!-- C태그의 else문 -->
-          		<c:otherwise>
-          			<td colspan="7">첨부 파일 없음</td>
-          		</c:otherwise>
-          	</c:choose>
-          </tr> --%>
         </tfoot>
         </table>
 
@@ -362,13 +350,9 @@
        </table>
        <div class="row">
         <div class="mybutton">
-	      <!-- C태그로 조회한 사용자가 글을 쓴 사용자와 일치하는지 확인한다. -->
-	      <%-- <c:if test='${detailAll.get(3) eq frmShow}'> --%>
 	        <input type="button" id="delete" name="delete" onclick="fnDelete()" value="삭제"/>
 	        <input type="button" id="modify" name="modify" onclick="fnGoBoardModify()" value="수정"/>
-		  <!-- else가 없는 경우에만 c:if를 쓴다. -->
-	      <%-- </c:if> --%>
-	        <input type="button" id="cancel" name="cancel" onclick="fnGoBoardList()" value="목록으로"/>
+	        <button><a href="control.do"></a></button>
        </div> 
        </div>      
 	</form>

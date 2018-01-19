@@ -55,57 +55,41 @@
     		  	<th style="width: 50%;">제목</th>
     		  	<th style="width: 10%;">작성자</th>
     		  	<th style="width: 10%;">작성일</th>
-    		  	<th style="width: 10%;">수정일</th>
     		  	<th style="width: 10%;">조회수</th>
     		  </tr>
     		</thead>
     		<tbody>
-    			<tr id="list">
-    			  <td>1</td>
-    			  <td>엔코아 후기</td>
-    			  <td>이성원</td>
-    			  <td>2018-01-17</td>
-    			  <td>2018-01-17</td>
-    			  <td>99</td>
-    			</tr>
-	    	  <!-- 컨트롤러에서 받은 listAll을 i로 치환해 반복한다. -->
-	          <c:forEach var="i" items="${listAll}"> 
-	            <tr>         
-	              <td>${i.boardSeq}</td>
-	              <!-- 제목을 클릭하면 글 번호를 파라미터로 받는 함수를 호출한다. -->
-	              <td class="tdTtl" colspan="3" onclick="fnGoBoardDetail(${i.boardSeq})">${i.boardTtl}</td>
-	              <td>${i.boardWusr}</td>
-	              <!-- C태그에서 날짜 자르기 -->
-	              <td><c:out value="${fn:substring(i.boardWdt,0,10)}"/></td>
-	              <td>${i.boardMusr}</td>
-	              <td><c:out value="${fn:substring(i.boardMdt,0,10)}"/></td>
-	              <td>${i.boardCnt}</td> 
-	            </tr>
-	          <!-- C태그 반복문이 끝난다. -->
-	          </c:forEach>
+	          <c:forEach items="${list }" var="review">
+				<tr>
+					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_no }</a></td>
+					<td style="width: 50%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_title }</a></td>
+					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_writer }</a></td>
+					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_wdate }</a></td>
+					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_count }</a></td>
+				</tr>
+	          </a>
+			</c:forEach>
           </tbody>
     	</table>
     	<div align="right">
 		<a class="btn btn-default pull-right" href="control.do?action=inputForm">글쓰기</a>
 		</div>
-		<div align="center">
-		  <ul class="pagination">
-		    <li>
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    <li><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li>
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		  </ul>
+		<div align="center">		    
+		<c:if test="${startPage<5 }">
+		이전
+		</c:if>
+		<c:if test="${startPage>5 }">
+		<a href="control.do?page=${startPage-5 }">이전</a>
+		</c:if> 
+		<c:forEach begin="${startPage }" end="${endPage }" var="i">
+   	  		[<a href="control.do?page=${i }">${i }</a>]
+		</c:forEach>
+		<c:choose>
+		  <c:when test="${endPage<totalPage }">
+		    <a href="control.do?page=${startPage+5 }">다음</a>
+		  </c:when>
+		  <c:otherwise>다음</c:otherwise>
+		</c:choose>
 		</div>
 	 </div>
     </form>
