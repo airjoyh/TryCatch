@@ -116,7 +116,7 @@
 				forward="/view/review/review_inputForm.jsp"/>
 		
 		<!-- 후기 조회폼 -->
-		<action path="/review/selectForm"
+		<action path="/review/postForm"
 				forward="/view/review/review_post.jsp"/>
 		
 		<!-- 후기 관련 액션! -->
@@ -126,7 +126,7 @@
 			<forward name="inputForm" path="/review/inputForm.do"/>
 			<forward name="fail" path="/review/list.do"/>
 			<forward name="insert" path="/review/list.do"/>
-			<forward name="select" path="/review/selectForm.do"/>
+			<forward name="select" path="/review/postForm.do"/>
 		</action>
 		
 	</action-mappings>

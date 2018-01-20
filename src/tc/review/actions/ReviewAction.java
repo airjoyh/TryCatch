@@ -28,6 +28,7 @@ public class ReviewAction extends Action {
 		int displayRecord = 5; // 한페이지에 보여지는 수
 
 		if (action == null || action.equals("list")) {
+			System.out.println("action=null or list");
 			String pageStr = request.getParameter("page");
 
 
@@ -66,6 +67,7 @@ public class ReviewAction extends Action {
 			forward = mapping.findForward("list");
 
 		} else if (action.equals("inputForm")) {
+			System.out.println("action=inputForm");
 			String loginState = (String) session.getAttribute("loginState");
 			System.out.println("loginState=" + loginState);
 
@@ -84,6 +86,7 @@ public class ReviewAction extends Action {
 				forward = mapping.findForward("inputForm");
 			}
 		} else if (action.equals("insert")) {
+			System.out.println("action=insert");
 			// int review_no;
 			String review_writer = request.getParameter("writer");
 			String review_title = request.getParameter("title");
@@ -155,11 +158,13 @@ public class ReviewAction extends Action {
 
 		} else if(action.equals("select")) {
 			String review_no = request.getParameter("no");
-			
+			System.out.println("action=select");
+			System.out.println(review_no);
 			ReviewDAO dao = new ReviewDAO();
-			ReviewDTO reviewdto = dao.select(Integer.parseInt(review_no));
-			
-			request.setAttribute("review", reviewdto);
+			if(dao.updateCount(Integer.parseInt(review_no))) {
+				ReviewDTO reviewdto = dao.select(Integer.parseInt(review_no));
+				request.setAttribute("review", reviewdto);
+			}
 			
 			forward = mapping.findForward("select");
 		}

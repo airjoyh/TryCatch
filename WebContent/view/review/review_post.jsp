@@ -56,6 +56,17 @@
 	}
   </style>
   <script type="text/javascript">
+  	$(function(){
+  		//라디오버튼 점수체크해준다.
+  		$('input:radio[name=possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
+  		$('input:radio[name=welSal]:radio[value=${review.review_welSal }]').prop('checked',true);
+  		$('input:radio[name=balance]:radio[value=${review.review_balance }]').prop('checked',true);
+  		$('input:radio[name=culture]:radio[value=${review.review_culture }]').prop('checked',true);
+  		$('input:radio[name=manager]:radio[value=${review.review_manager }]').prop('checked',true);
+  		$("input").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+  	});
+  
+  
   /* 삭제를 실행했는지 아닌지 체크해서 삭제 실행 완료라면 목록 화면으로 간다. */
   /* $(document).ready(function(){
 	  if( '${frmDel}'=="true" ){
@@ -104,7 +115,7 @@
   <body>
     <h2 style="padding: 0.1em 1em;">글 상세 정보</h2>
     <div style="padding : 30px;">
-	<form id="frmDetail" name="frmDetail" method="POST">
+	<form id="postForm" name="postForm" method="POST">
 		 <!-- 목록에서 글 번호를 받아 와서 수정 또는 삭제 화면으로 넘긴다. -->
       <input type="hidden" id="frmSeq" name="frmSeq" value=""/>
       <!-- 삭제했는지 체크하는 플래그 -->
@@ -147,66 +158,66 @@
 				<td colspan="5">
 					<div class="form-group">
 						<div id="wrapper ">
-							<label>승진기회 및 가능</label>
-							<p class="clasificacion">${review.review_possibility }
-								<input id="radio1" type="radio" name="estrellas1" value="5">
+							<label>승진기회 및 가능</label>	${review.review_possibility }점
+							<p class="clasificacion">
+								<input id="radio1" type="radio" name="possibility" readonly="readonly" value="5">
 								<!--
 				      -->
 								<label for="radio1">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio2" type="radio" name="estrellas1" value="4">
+								<input id="radio2" type="radio" name="possibility" readonly="readonly" value="4">
 								<!--
 				      -->
 								<label for="radio2">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio3" type="radio" name="estrellas1" value="3">
+								<input id="radio3" type="radio" name="possibility" readonly="readonly" value="3">
 								<!--
 				      -->
 								<label for="radio3">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio4" type="radio" name="estrellas1" value="2">
+								<input id="radio4" type="radio" name="possibility" readonly="readonly" value="2">
 								<!--
 				      -->
 								<label for="radio4">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio5" type="radio" name="estrellas1" value="1">
+								<input id="radio5" type="radio" name="possibility" readonly="readonly" value="1">
 								<!--
 				      -->
 								<label for="radio5">&#9733;</label>
 							</p>
 						</div>
 						<div id="wrapper ">
-							<label>복지와 급여</label>
-							<p class="clasificacion">${review.review_welSal }
-								<input id="radio6" type="radio" name="estrellas2" value="5">
+							<label>복지와 급여</label>	${review.review_welSal }점
+							<p class="clasificacion">
+								<input id="radio6" type="radio" name="welSal" readonly="readonly" value="5">
 								<!--
 				      -->
 								<label for="radio6">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio7" type="radio" name="estrellas2" value="4">
+								<input id="radio7" type="radio" name="welSal" readonly="readonly" value="4">
 								<!--
 				      -->
 								<label for="radio7">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio8" type="radio" name="estrellas2" value="3">
+								<input id="radio8" type="radio" name="welSal" readonly="readonly" value="3">
 								<!--
 				      -->
 								<label for="radio8">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio9" type="radio" name="estrellas2" value="2">
+								<input id="radio9" type="radio" name="welSal" readonly="readonly" value="2">
 								<!--
 				      -->
 								<label for="radio9">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio10" type="radio" name="estrellas2" value="1">
+								<input id="radio10" type="radio" name="welSal" readonly="readonly" value="1">
 								<!--
 				      -->
 								<label for="radio10">&#9733;</label>
@@ -214,33 +225,33 @@
 
 						</div>
 						<div id="wrapper ">
-							<label>업무와 삶의 균형</label>${review.review_balance }
+							<label>업무와 삶의 균형</label>	${review.review_balance }점
 							<p class="clasificacion">
-								<input id="radio11" type="radio" name="estrellas3" value="5">
+								<input id="radio11" type="radio" name="balance" readonly="readonly" value="5">
 								<!--
 				      -->
 								<label for="radio11">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio12" type="radio" name="estrellas3" value="4">
+								<input id="radio12" type="radio" name="balance" readonly="readonly" value="4">
 								<!--
 				      -->
 								<label for="radio12">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio13" type="radio" name="estrellas3" value="3">
+								<input id="radio13" type="radio" name="balance" readonly="readonly" value="3">
 								<!--
 				      -->
 								<label for="radio13">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio14" type="radio" name="estrellas3" value="2">
+								<input id="radio14" type="radio" name="balance" readonly="readonly" value="2">
 								<!--
 				      -->
 								<label for="radio14">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio15" type="radio" name="estrellas3" value="1">
+								<input id="radio15" type="radio" name="balance" readonly="readonly" value="1">
 								<!--
 				      -->
 								<label for="radio15">&#9733;</label>
@@ -248,33 +259,33 @@
 
 						</div>
 						<div id="wrapper ">
-							<label>사내문화</label>
-							<p class="clasificacion">${review.review_culture }
-								<input id="radio16" type="radio" name="estrellas4" value="5">
+							<label>사내문화</label>	${review.review_culture }점
+							<p class="clasificacion">
+								<input id="radio16" type="radio" name="culture" readonly="readonly" value="5">
 								<!--
 				      -->
 								<label for="radio16">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio17" type="radio" name="estrellas4" value="4">
+								<input id="radio17" type="radio" name="culture" readonly="readonly" value="4">
 								<!--
 				      -->
 								<label for="radio17">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio18" type="radio" name="estrellas4" value="3">
+								<input id="radio18" type="radio" name="culture" readonly="readonly" value="3">
 								<!--
 				      -->
 								<label for="radio18">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio19" type="radio" name="estrellas4" value="2">
+								<input id="radio19" type="radio" name="culture" readonly="readonly" value="2">
 								<!--
 				      -->
 								<label for="radio19">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio20" type="radio" name="estrellas4" value="1">
+								<input id="radio20" type="radio" name="culture" readonly="readonly" value="1">
 								<!--
 				      -->
 								<label for="radio20">&#9733;</label>
@@ -282,33 +293,33 @@
 
 						</div>
 						<div id="wrapper ">
-							<label>경영진</label>
-							<p class="clasificacion">${review.review_manager }
-								<input id="radio21" type="radio" name="estrellas5" value="5">
+							<label>경영진</label>	${review.review_manager }점
+							<p class="clasificacion">
+								<input id="radio21" type="radio" name="manager" readonly="readonly" value="5">
 								<!--
 				      -->
 								<label for="radio21">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio22" type="radio" name="estrellas5" value="4">
+								<input id="radio22" type="radio" name="manager" readonly="readonly" value="4">
 								<!--
 				      -->
 								<label for="radio22">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio23" type="radio" name="estrellas5" value="3">
+								<input id="radio23" type="radio" name="manager" readonly="readonly" value="3">
 								<!--
 				      -->
 								<label for="radio23">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio24" type="radio" name="estrellas5" value="2">
+								<input id="radio24" type="radio" name="manager" readonly="readonly" value="2">
 								<!--
 				      -->
 								<label for="radio24">&#9733;</label>
 								<!--
 				      -->
-								<input id="radio25" type="radio" name="estrellas5" value="1">
+								<input id="radio25" type="radio" name="manager" readonly="readonly" value="1">
 								<!--
 				      -->
 								<label for="radio25">&#9733;</label>

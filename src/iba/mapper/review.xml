@@ -3,6 +3,7 @@
        "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <!-- review.xml(sql문을 저장) -->       
 <sqlMap namespace="review">
+	<!-- 게시글 작성 -->
 	<insert id="insert" parameterClass="review">
 		insert into review (review_no,review_writer,
 						review_title,review_count,review_possibility,review_welSal,review_balance,
@@ -14,6 +15,7 @@
 						#company_id#,sysdate,#user_id#)
 	</insert>
 	
+	<!-- 게시판 리스트 출력(페이지) -->
 	<select id="selectPage" resultClass="review" parameterClass="java.util.Map"><![CDATA[
   	select review_no,review_title,review_writer,review_wdate,review_count
   	from (select review_no,review_title,review_writer,review_wdate,review_count,rownum rn
@@ -28,6 +30,7 @@
   	select count(*) from review
   </select>
   
+  <!-- 게시글 조회 -->
   <select id="select" parameterClass="int" resultClass="review">
   	select review_no,review_title,review_writer,review_wdate,review_count,review_strong,review_weak,
   		   review_toCEO,review_possibility,review_welSal,review_balance,review_culture,review_manager
@@ -35,4 +38,10 @@
   	where review_no=#review_no#
   </select>
 	
+  <!-- 조회수 증가 -->
+  <update id="updateCount" parameterClass="int">
+  	update review set review_count=review_count+1
+  	where review_no=#review_no# 
+  </update>	
+  
 </sqlMap>

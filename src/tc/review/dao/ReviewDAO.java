@@ -71,4 +71,19 @@ public class ReviewDAO {
 
 		return reviewdto;
 	}// select
+	
+	public boolean updateCount(int review_no) {
+		
+		try {
+			int t = sqlMap.update("review.updateCount", review_no);
+			if(t>0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }
