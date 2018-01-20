@@ -117,7 +117,7 @@
 		
 		<!-- 회사 메인 -->
 		<action path="/com/main"
-		        forward="/view/company/cmain.jsp"
+		        forward="/view/main/cmain.jsp"
 		>        
 		</action>
 	
@@ -127,7 +127,7 @@
 		        name="comjoin"
 		        validate="true"
 		        scope="request"
-		        input="/view/company/cmain.jsp">
+		        input="/view/main/cmain.jsp">
 		   <forward name="insert" path="/com/main.do" redirect="true"></forward>       
 		 </action>
 		 
@@ -141,7 +141,7 @@
 	            name="idCheckF"
 	            validate="true"
 	            scope="request"
-	            input="/view/company/cmain.jsp">
+	            input="/view/main/cmain.jsp">
 	     <forward name="success" path="/com/idCheckResponse.do"></forward>       
 	     </action>
 	    
@@ -155,7 +155,7 @@
 		        type="tc.company.actions.CLoginAction"
 		        validate="true"
 		        scope="request"
-		        input="/view/company/cmain.jsp">
+		        input="/view/main/cmain.jsp">
 		      <forward name="success" path="/com/loginCheckResponse.do"></forward>
 		</action>
 		
