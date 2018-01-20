@@ -37,6 +37,14 @@
 	<!-- id중복확인 유효성 검사 -->		   
 	<form-bean name="idCheckF"
 			   type="tc.user.forms.IdCheckActionForm"/>
+		
+    <!-- 회사 회원가입 유효성 검사 -->
+	<form-bean name="comjoin"
+	            type="tc.company.forms.CJoinActionForm"/>
+	            
+	 <!-- 회사 id중복확인 유효성 검사 -->
+	 <form-bean  name="idCheckF"
+	             type="tc.company.forms.IdCheckActionForm"/>
 	
 	</form-beans>
 	
@@ -106,6 +114,56 @@
 				input="/view/main/main.jsp">
 			<forward name="success" path="/user/idCheckResponse.do"/>
 		</action>		
+		
+		<!-- 회사 메인 -->
+		<action path="/com/main"
+		        forward="/view/company/cmain.jsp"
+		>        
+		</action>
+	
+		<!-- 회사 회원가입 액션 -->
+		<action path="/com/join" 
+		        type="tc.company.actions.CJoinAction"
+		        name="comjoin"
+		        validate="true"
+		        scope="request"
+		        input="/view/company/cmain.jsp">
+		   <forward name="insert" path="/com/main.do" redirect="true"></forward>       
+		 </action>
+		 
+		 <!-- 회사 id중복확인 ajax -->
+		 <action path="/com/idCheckResponse"
+		         forward="/view/company/idCheckResponse.jsp"></action>
+	
+	    <!-- 회사 id중복확인액션 -->
+	    <action path="/com/idCheck"
+	            type="tc.company.actions.IdCheckAction"
+	            name="idCheckF"
+	            validate="true"
+	            scope="request"
+	            input="/view/company/cmain.jsp">
+	     <forward name="success" path="/com/idCheckResponse.do"></forward>       
+	     </action>
+	    
+	    <!-- 회사 로그인ajax -->
+	    <action path="/com/loginCheckResponse"
+	            forward="/view/company/loginCheckResponse.jsp">
+	     </action>    
+	    
+		<!-- 회사 로그인 액션 -->
+		<action path="/com/login"
+		        type="tc.company.actions.CLoginAction"
+		        validate="true"
+		        scope="request"
+		        input="/view/company/cmain.jsp">
+		      <forward name="success" path="/com/loginCheckResponse.do"></forward>
+		</action>
+		
+		<!-- 회사 로그아웃 액션! -->
+		<action path="/com/logout"
+		        type="tc.company.actions.CLogoutAction">
+		   <forward name="logout" path="/com/main.do" redirect="true"></forward>        
+		</action>
 		
 		<!-- 후기 게시판 리스트폼 -->
 		<action path="/review/list"

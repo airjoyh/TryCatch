@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+       "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<!-- emp.xml(sql문을 저장) -->       
+<sqlMap namespace="comInfo">
+      
+   <insert id="insert" parameterClass="comInfo">
+     insert into company_info(company_id,company_pass,company_name,company_year,company_line,company_skill,company_size,company_turnover,company_number,company_addr,company_site,company_intro,company_hireNumber,manager_name,manager_email,team_name,manager_tel)
+     values(#company_id#,#company_pass#,#company_name#,#company_year#,#company_line#,#company_skill#,#company_size#,#company_turnover#,#company_number#,#company_addr#,#company_site#,#company_intro#,#company_hireNumber#,#manager_name#,#manager_email#,#team_name#,#manager_tel#)
+   </insert>
+   
+   <select id="selectId" resultClass="int" parameterClass="String">
+   select count(*) from company_info where company_id=#company_id#
+   </select>
+   
+   <select id="selectLogin" resultClass="int" parameterClass="java.util.Map">
+    select count(*) from company_info where company_id=#login_id# and company_pass=#login_pass#
+   </select>
+   
+   <select id="selectAll" resultClass="comInfo">
+   select company_id,company_pass,company_name,company_year,company_line,company_skill,company_size,company_turnover,company_number,company_addr,company_site,company_intro,company_hireNumber,manager_name,manager_email,team_name,manager_tel
+   from company_info
+   </select>
+
+</sqlMap>

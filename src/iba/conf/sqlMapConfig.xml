@@ -17,6 +17,7 @@
   
   <typeAlias alias="userInfo" type="tc.user.dto.UserInfoDTO"/>
   <typeAlias alias="review" type="tc.review.dto.ReviewDTO"/>
+  <typeAlias alias="comInfo" type="tc.company.dto.ComInfoDTO"/>
   
   <transactionManager type="JDBC">
   	<dataSource type="SIMPLE">
@@ -29,5 +30,6 @@
   
   <!-- sql문들이 저장되어있는 XML을 등록 -->  
   <sqlMap resource="./iba/mapper/userInfo.xml"/>  
-  <sqlMap resource="./iba/mapper/review.xml"/>  
+  <sqlMap resource="./iba/mapper/review.xml"/> 
+  <sqlMap resource="./iba/mapper/comInfo.xml"/> 
 </sqlMapConfig>
