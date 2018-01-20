@@ -86,4 +86,17 @@ public class ReviewDAO {
 		
 		return false;
 	}
+	
+	public String selectId(int review_no) {
+		String id=null;
+		
+		try {
+			id = (String) sqlMap.queryForObject("review.selectId", review_no);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id;
+	}
 }

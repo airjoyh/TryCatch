@@ -90,25 +90,7 @@
 	  $('#frmDetail').attr({action : "/board/boardDelete.do"}).submit();
   } */
   
-  /* 상세 조회를 실행할 때마다 게시글 조회수가 올라간다. */
-/*   function cntPlus(){
-	  var rtn = false;
-	  $.ajax({
-		  type: "POST",
-		  url: "/board/boardFileDownCnt.do",
-		  timeout: 1000,
-		  data: "frmSeq=" + $('#frmSeq').val(),
-		  dataType: "json",
-		  async: false,
-		  success: function(msg){
-			  if( msg.jResult==true )
-				  rtn = true;
-		  },error: function(e){
-			  alert("FileDownCnt Ajax Error : "+e);
-		  }
-	  });
-	  return rtn;
-  } */
+
   </script>
     <title>글 상세정보</title>
   </head>
@@ -120,6 +102,15 @@
       <input type="hidden" id="frmSeq" name="frmSeq" value=""/>
       <!-- 삭제했는지 체크하는 플래그 -->
       <input type="hidden" id="frmDel" name="frmDel" />
+      
+      <input type="hidden" value="${review.user_id }">
+       <div class="row">
+        <div id="upDel" class="mybutton">
+	        <input type="button" id="delete" name="delete" onclick="fnDelete()" value="삭제"/>
+	        <input type="button" id="modify" name="modify" onclick="fnGoBoardModify()" value="수정"/>
+       </div> 
+       </div> 
+	        <button><a href="control.do">목록으로</a></button>
       <table id="tdetail" border="1px dashed #EEEEEE">
         <thead>
           <tr>
@@ -358,14 +349,7 @@
           		</div>
           	</td>
           </tr>
-       </table>
-       <div class="row">
-        <div class="mybutton">
-	        <input type="button" id="delete" name="delete" onclick="fnDelete()" value="삭제"/>
-	        <input type="button" id="modify" name="modify" onclick="fnGoBoardModify()" value="수정"/>
-	        <button><a href="control.do"></a></button>
-       </div> 
-       </div>      
+       </table>     
 	</form>
 	</div>
   </body>

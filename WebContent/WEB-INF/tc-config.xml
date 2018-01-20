@@ -177,6 +177,10 @@
 		<action path="/review/postForm"
 				forward="/view/review/review_post.jsp"/>
 		
+		<!-- 후기 작성자 체크 ajax -->
+		<action path="/review/writerCheckResponse"
+				forward="/view/review/writerCheckResponse.jsp"/>
+		
 		<!-- 후기 관련 액션! -->
 		<action path="/review/control"
 				type="tc.review.actions.ReviewAction">

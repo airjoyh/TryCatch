@@ -44,4 +44,10 @@
   	where review_no=#review_no# 
   </update>	
   
+  <!-- 글쓴 유저 조회 -->
+  <select id="selectId" resultClass="String" parameterClass="int">
+  	select user_id from review
+  	where review_no=#review_no#
+  </select>
+  
 </sqlMap>

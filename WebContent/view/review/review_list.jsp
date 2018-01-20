@@ -15,13 +15,14 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
   <title>Board List</title>
   <script type="text/javascript">
-  	$(document).ready(function(){
+  
+  	/* $(document).ready(function(){
   		$('.initial').hide();
   		$('.initial').fadeln(6000);
   		$('.tdTtl').mouseenter(function(){
   			
   		});
-  	});
+  	}); */
   	
   	
   /* 	function fnGoBoardCreate() {
@@ -65,7 +66,7 @@
 					<td style="width: 50%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_title }</a></td>
 					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_writer }</a></td>
 					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_wdate }</a></td>
-					<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_count }</a></td>
+					<td id="count" style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_count }</a></td>
 				</tr>
 	          </a>
 			</c:forEach>

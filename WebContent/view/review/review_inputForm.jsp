@@ -336,8 +336,8 @@ th {
 					</button>
 				</div>
 				<div class="col-md-2">
-					<button type="submit" class="btn btn-danger">
-						<a href="boardList.jsp">취소</a>
+					<button type="button" class="btn btn-danger">
+						<a href="control.do?action=list">취소</a>
 					</button>
 				</div>
 			</div>

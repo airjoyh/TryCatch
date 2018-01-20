@@ -79,7 +79,7 @@ public class ReviewAction extends Action {
 
 				// request.setAttribute("loginIng", "noLogin");
 
-				forward = mapping.findForward("fail");
+				//forward = mapping.findForward("fail");
 
 			} else {
 				System.out.println("로그인 했을때");
@@ -161,6 +161,10 @@ public class ReviewAction extends Action {
 			System.out.println("action=select");
 			System.out.println(review_no);
 			ReviewDAO dao = new ReviewDAO();
+			String id = dao.selectId(Integer.parseInt(review_no));
+			request.setAttribute("writer_id", id);
+			
+			System.out.println("작성자 id="+id);
 			if(dao.updateCount(Integer.parseInt(review_no))) {
 				ReviewDTO reviewdto = dao.select(Integer.parseInt(review_no));
 				request.setAttribute("review", reviewdto);
