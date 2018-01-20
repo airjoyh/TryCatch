@@ -15,6 +15,16 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
   <title>Board List</title>
   <script type="text/javascript">
+  	$(function(){
+  		
+  		$('#write').click(function(){
+  			var loginState = '${loginState }';
+  			alert("로그인 상태>>>"+loginState);
+  			if(loginState!='login'){
+  				alert('로그인하신 후에 이용 가능합니다.');
+  			}
+  		});
+  	});
   
   	/* $(document).ready(function(){
   		$('.initial').hide();
@@ -73,7 +83,7 @@
           </tbody>
     	</table>
     	<div align="right">
-		<a class="btn btn-default pull-right" href="control.do?action=inputForm">글쓰기</a>
+		<a class="btn btn-default pull-right" id="write" href="control.do?action=inputForm">글쓰기</a>
 		</div>
 		<div align="center">		    
 		<c:if test="${startPage<5 }">

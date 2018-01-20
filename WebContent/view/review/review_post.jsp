@@ -55,6 +55,7 @@
 		background-color: orange;
 	}
   </style>
+  <script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
   <script type="text/javascript">
   	$(function(){
   		//라디오버튼 점수체크해준다.
@@ -64,7 +65,40 @@
   		$('input:radio[name=culture]:radio[value=${review.review_culture }]').prop('checked',true);
   		$('input:radio[name=manager]:radio[value=${review.review_manager }]').prop('checked',true);
   		$("input").prop('disabled', true);//라디오버튼 비활성화시켜준다.
+  		
+	  	/* $('button#delete').click(function(){
+	  			var no = $('#no').html();
+	  			alert(no);
+	  		if(confirm('정말로 삭제하시겠습니까?')){
+	  			location.href='updel.do?action=delete&no='+no;
+	  		}
+	  	}); */
+  		
+  		writerCheck();
   	});
+  	
+  	
+  	function writerCheck(){
+  		var login_id='${login_id}';
+  		var writer_id = document.postForm.writer_id.value;
+  		
+  		var no = document.getElementById('no').innerHTML;
+  		
+  		alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
+  		
+  		if(login_id==writer_id){
+  			var upDel = document.getElementById('upDel');
+			upDel.innerHTML = '<button><a id="update" href="updel.do?action=upForm&no='+no+'">수정</a></button>'+
+						      '<button id="delete"><a href="javascript:deleteReview()">삭제</a></button>';
+  		}
+  	}
+  	
+  	function deleteReview(){
+  		var no = document.getElementById('no').innerHTML;
+  		if(confirm('정말로 삭제하시겠습니까?')){
+  			location.href='updel.do?action=delete&no='+no;
+  		}
+  	}
   
   
   /* 삭제를 실행했는지 아닌지 체크해서 삭제 실행 완료라면 목록 화면으로 간다. */
@@ -103,20 +137,17 @@
       <!-- 삭제했는지 체크하는 플래그 -->
       <input type="hidden" id="frmDel" name="frmDel" />
       
-      <input type="hidden" value="${review.user_id }">
+      <input type="hidden" name="writer_id" value="${review.user_id }">
        <div class="row">
-        <div id="upDel" class="mybutton">
-	        <input type="button" id="delete" name="delete" onclick="fnDelete()" value="삭제"/>
-	        <input type="button" id="modify" name="modify" onclick="fnGoBoardModify()" value="수정"/>
-       </div> 
-       </div> 
+        <div id="upDel" class="mybutton"></div> 
+       </div>
 	        <button><a href="control.do">목록으로</a></button>
       <table id="tdetail" border="1px dashed #EEEEEE">
         <thead>
           <tr>
             <th>글번호</th>
             <!-- 컨트롤러에서 받아온 ArrayList detailAll에서 정보를 뽑는다. -->
-            <td>${review.review_no }</td>
+            <td id="no">${review.review_no }</td>
             <th>제 목</th>
             <td colspan="5">${review.review_title }</td>
           </tr>

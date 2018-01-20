@@ -99,4 +99,31 @@ public class ReviewDAO {
 		
 		return id;
 	}
+	
+	public boolean update(ReviewDTO reviewdto) {
+		
+		try {
+			int t = sqlMap.update("review.update", reviewdto);
+			if(t>0) {
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public boolean delete(int review_no) {
+		try {
+			int t = sqlMap.delete("review.delete", review_no);
+			if (t == 1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}// delete
 }

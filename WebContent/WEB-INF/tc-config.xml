@@ -177,18 +177,26 @@
 		<action path="/review/postForm"
 				forward="/view/review/review_post.jsp"/>
 		
-		<!-- 후기 작성자 체크 ajax -->
-		<action path="/review/writerCheckResponse"
-				forward="/view/review/writerCheckResponse.jsp"/>
+		<!-- 후기 수정폼 -->
+		<action path="/review/upForm"
+				forward="/view/review/review_upForm.jsp"/>
 		
 		<!-- 후기 관련 액션! -->
 		<action path="/review/control"
 				type="tc.review.actions.ReviewAction">
 			<forward name="list" path="/review/list.do"/>
 			<forward name="inputForm" path="/review/inputForm.do"/>
-			<forward name="fail" path="/review/list.do"/>
-			<forward name="insert" path="/review/list.do"/>
+			<forward name="noLogin" path="/review/control.do" redirect="true"/>
+			<forward name="insert" path="/review/control.do" redirect="true"/>
 			<forward name="select" path="/review/postForm.do"/>
+		</action>
+		
+		<!-- 후기 게시글 수정,삭제 액션! -->
+		<action path="/review/updel"
+				type="tc.review.actions.ReviewUpDelAction">
+			<forward name="upForm" path="/review/upForm.do"/>
+			<forward name="update" path="/review/control.do" redirect="true"/>
+			<forward name="delete" path="/review/control.do" redirect="true"/>
 		</action>
 		
 	</action-mappings>

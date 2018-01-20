@@ -7,52 +7,6 @@
 <!doctype html>
 <html lang="kr">
 <head>
-<script type="text/javascript" src="${initParam.rootPath }/js/jquery-3.js"></script>
-<script type="text/javascript">
-
-	function validateCheck() {
-		var f = document.inputForm;
-		if($('form[name=inputForm] input[name=title]').val()==''){
-			alert('제목을 입력하세요.');
-			f.title.focus();
-		
-		}else if($('form[name=inputForm] input[name=writer]').val()==''){
-			alert('작성자를 입력하세요.');
-			f.writer.focus();
-			
-		}else if($('form[name=inputForm] textarea[name=strong]').val()==''){
-			alert('기업의 장점을 입력하세요.');
-			f.strong.focus();
-			
-		}else if($('form[name=inputForm] textarea[name=weak]').val()==''){
-			alert('기업의 단점을 입력하세요.');
-			f.weak.focus();
-			
-		}else if($('form[name=inputForm] textarea[name=toCEO]').val()==''){
-			alert('경영진에게 바라는 점을 입력하세요.');
-			f.toCEO.focus();
-			
-		}else if(f.possibility.value==''){
-			alert('승진 기회 및 가능성에 대한 점수를 매겨주세요.');
-			
-		}else if(f.welSal.value==''){
-			alert('복지와 급여에 대한 점수를 매겨주세요.');
-			
-		}else if(f.balance.value==''){
-			alert('업무와 삶의 균형에 대한 점수를 매겨주세요..');
-			
-		}else if(f.culture.value==''){
-			alert('사내문화에 대한 점수를 매겨주세요.');
-			
-		}else if(f.manager.value==''){
-			alert('경영진에 대한 점수를 매겨주세요.');
-			
-		}else{
-			document.inputForm.submit();
-		}
-	}
-</script>
-
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,6 +56,50 @@ th {
 	background-color: orange;
 }
 </style>
+<script type="text/javascript">
+
+	function validateCheck() {
+		var f = document.inputForm;
+		if($('form[name=inputForm] input[name=title]').val()==''){
+			alert('제목을 입력하세요.');
+			f.title.focus();
+		
+		}else if($('form[name=inputForm] input[name=writer]').val()==''){
+			alert('작성자를 입력하세요.');
+			f.writer.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=strong]').val()==''){
+			alert('기업의 장점을 입력하세요.');
+			f.strong.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=weak]').val()==''){
+			alert('기업의 단점을 입력하세요.');
+			f.weak.focus();
+			
+		}else if($('form[name=inputForm] textarea[name=toCEO]').val()==''){
+			alert('경영진에게 바라는 점을 입력하세요.');
+			f.toCEO.focus();
+			
+		}else if(f.possibility.value==''){
+			alert('승진 기회 및 가능성에 대한 점수를 매겨주세요.');
+			
+		}else if(f.welSal.value==''){
+			alert('복지와 급여에 대한 점수를 매겨주세요.');
+			
+		}else if(f.balance.value==''){
+			alert('업무와 삶의 균형에 대한 점수를 매겨주세요..');
+			
+		}else if(f.culture.value==''){
+			alert('사내문화에 대한 점수를 매겨주세요.');
+			
+		}else if(f.manager.value==''){
+			alert('경영진에 대한 점수를 매겨주세요.');
+			
+		}else{
+			document.inputForm.submit();
+		}
+	}
+</script>
 <title>후기 글쓰기</title>
 </head>
 <body>

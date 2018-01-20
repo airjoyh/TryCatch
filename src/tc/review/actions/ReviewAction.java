@@ -73,13 +73,13 @@ public class ReviewAction extends Action {
 
 			if (loginState == null || !loginState.equals("login")) {
 				System.out.println("로그인 안했을때");
+				
 				response.setContentType("text/html;charset=UTF-8");
 				response.getWriter().print("<script>alert('로그인하신 후에 이용 가능합니다.');</script>");
-				// 이 알림이 안뜨고 페이지가 이동된다.
-
-				// request.setAttribute("loginIng", "noLogin");
-
-				//forward = mapping.findForward("fail");
+				// 이 알림이 안뜨고 페이지가 이동된다. --> 해결함. but 위의 두줄은 필요없음
+				
+				
+				forward = mapping.findForward("noLogin");
 
 			} else {
 				System.out.println("로그인 했을때");
@@ -118,6 +118,7 @@ public class ReviewAction extends Action {
 			if (dao.insert(dto)) {
 				response.setContentType("text/html;charset=UTF-8");// 한글을 사용하기 위하면 인코딩
 				response.getWriter().print("<script>alert('글쓰기가 완료되었습니다.');</script>");
+				//굳이 할필요 없을듯
 
 				forward = mapping.findForward("insert");
 			}
@@ -160,11 +161,9 @@ public class ReviewAction extends Action {
 			String review_no = request.getParameter("no");
 			System.out.println("action=select");
 			System.out.println(review_no);
-			ReviewDAO dao = new ReviewDAO();
-			String id = dao.selectId(Integer.parseInt(review_no));
-			request.setAttribute("writer_id", id);
 			
-			System.out.println("작성자 id="+id);
+			ReviewDAO dao = new ReviewDAO();
+			
 			if(dao.updateCount(Integer.parseInt(review_no))) {
 				ReviewDTO reviewdto = dao.select(Integer.parseInt(review_no));
 				request.setAttribute("review", reviewdto);

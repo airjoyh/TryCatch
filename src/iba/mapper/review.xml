@@ -32,7 +32,7 @@
   
   <!-- 게시글 조회 -->
   <select id="select" parameterClass="int" resultClass="review">
-  	select review_no,review_title,review_writer,review_wdate,review_count,review_strong,review_weak,
+  	select user_id,review_no,review_title,review_writer,review_wdate,review_count,review_strong,review_weak,
   		   review_toCEO,review_possibility,review_welSal,review_balance,review_culture,review_manager
   	from review
   	where review_no=#review_no#
@@ -44,10 +44,22 @@
   	where review_no=#review_no# 
   </update>	
   
-  <!-- 글쓴 유저 조회 -->
+  <!-- 글쓴 유저 조회(쓸모없음. 사용 안함!!) -->
   <select id="selectId" resultClass="String" parameterClass="int">
   	select user_id from review
   	where review_no=#review_no#
   </select>
+  
+  <update id="update" parameterClass="review">
+  	update review set review_title=#review_title#,review_wdate=sysdate,review_strong=#review_strong#,
+  					  review_weak=#review_weak#,review_toCEO=#review_toCEO#,review_possibility=#review_possibility#,
+  					  review_welSal=#review_welSal#,review_balance=#review_balance#,review_culture=#review_culture#,review_manager=#review_manager#
+  	where review_no=#review_no#
+  </update>
+  
+  <delete id="delete">
+  	delete from review
+  	where review_no=#review_no#
+  </delete>
   
 </sqlMap>

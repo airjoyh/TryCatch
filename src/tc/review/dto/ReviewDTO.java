@@ -164,4 +164,15 @@ public class ReviewDTO {
 		this.user_id = user_id;
 	}
 
+	@Override
+	public String toString() {
+		return "ReviewDTO [review_no=" + review_no + ", review_writer=" + review_writer + ", review_title="
+				+ review_title + ", review_count=" + review_count + ", review_possibility=" + review_possibility
+				+ ", review_welSal=" + review_welSal + ", review_balance=" + review_balance + ", review_culture="
+				+ review_culture + ", review_manager=" + review_manager + ", review_strong=" + review_strong
+				+ ", review_weak=" + review_weak + ", review_toCEO=" + review_toCEO + ", company_id=" + company_id
+				+ ", review_wdate=" + review_wdate + ", user_id=" + user_id + "]";
+	}
+
+	
 }
