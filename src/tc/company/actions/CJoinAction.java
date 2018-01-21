@@ -49,8 +49,8 @@ public class CJoinAction extends Action {
 		 if(cominfodao.insert(cominfodto)) {
 			 System.out.println("joinAction>>insert");
 		  response.setContentType("text/html;charset=UTF-8");
-		  response.getWriter().print("<script>alert('회원가입이완료되었습니다.');window.close()</script>");
-		 }
+		  response.getWriter().print("<script>alert('회원가입이 완료되었습니다.');$('#joinModal').modal('hide');</script>");
+	 }
 		 /*
 		 String[] company_skills = company_skill.split("/");
 		 for
@@ -58,7 +58,7 @@ public class CJoinAction extends Action {
 			 
 		 }*/
 		 
-		return null;
+		return mapping.findForward("insert");
 	}
 }
 

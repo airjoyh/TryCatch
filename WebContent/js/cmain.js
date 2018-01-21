@@ -1,4 +1,4 @@
- /* 	$(function() {//화면을 띄울 때(F5)마다 동작하는 function
+ 	$(function() {//화면을 띄울 때(F5)마다 동작하는 function
 		var now = new Date();
 		sendRequest('logincheck.do?n=' + now.getMinutes() + now.getSeconds(),
 				null, initForm, 'GET');
@@ -18,10 +18,10 @@
 				$('form[name="loginForm"] input').val('');
 			});
 		}
-	} */
+	}
 
 	function logout() {
-		location.href = "main.do";//확인하기
+		location.href = "logout.do";//확인하기
 		showLoginout('');
 	}
 
