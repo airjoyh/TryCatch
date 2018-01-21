@@ -159,6 +159,10 @@
 		      <forward name="success" path="/com/loginCheckResponse.do"></forward>
 		</action>
 		
+		<!-- 회사 로그인 상태체크 ajax 액션!-->
+		<action path="/com/logincheck" 
+		        type="tc.company.actions.CLoginCheckAction"/>
+		
 		<!-- 회사 로그아웃 액션! -->
 		<action path="/com/logout"
 		        type="tc.company.actions.CLogoutAction">

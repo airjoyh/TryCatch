@@ -213,7 +213,7 @@ public class CJoinActionForm extends ActionForm {
 
 		System.out.println("JoinActionForm >> validate()");
 		ActionErrors errs = new ActionErrors();
-
+	
 		if (!company_id.matches("^[a-zA-Z0-9]{6,15}$")) {
 			errs.add("noJoin", new ActionMessage("join", "아이디는 6~15자리 영문 숫자 조합입니다."));
 
@@ -234,13 +234,13 @@ public class CJoinActionForm extends ActionForm {
 			
 			errs.add("noJoin", new ActionMessage("join", "요구하는 스킬을 선택하시오."));
 
-		}*/ else if (company_size.equals("")) {
+		} */else if (company_size.equals("")|| !company_size.matches("^[0-9]{1,7}$")) {
 			errs.add("noJoin", new ActionMessage("join", "기업 규모를 입력하시오."));
 
-		} else if (company_turnover.equals("")) {
+		} else if (company_turnover.equals("")|| !company_turnover.matches("^[0-9]{1,14}$")) {
 			errs.add("noJoin", new ActionMessage("join", "매출액을 입력하시오."));
 
-		} else if (company_number.equals("")) {
+		} else if (company_number.equals("")|| !company_number.matches("^[0-9]{5,15}$")) {
 			errs.add("noJoin", new ActionMessage("join", "사업자 등록번호를 입력하시오."));
 
 		} else if (company_addr.equals("")) {
@@ -252,7 +252,7 @@ public class CJoinActionForm extends ActionForm {
 		} else if (company_intro.equals("")) {
 			errs.add("noJoin", new ActionMessage("join", "기업 소개를 입력하시오."));
 
-		} else if (company_hireNumber.equals("")) {
+		} else if (company_hireNumber.equals("")||!company_hireNumber.matches("^[0-9]{1,5}$")) {
 			errs.add("noJoin", new ActionMessage("join", "채용할 인원수를 입력하시오."));
 
 		} else if (manager_name.equals("")) {
@@ -264,7 +264,7 @@ public class CJoinActionForm extends ActionForm {
 		} else if (team_name.equals("")) {
 			errs.add("noJoin", new ActionMessage("join", "소속팀 이름을 입력하시오."));
 
-		} else if (manager_tel.equals("")) {
+		} else if (manager_tel.equals("")|| !manager_tel.matches("^[0-9]{9,15}$")) {
 			errs.add("noJoin", new ActionMessage("join", "담당자 전화번호를 입력하시오."));
 		}
 

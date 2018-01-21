@@ -239,7 +239,7 @@
 								<fieldset>
 									<label for="job">산업군</label> <select id="company_line"
 										name="company_line">
-										<option value="">====선택====</option>
+										<option value="">==선택==</option>
 										<optgroup label="사무직">
 											<option value="frontend_developer">Front-End Developer</option>
 											<option value="php_developor">PHP Developer</option>
