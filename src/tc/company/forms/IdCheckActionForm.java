@@ -21,7 +21,7 @@ public class IdCheckActionForm extends ActionForm{
 
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		System.out.println("IdCheckActionForm>>validate()");
+		System.out.println("IdCheckActionForm(company) >>> validate()");
 		System.out.println(company_id);
 		
 		 ActionErrors errs= new ActionErrors();

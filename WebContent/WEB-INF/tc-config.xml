@@ -43,7 +43,7 @@
 	            type="tc.company.forms.CJoinActionForm"/>
 	            
 	 <!-- 회사 id중복확인 유효성 검사 -->
-	 <form-bean  name="idCheckF"
+	 <form-bean  name="comidCheckF"
 	             type="tc.company.forms.IdCheckActionForm"/>
 	
 	</form-beans>
@@ -138,7 +138,7 @@
 	    <!-- 회사 id중복확인액션 -->
 	    <action path="/com/idCheck"
 	            type="tc.company.actions.IdCheckAction"
-	            name="idCheckF"
+	            name="comidCheckF"
 	            validate="true"
 	            scope="request"
 	            input="/view/main/cmain.jsp">

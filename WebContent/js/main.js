@@ -88,7 +88,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 
 	function requestIdCheck() {//중복확인을 눌렀을때
 		var user_id = document.joinForm.user_id.value;
-		sendRequest('idCheck.do', 'user_id=' + user_id, resultIdCheck, 'POST');
+		sendRequest('/tc/user/idCheck.do', 'user_id=' + user_id, resultIdCheck, 'POST');
 		//idCheck.do --> idCheckAction실행 전에--> idCheckActionForm을 찾아서 유효성 검사를 하고 (user_id값을 파라미터로 받아서)
 		//idCheckAction실행! 
 	}
