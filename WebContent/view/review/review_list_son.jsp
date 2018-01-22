@@ -117,16 +117,101 @@
 	</div>
 	<!--***********************************************************
 	*                                                             *
-	*                           평점                                                                     *
+	*                           기업소개                                                                *
 	*                                                             *
 	************************************************************-->
 	<div class="container" style="background-color: #ffffff; margin-top: 2em">
 		<!-- 탭공간  -->
-		<ul class="nav nav-tabs nav-justified" style="font-weight: bold;font-size: 1.2em;">
-			<li><a href="#" class="action">기업소개</a></li>
-			<li><a href="#">후기</a></li>
+		<ul id="myTab" class="nav nav-tabs nav-justified" style="font-weight: bold;font-size: 1.2em;">
+			<li role="presentatioin" class="active"><a href="#comInfo" aria-controls="cominfo"
+			role="tab" data-toggle="tab">기업소개</a></li>
+			<li role="presentatioin"><a href="#review" aria-controls="review" role="tab"
+			data-toggle="tab">후기</a></li>
 		</ul>
-		<!-- 평점란 -->
+	</div>	
+	<div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="comInfo" style="background-color: #ffffff; margin-top: 2em">
+		<div style="padding-top: 5em; padding-bottom: 2em;
+		                        padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_site">기업사이트</label>
+					<div></div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_addr">기업주소</label>
+					<div></div>
+				</div>
+			</div>			
+		</div>		
+		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+		                        padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_size">기업 규모</label>
+					<div></div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_year">설립년도</label>
+					<div></div>
+				</div>
+			</div>			
+		</div>		
+		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+		                        padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_hireNumber">채용할 인원 수</label>
+					<div></div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_turnover">매출액</label>
+					<div></div>
+				</div>
+			</div>			
+		</div>		
+		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+		                        padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_line">산업군</label>
+					<div></div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="form-group">
+					<label id="com_skill">요구하는 스킬</label>
+					<div></div>
+				</div>
+			</div>			
+		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+		                        padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label id="com_intro">기업소개</label>
+					<div></div>
+				</div>
+			</div>		
+		</div>		
+	  </div>
+	</div>
+	<!--***********************************************************
+	*                                                             *
+	*                           후기                                                                      *
+	*                                                             *
+	************************************************************-->		
+	  <div role="tabpanel" class="tab-pane" id="review" style="background-color: #ffffff; margin-top: 2em">	
+ 		<!-- 평점란 -->
 		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
 		                        padding-left: 3em; padding-right: 3em;">
 			<div class="col-sm-4">
@@ -215,9 +300,15 @@
 				</div>
 			</div>
 			<div class="col-sm-2" style="padding-top: 25px;">4.4 / 5</div>
+		</div>  
 		</div>
-		</div>
- 		<hr>
+	</div>
+ 	<hr>
+ 	<script type="text/javascript">
+ 		$(function(){
+			$('#myTab a:last').tab('show')
+ 		});
+ 	</script>	
 
 
 
