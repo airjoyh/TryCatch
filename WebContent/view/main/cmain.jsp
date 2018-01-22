@@ -237,9 +237,9 @@
 									id="company_hireNumber" type="text" size="10"
 									placeholder="채용할 인원수를 입력하시오"> <br>
 								<fieldset>
-									<label for="job">산업군</label> <select id="company_line"
-										name="company_line">
-										<option value="">==선택==</option>
+									<label for="job">산업군</label> 
+									<select id="company_line" name="company_line">
+										<option value="==선택==">==선택==</option>
 										<optgroup label="사무직">
 											<option value="frontend_developer">Front-End Developer</option>
 											<option value="php_developor">PHP Developer</option>
@@ -261,18 +261,17 @@
 											<option value="secretary">Secretary</option>
 											<option value="maintenance">Maintenance</option>
 										</optgroup>
-									</select> <br> <label>요구스킬</label><br> <input type="checkbox"
-										id="development" value="skill_java" name="skill_java" checked="checked"><label
-										class="light" for="java">Java</label> <input type="checkbox"
-										id="development" value="skill_jquery" name="skill_jquery"><label
-										class="light" for="jquery">jQuery</label> <input
-										type="checkbox" id="development" value="skill_python"
-										name="skill_python"><label class="light" for="python">Python</label>
-									<input type="checkbox" id="development" value="skill_xml"
+									</select> <br> <label>요구스킬</label><br> 
+									<input type="checkbox" value="skill_java" name="skill_java" checked="checked"><label
+										class="light" for="java">Java</label>
+								    <input type="checkbox" value="skill_jquery" name="skill_jquery"><label
+										class="light" for="jquery">jQuery</label> 
+								    <input type="checkbox" value="skill_python" name="skill_python"><label class="light" for="python">Python</label>
+									<input type="checkbox"  value="skill_xml"
 										name="skill_xml"><label class="light" for="xml">XML</label>
-									<input type="checkbox" id="development" value="skill_css"
+									<input type="checkbox"  value="skill_css"
 										name="skill_css"><label class="light" for="css">CSS</label>
-									<input type="checkbox" id="development" value="skill_pro"
+									<input type="checkbox"  value="skill_pro"
 										name="skill_pro"><label class="light" for="pro">Programming</label>
 
 								</fieldset>

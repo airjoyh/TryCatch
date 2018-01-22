@@ -45,12 +45,15 @@ public class CJoinAction extends Action {
 		ComInfoDTO cominfodto= new ComInfoDTO(company_id,company_pass,company_name,company_year,company_line,company_skill,company_size
 				,company_turnover,company_number,company_addr,company_site,company_intro,company_hireNumber,manager_name
 				,manager_email,team_name,manager_tel);
+		
 		ComInfoDAO cominfodao= new ComInfoDAO();
+		
 		 if(cominfodao.insert(cominfodto)) {
+			 
 			 System.out.println("joinAction>>insert");
 		  response.setContentType("text/html;charset=UTF-8");
 		  response.getWriter().print("<script>alert('회원가입이 완료되었습니다.');$('#joinModal').modal('hide');</script>");
-	 }
+		 }
 		 /*
 		 String[] company_skills = company_skill.split("/");
 		 for
@@ -58,7 +61,7 @@ public class CJoinAction extends Action {
 			 
 		 }*/
 		 
-		return mapping.findForward("insert");
+		 return mapping.findForward("insert");
 	}
 }
 

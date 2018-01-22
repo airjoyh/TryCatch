@@ -212,8 +212,13 @@ public class CJoinActionForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 
 		System.out.println("JoinActionForm >> validate()");
+		
+		System.out.println("스킬 자바: "+ skill_java);
+		System.out.println("스킬 제이쿼리: "+ skill_jquery);
+		System.out.println("스킬 파이썬: "+ skill_python);
+		
 		ActionErrors errs = new ActionErrors();
-	
+
 		if (!company_id.matches("^[a-zA-Z0-9]{6,15}$")) {
 			errs.add("noJoin", new ActionMessage("join", "아이디는 6~15자리 영문 숫자 조합입니다."));
 
@@ -229,12 +234,12 @@ public class CJoinActionForm extends ActionForm {
 		} else if (company_line.equals("==선택==")) {
 			errs.add("noJoin", new ActionMessage("join", "산업군을 선택하시오."));
 
-		} /*else if (skill_java.equals("") && skill_jquery.equals("") && skill_css.equals("") && skill_pro.equals("")
-				&& skill_python.equals("") && skill_xml.equals("")) {
+		} else if (skill_java == null && skill_jquery == null && skill_css == null && skill_pro == null
+				&& skill_python == null && skill_xml == null) {
 			
 			errs.add("noJoin", new ActionMessage("join", "요구하는 스킬을 선택하시오."));
 
-		} */else if (company_size.equals("")|| !company_size.matches("^[0-9]{1,7}$")) {
+		} else if (company_size.equals("")|| !company_size.matches("^[0-9]{1,7}$")) {
 			errs.add("noJoin", new ActionMessage("join", "기업 규모를 입력하시오."));
 
 		} else if (company_turnover.equals("")|| !company_turnover.matches("^[0-9]{1,14}$")) {
