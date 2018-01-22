@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+       "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<!-- review.xml(sql문을 저장) -->       
+<sqlMap namespace="review_reply">
+  <insert id="insert" parameterClass="review_reply">
+  	insert into review_reply (reply_no,reply_contents,review_no,reply_wdate,user_id)
+  				values(seq_review_reply.nextval,#reply_contents#,#review_no#,sysdate,#user_id#)
+  </insert>
+  
+  <select id="selectAll" parameterClass="int" resultClass="review_reply">
+  	select reply_no,reply_contents,review_no,reply_wdate,user_id
+  	from review_reply
+  	where review_no=#review_no#
+  	order by reply_no
+  </select>
+</sqlMap>

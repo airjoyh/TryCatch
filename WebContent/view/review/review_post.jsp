@@ -54,9 +54,13 @@
 		
 		background-color: orange;
 	}
+	
+	.reply {
+		border: 1px solid skyblue
+	}
   </style>
-  <script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
+<script type="text/javascript">
   	$(function(){
   		//라디오버튼 점수체크해준다.
   		$('input:radio[name=possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
@@ -66,18 +70,12 @@
   		$('input:radio[name=manager]:radio[value=${review.review_manager }]').prop('checked',true);
   		$("input").prop('disabled', true);//라디오버튼 비활성화시켜준다.
   		
-	  	/* $('button#delete').click(function(){
-	  			var no = $('#no').html();
-	  			alert(no);
-	  		if(confirm('정말로 삭제하시겠습니까?')){
-	  			location.href='updel.do?action=delete&no='+no;
-	  		}
-	  	}); */
-  		
   		writerCheck();
+	  	loadReplyList();
+	  	//replyWriterCheck(no);
   	});
   	
-  	
+  	//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
   	function writerCheck(){
   		var login_id='${login_id}';
   		var writer_id = document.postForm.writer_id.value;
@@ -86,7 +84,7 @@
   		
   		alert("로그인한 아이디: "+login_id+"/작성자 아이디: "+writer_id+"/후기번호:"+no);
   		
-  		if(login_id==writer_id){
+  		if(login_id==writer_id){//일치하면 수정 삭제 버튼 나오게.
   			var upDel = document.getElementById('upDel');
 			upDel.innerHTML = '<button><a id="update" href="updel.do?action=upForm&no='+no+'">수정</a></button>'+
 						      '<button id="delete"><a href="javascript:deleteReview()">삭제</a></button>';
@@ -100,32 +98,119 @@
   		}
   	}
   
-  
-  /* 삭제를 실행했는지 아닌지 체크해서 삭제 실행 완료라면 목록 화면으로 간다. */
-  /* $(document).ready(function(){
-	  if( '${frmDel}'=="true" ){
-		  alert("삭제되었습니다.");
-		  $('#frmDetail').attr({action : "/tcb/board/boardList.jsp"}).submit();
-	  }
-  }); */
+  	function addReply() {//등록 요청
+  		//alert("들어오냐?")
+  		var loginState = '${loginState }';
+  		alert("로그인 상태>>>"+loginState);
+  		if(loginState!='login'){
+				alert('로그인하신 후에 이용 가능합니다.');
+		}else{
+	  		var no = document.addForm.no.value;
+	  		//alert("번호:"+no);
+			var content = document.addForm.content.value;
+	
+			var params = 'no=' + no + '&content=' + content;//'no=732&content=첫댓글'
+			alert(params);
+			new ajax.xhr.Request('/tc/review/reply.do?action=insert', params, addResult,'POST');
+		}
 
-  /* 게시판으로 간다. */
-  /* function fnGoBoardList(){
-	  $('#frmDetail').attr({action : "/tcb/board/boardList.jsp"}).submit();
-  } */
-  
-  /* 수정 화면으로 간다. */
-  /* function fnGoBoardModify(){
-	  $('#frmDetail').attr({action : "/tcb/board/boardModify.jsp"}).submit();
-  } */
-  
-  /* 삭제를 실행한다. */
-  /* function fnDelete(){
-	  $('#frmDetail').attr({action : "/board/boardDelete.do"}).submit();
-  } */
-  
+	}
 
-  </script>
+	function addResult(xhr) {
+		if (xhr.readyState == 4) {
+			if (xhr.status == 200) {
+				alert(xhr.responseText);
+				
+				//리스트 갱신
+				loadReplyList();
+
+				document.addForm.content.value = '';
+				document.addForm.content.focus();
+			} else {
+				alert('서버에러: ' + xhr.status);
+			}
+		}
+	}
+	
+	function loadReplyList() {//댓글 목록 요청
+		//alert(new Date());
+		//alert(encodeURIComponent(new Date()));
+		var no = document.addForm.no.value;
+		//alert(no);
+		new ajax.xhr.Request('/tc/review/reply.do?action=list&n='+encodeURIComponent(new Date()), 'no='+no, loadReplyResult,'POST');
+
+	}
+
+	function loadReplyResult(xhr) {//콜백: 목록 출력
+		if (xhr.readyState == 4 && xhr.status == 200) {
+
+			var list = eval(xhr.responseText);//list:Array객체
+
+			var replyList = document.getElementById('replyList');//리스트가 출력될 부모 div얻기
+
+			/* //메모리로부터 이전에 출력된 목록 삭제!!
+			while(replyList.hasChildNodes()){//자식이 있다면 true리턴
+				replyList.removeChild(replyList.lastChild);//뒤에서부터 지운다.				
+			} */
+
+			replyList.innerHTML = '';
+
+			for (var i = 0; i < list.length; i++) {//리스트 출력
+				replyList.appendChild(makeReplyView(list[i]));
+			}
+		}
+
+	}
+	
+	function makeReplyView(reply) {//list에 출력될 새로운 div엘리먼트 생성
+		//reply: {no:1, name:'홍길동',content:'Ajax재밌어요!!'}
+		var replyDiv = document.createElement('div');//<div></div>
+		replyDiv.setAttribute("id", "r" + reply.no); //<div id="r1"></div>
+		replyDiv.className = 'reply'; //<div id="r1" class="reply"></div>
+
+		replyDiv.reply = reply; //새로 생성된 <div>엘리먼트에 reply JSON객체 저장!
+		
+		var htmlTxt = '';
+		
+		var login_id='${login_id}';
+		
+		if(login_id == reply.id){//로그인 아이디와 댓글단 아이디가 일치하면 수정삭제 버튼 보이게하기.
+			htmlTxt = '<strong id="reply_writer_id'+reply.reply_no+'">'
+			+ reply.id
+			+ '</strong>'
+			+'	'
+			+reply.wdate
+			+'<br>'
+			+ reply.content
+			+'<div id="replyUpDel'+reply.reply_no+'" style="display: ">'
+			+ '<br><input type="button" value="수정" onclick="viewUpdateForm('
+			+ reply.reply_no + ')"> '
+			+ '<input type="button" value="삭제" onclick="deleteReply('
+			+ reply.reply_no + ')">'
+			+'</div>';
+		}else{//로그인 아이디와 댓글단 아이디가 일치하면 수정삭제 버튼 보이지 않게 학.
+			htmlTxt = '<strong id="reply_writer_id'+reply.reply_no+'">'
+					+ reply.id
+					+ '</strong>'
+					+'	'
+					+reply.wdate
+					+'<br>'
+					+ reply.content
+					+'<div id="replyUpDel'+reply.reply_no+'" style="display: none">'
+					+ '<br><input type="button" value="수정" onclick="viewUpdateForm('
+					+ reply.reply_no + ')"> '
+					+ '<input type="button" value="삭제" onclick="deleteReply('
+					+ reply.reply_no + ')">'
+					+'</div>';
+			
+		}
+
+		replyDiv.innerHTML = htmlTxt;
+		//<div><strong>길동</strong><br>첫댓글</div>
+		return replyDiv;
+	}
+
+</script>
     <title>글 상세정보</title>
   </head>
   <body>
@@ -352,36 +437,30 @@
         	
         </tfoot>
         </table>
-
-       
-       <table>
-          <tr>
-          	<!-- 아이디, 작성날짜 -->
-          	<td width="150">
-          		<div>
-          			이성원
-          			${comment.comment_id }<br>
-          			<font size="2" color="gray">${comment.comment_date }</font>
-          		</div>
-          	</td>	
-          	<!-- 본문내용 -->
-          	<td width="550">
-          		<div class="text_wrapper">
-          			<textarea rows="2" cols="50"></textarea>
-          			${comment.commet_content }
-          		</div>
-          	</td>
-          	<!-- 버튼 -->
-          	<td width="100">
-          		<div id="btn" style="text-align: center;">
-          			<a href="#">[답변]</a><br>
-          			<a href="#">[수정]</a><br>
-          			<a href="#">[삭제]</a>
-          		</div>
-          	</td>
-          </tr>
-       </table>     
+   
 	</form>
 	</div>
+	
+	<!-- 댓글 입력폼 -->
+	<div id="replyAdd">
+		<form name="addForm">
+			<input type="hidden" name="no" value="${review.review_no }"><br> 
+		댓글: <textarea rows="2" cols="20" name="content"></textarea>
+			<button onclick="addReply()">등록</button>
+		</form>
+	</div>
+	
+	<!-- 댓글 수정폼 -->
+	<div id="replyUpdate" style="display: none">
+		<form name="updateForm">
+			<input type="hidden" name="no" value="${review.review_no }">  
+			댓글:<textarea rows="2" cols="20" name="content"></textarea>
+			<button onclick="updateReply()">등록</button>
+			<button onclick="hideUpdateForm()">취소</button>
+		</form>
+	</div>
+	
+	<!-- 댓글 목록 출력(DB에 저장된 값을 화면에 출력) -->
+	<div id="replyList"></div>
   </body>
 </html>

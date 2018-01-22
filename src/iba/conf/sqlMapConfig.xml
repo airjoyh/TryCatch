@@ -18,6 +18,7 @@
   <typeAlias alias="userInfo" type="tc.user.dto.UserInfoDTO"/>
   <typeAlias alias="review" type="tc.review.dto.ReviewDTO"/>
   <typeAlias alias="comInfo" type="tc.company.dto.ComInfoDTO"/>
+  <typeAlias alias="review_reply" type="tc.review.dto.ReplyDTO"/>
   
   <transactionManager type="JDBC">
   	<dataSource type="SIMPLE">
@@ -32,4 +33,5 @@
   <sqlMap resource="./iba/mapper/userInfo.xml"/>  
   <sqlMap resource="./iba/mapper/review.xml"/> 
   <sqlMap resource="./iba/mapper/comInfo.xml"/> 
+  <sqlMap resource="./iba/mapper/review_reply.xml"/> 
 </sqlMapConfig>

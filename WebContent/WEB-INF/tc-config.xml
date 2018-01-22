@@ -202,6 +202,21 @@
 			<forward name="update" path="/review/control.do" redirect="true"/>
 			<forward name="delete" path="/review/control.do" redirect="true"/>
 		</action>
+
+		<!-- 후기 댓글 리스트 ajax -->
+		<action path="/review/reply_list"
+				forward="/view/review/reply_list.jsp"/>
+		
+		<!-- 후기 댓글 입력 성공 여부 msg ajax -->
+		<action path="/review/reply_result"
+				forward="/view/review/reply_result.jsp"/>
+		
+		<!-- 후기 댓글 액션! -->
+		<action path="/review/reply"
+				type="tc.review.actions.ReplyAction">
+			<forward name="list" path="/review/reply_list.do"/>
+			<forward name="insert" path="/review/reply_result.do"/>
+		</action>
 		
 	</action-mappings>
 
