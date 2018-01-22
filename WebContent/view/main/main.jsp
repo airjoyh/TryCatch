@@ -40,58 +40,9 @@
 	*                          navbar                             *
 	*                                                             *
 	************************************************************-->
-<<<<<<< HEAD
+
     <%@include file="nav.jsp" %> 
-	
-=======
-	<!--***********************************************************
-	*                                                             *
-	*                          navbar                             *
-	*                                                             *
-	************************************************************-->
-	<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-right: 2em;padding-left: 2em;">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">TryCatch</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav" >
-					<li><a href="#" style="color: #ffffff">기업</a></li>
-					<li><a href="#" style="color: #ffffff">콘테스트</a></li>
-					<li><a href="${initParam.rootPath }/review/control.do" style="color: #ffffff">후기</a></li>
-					<li><a href="#" style="color: #ffffff">Q&amp;A</a></li>
-				</ul>
-				<form class="navbar-form navbar-left" action="/action_page.php">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search"
-							name="search">
-						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a data-toggle="modal" data-target="#registerModal"> <span
-							class="glyphicon glyphicon-user" style="color: #ffffff">Sign Up</span>
-					</a></li>
-					<li id='loginout'><a data-toggle="modal"
-						data-target="#loginModal"><span
-							class="glyphicon glyphicon-log-in" style="color: #ffffff">로그인</span> </a></li>
-					<li><a href=""> <span
-							class="glyphicon glyphicon-briefcase" style="color: #ffffff">기업회원</span>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
->>>>>>> branch 'master' of https://github.com/airjoyh/TryCatch.git
+
 	<!--***********************************************************
 	*                                                             *
 	*                         Login modal                         *
@@ -340,29 +291,5 @@
 <<<<<<< HEAD
     <%@include file="footer.jsp" %> 
 
-
-=======
-	<footer class="footer text-center" style="margin-top: 2em;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h4 class="text-uppercase mb-4">About TryCatch</h4>
-					<p class="lead mb-0" style="font-size: 1em;">
-						편견없는 채용을 위한 커뮤니티를 만들겠습니다.<br>
-						대표이사: 조영환<br>
-						주소: 서울시 서초구 서초동 엔코아빌딩 2층 증강현실클래스<br>
-						대표전화: 010-2762-7989<br>
-						Email: airjoyh@naver.com
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<div class="copyright text-center">
-		<div class="container">
-			<div class="col-md-12">Copyright &copy; TryCatch 2018</div>
-		</div>
-	</div>
->>>>>>> branch 'master' of https://github.com/airjoyh/TryCatch.git
 </body>
 </html>
