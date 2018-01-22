@@ -35,45 +35,13 @@
 </style>
 </head>
 <body>
-	<!--***********************************************************
+ 	<!--***********************************************************
 	*                                                             *
 	*                          navbar                             *
 	*                                                             *
 	************************************************************-->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">WebSiteName</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="#">기업</a></li>
-				<li><a href="#">콘테스트</a></li>
-				<li><a href="${initParam.rootPath }/review/control.do">후기</a></li>
-				<li><a href="#">Q&amp;A</a></li>
-			</ul>
-			<form class="navbar-form navbar-left" action="/action_page.php">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search"
-						name="search">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
-			</form>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a data-toggle="modal" data-target="#joinModal"> <span
-						class="glyphicon glyphicon-user">Sign Up</span>
-				</a></li>
-				<li id='loginout'><a data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in">로그인</span>
-				</a></li>
-				<li><a href=""> <span class="glyphicon glyphicon-briefcase"></span>
-						기업회원
-				</a></li>
-			</ul>
-		</div>
-	</nav>
+    <%@include file="nav.jsp" %> 
+	
 	<!--***********************************************************
 	*                                                             *
 	*                         Login modal                         *
@@ -308,24 +276,8 @@
 	*                             footer                          *
 	*                                                             *
 	************************************************************-->
-    <footer class="footer text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h4 class="text-uppercase mb-4">About TryCatch</h4>
-            <p class="lead mb-0">
-              <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-	<div class="copyright text-center">
-		<div class="container">
-			<div class="col-md-12">
-				Copyright &copy; TryCatch 2018
-			</div>
-		</div>
-	</div>
+    <%@include file="footer.jsp" %> 
+
 
 </body>
 </html>
