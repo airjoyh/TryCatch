@@ -30,6 +30,8 @@
   			}
   		});
   		
+  		
+  		
   	});
   	/* 검색창 드롭다운 메뉴 */
   	$('.taco').click(function(e){
@@ -212,58 +214,58 @@
 				<div class="form-group">
 					<label for="progress_1">총평점</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar progress-bar-warning" role="progressbar"
+						<div id="total" class="progress-bar progress-bar-warning" role="progressbar"
 							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: 77%">
+							style="width: ${avg_all*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">4.8 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg_all } / 5</div>
 
 			<div class="col-sm-4">
 				<div class="form-group">
-					<label for="progress_1">복지 및 급여</label>
+					<label for="progress_1">승진 기회 및 가능성</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+						<div id="possibility" class="progress-bar" role="progressbar" aria-valuenow="90"
+							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_possibility*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">3.8 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_possibility } / 5</div>
 		</div>
  
 		<div class="row" style="padding-top: 1em; padding-bottom: 2em;
 		                        padding-left: 3em; padding-right: 3em;">
 			<div class="col-sm-4">
 				<div class="form-group">
-					<label for="progress_1">승진 기회 및 가능성</label>
+					<label for="progress_1">복지 및 급여</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar" role="progressbar"
+						<div id="welSal" class="progress-bar" role="progressbar"
 							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: 77%">
+							style="width: ${avg.avg_welSal*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">4.4 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_welSal } / 5</div>
 
 			<div class="col-sm-4">
 				<div class="form-group">
 					<label for="progress_1">업무와 삶의 균형</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+						<div id="balance" class="progress-bar" role="progressbar" aria-valuenow="90"
+							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_balance*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">4.3 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_balance } / 5</div>
 		</div>
  
 		<div class="row" style="padding-top: 1em; padding-bottom: 2em;
@@ -272,28 +274,28 @@
 				<div class="form-group">
 					<label for="progress_1">사내문화</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar" role="progressbar"
+						<div id="culture" class="progress-bar" role="progressbar"
 							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: 77%">
+							style="width: ${avg.avg_culture*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">4.4 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_culture } / 5</div>
 
 			<div class="col-sm-4">
 				<div class="form-group">
 					<label for="progress_1">경영진</label>
 					<div class="progress" id="progress_1">
-						<div class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: 77%">
+						<div id="manager" class="progress-bar" role="progressbar" aria-valuenow="90"
+							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_manager*20 }%">
 							<span class="sr-only">70% Complete</span>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">4.4 / 5</div>
+			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_manager } / 5</div>
 		</div>  
 		</div>
 	</div>

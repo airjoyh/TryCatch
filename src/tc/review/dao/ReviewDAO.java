@@ -33,7 +33,7 @@ public class ReviewDAO {
 		return false;
 	}
 
-	public Map<String, Object> selectPage(int page, int displayRecord) {
+	public Map<String, Object> selectPage(String company_id,int page, int displayRecord) {
 		Map<String, Object> listMap = new HashMap<>();
 
 		int end = page * displayRecord; // page*5
@@ -42,7 +42,8 @@ public class ReviewDAO {
 		List<ReviewDTO> list = null;// 후기 리스트
 		List<Integer> reply_cnt_list = new ArrayList<>();// 후기 댓글 갯수 리스트
 		try {
-			Map<String, Integer> map = new HashMap<>();
+			Map<String, Object> map = new HashMap<>();
+			map.put("company_id", company_id);
 			map.put("start", start);
 			map.put("end", end);
 

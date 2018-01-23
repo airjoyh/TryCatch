@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionMapping;
 
 import tc.review.dao.ReplyDAO;
 import tc.review.dao.ReviewDAO;
+import tc.review.dto.AvgScoreDTO;
 import tc.review.dto.ReviewDTO;
 
 public class ReviewAction extends Action {
@@ -58,12 +59,18 @@ public class ReviewAction extends Action {
 			if (totalRecord % displayRecord > 0) {// 나머지가 있을 때
 				totalPage++;// 4페이지
 			}
+			String company_id = request.getParameter("company_id");
 
-			//req.setAttribute("list", dao.selectAll());// 3-2 전체 데이터
-			Map<String, Object>  listMap = dao.selectPage(page, displayRecord);
+			
+			Map<String, Object>  listMap = dao.selectPage(company_id, page, displayRecord);
 			
 			request.setAttribute("list", listMap.get("list")); //listMap에 있는 키값 셋
 			request.setAttribute("reply_cnt", listMap.get("reply_cnt_list")); //listMap에 있는 키값 셋
+			request.setAttribute("avg_all", dao.selectAvgAll(company_id));
+			
+			AvgScoreDTO avgdto = dao.selectAvg(company_id);
+			request.setAttribute("avg", avgdto);
+			
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -153,15 +160,22 @@ public class ReviewAction extends Action {
 			if (totalRecord % displayRecord > 0) {// 나머지가 있을 때
 				totalPage++;// 4페이지
 			}
-
-			//req.setAttribute("list", dao.selectAll());// 3-2 전체 데이터
-			request.setAttribute("list", dao.selectPage(page, displayRecord));// 3-2 특정페이지 데이터
+	
+			
+			Map<String, Object>  listMap = dao.selectPage(company_id, page, displayRecord);
+			
+			request.setAttribute("list", listMap.get("list")); //listMap에 있는 키값 셋
+			request.setAttribute("reply_cnt", listMap.get("reply_cnt_list")); //listMap에 있는 키값 셋
+			request.setAttribute("avg_all", dao.selectAvgAll(company_id));
+			
+			AvgScoreDTO avgdto = dao.selectAvg(company_id);
+			request.setAttribute("avg", avgdto);
+			
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			
-			request.setAttribute("list", dao.selectPage(page, displayRecord));
 
 		} else if(action.equals("select")) {
 			String review_no = request.getParameter("no");

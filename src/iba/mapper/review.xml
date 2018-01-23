@@ -17,10 +17,10 @@
 	
 	<!-- 게시판 리스트 출력(페이지) -->
 	<select id="selectPage" resultClass="review" parameterClass="java.util.Map"><![CDATA[
-  	select review_no,review_title,review_writer,review_wdate,review_count
-  	from (select review_no,review_title,review_writer,review_wdate,review_count,rownum rn
-  		from(select review_no,review_title,review_writer,review_wdate,review_count 
-  		  from review
+  	select review_no,review_title,review_writer,review_wdate,review_count,company_id
+  	from (select review_no,review_title,review_writer,review_wdate,review_count,company_id,rownum rn
+  		from(select review_no,review_title,review_writer,review_wdate,review_count,company_id 
+  		  from review where company_id=#company_id#
   		  order by review_no desc)) 
   	where rn between #start# and #end#
   ]]></select>
@@ -73,7 +73,7 @@
 	select round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all
 	from review
 	where company_id=#company_id#
-	group by company_id;
+	group by company_id
   </select>
   
 </sqlMap>
