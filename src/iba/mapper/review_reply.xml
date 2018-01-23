@@ -14,4 +14,18 @@
   	where review_no=#review_no#
   	order by reply_no
   </select>
+  
+  <update id="update" parameterClass="review_reply">
+  	update review_reply set reply_contents=#reply_contents#,reply_wdate=sysdate
+  	where reply_no=#reply_no#
+  </update>
+  
+  <delete id="delete">
+  	delete from review_reply where reply_no=#reply_no#
+  </delete>
+  
+  <select id="selectCount" parameterClass="int" resultClass="int">
+  	select count(*) from review_reply
+  	where review_no=#review_no#
+  </select> 
 </sqlMap>

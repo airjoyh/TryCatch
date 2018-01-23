@@ -19,6 +19,7 @@
   <typeAlias alias="review" type="tc.review.dto.ReviewDTO"/>
   <typeAlias alias="comInfo" type="tc.company.dto.ComInfoDTO"/>
   <typeAlias alias="review_reply" type="tc.review.dto.ReplyDTO"/>
+  <typeAlias alias="avgScore" type="tc.review.dto.AvgScoreDTO"/>
   
   <transactionManager type="JDBC">
   	<dataSource type="SIMPLE">

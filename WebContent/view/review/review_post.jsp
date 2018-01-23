@@ -165,7 +165,7 @@
 	function makeReplyView(reply) {//list에 출력될 새로운 div엘리먼트 생성
 		//reply: {no:1, name:'홍길동',content:'Ajax재밌어요!!'}
 		var replyDiv = document.createElement('div');//<div></div>
-		replyDiv.setAttribute("id", "r" + reply.no); //<div id="r1"></div>
+		replyDiv.setAttribute("id", "r" + reply.reply_no); //<div id="r1"></div>
 		replyDiv.className = 'reply'; //<div id="r1" class="reply"></div>
 
 		replyDiv.reply = reply; //새로 생성된 <div>엘리먼트에 reply JSON객체 저장!
@@ -176,18 +176,16 @@
 		
 		if(login_id == reply.id){//로그인 아이디와 댓글단 아이디가 일치하면 수정삭제 버튼 보이게하기.
 			htmlTxt = '<strong id="reply_writer_id'+reply.reply_no+'">'
-			+ reply.id
-			+ '</strong>'
-			+'	'
-			+reply.wdate
-			+'<br>'
-			+ reply.content
-			+'<div id="replyUpDel'+reply.reply_no+'" style="display: ">'
-			+ '<br><input type="button" value="수정" onclick="viewUpdateForm('
-			+ reply.reply_no + ')"> '
-			+ '<input type="button" value="삭제" onclick="deleteReply('
-			+ reply.reply_no + ')">'
-			+'</div>';
+					+ reply.id
+					+ '</strong>'
+					+'	'
+					+reply.wdate
+					+'<br>'
+					+ reply.content
+					+'<div id="replyUpDel'+reply.reply_no+'" style="display: ">'
+					+ '<input type="button" value="삭제" onclick="deleteReply('
+					+ reply.reply_no + ')">'
+					+'</div>';
 		}else{//로그인 아이디와 댓글단 아이디가 일치하면 수정삭제 버튼 보이지 않게 학.
 			htmlTxt = '<strong id="reply_writer_id'+reply.reply_no+'">'
 					+ reply.id
@@ -197,8 +195,6 @@
 					+'<br>'
 					+ reply.content
 					+'<div id="replyUpDel'+reply.reply_no+'" style="display: none">'
-					+ '<br><input type="button" value="수정" onclick="viewUpdateForm('
-					+ reply.reply_no + ')"> '
 					+ '<input type="button" value="삭제" onclick="deleteReply('
 					+ reply.reply_no + ')">'
 					+'</div>';
@@ -208,6 +204,20 @@
 		replyDiv.innerHTML = htmlTxt;
 		//<div><strong>길동</strong><br>첫댓글</div>
 		return replyDiv;
+	}
+	
+	function deleteReply(no){//삭제 요청
+		if (confirm('정말 삭제?')) {
+			//alert(no);
+			new ajax.xhr.Request('reply.do?action=delete', 'no=' + no,deleteResult, 'POST');
+		}
+	}
+	
+	function deleteResult(xhr) {//삭제 콜백
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			//alert(xhr.responseText);//수정결과 출력
+			loadReplyList();
+		}
 	}
 
 </script>
@@ -446,7 +456,7 @@
 		<form name="addForm">
 			<input type="hidden" name="no" value="${review.review_no }"><br> 
 		댓글: <textarea rows="2" cols="20" name="content"></textarea>
-			<button onclick="addReply()">등록</button>
+			<button onclick="addReply()" type="button">등록</button>
 		</form>
 	</div>
 	

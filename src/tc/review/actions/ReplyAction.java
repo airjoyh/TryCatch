@@ -64,33 +64,17 @@ public class ReplyAction extends Action {
 			    response.getWriter().print("댓글성공!!"); */
 		   }  
 		   		break;
-		   case "update"://수정 요청
-		   {
-			   /*Reply reply = new Reply();
-			   reply.setNo(Integer.parseInt(request.getParameter("no")));
-			   reply.setName(request.getParameter("name"));
-			   reply.setContent(request.getParameter("content"));
-			   
-			   if(dao.update(reply)) {
-				   request.setAttribute("msg", "댓글수정 성공!!");
-			   }else {
-				   
-				   request.setAttribute("msg", "댓글수정 실패!!");
-			   }
-			   forward = mapping.findForward("result");*/
-		   }   
-			   break;
 		   case "delete":
 		   {
-			   /*int no = Integer.parseInt(request.getParameter("no"));
+			   int reply_no = Integer.parseInt(request.getParameter("no"));
 			   
-			   if(dao.delete(no)) {
+			   if(dao.delete(reply_no)) {
 				   request.setAttribute("msg", "댓글 삭제 성공!");
 			   }else {
 				   request.setAttribute("msg", "댓글 삭제 성공!");
 				   
 			   }
-			   forward = mapping.findForward("result");*/
+			   forward = mapping.findForward("delete");
 		   }
 			   break;
 		}//switch

@@ -1,6 +1,7 @@
 package tc.review.actions;
 
 import java.sql.Date;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +12,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import tc.review.dao.ReplyDAO;
 import tc.review.dao.ReviewDAO;
 import tc.review.dto.ReviewDTO;
 
@@ -58,11 +60,15 @@ public class ReviewAction extends Action {
 			}
 
 			//req.setAttribute("list", dao.selectAll());// 3-2 전체 데이터
-			request.setAttribute("list", dao.selectPage(page, displayRecord));// 3-2 특정페이지 데이터
+			Map<String, Object>  listMap = dao.selectPage(page, displayRecord);
+			
+			request.setAttribute("list", listMap.get("list")); //listMap에 있는 키값 셋
+			request.setAttribute("reply_cnt", listMap.get("reply_cnt_list")); //listMap에 있는 키값 셋
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
+			
 			
 			forward = mapping.findForward("list");
 
@@ -163,7 +169,7 @@ public class ReviewAction extends Action {
 			System.out.println(review_no);
 			
 			ReviewDAO dao = new ReviewDAO();
-			
+
 			if(dao.updateCount(Integer.parseInt(review_no))) {
 				ReviewDTO reviewdto = dao.select(Integer.parseInt(review_no));
 				request.setAttribute("review", reviewdto);

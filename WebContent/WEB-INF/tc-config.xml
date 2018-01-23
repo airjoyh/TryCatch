@@ -216,6 +216,7 @@
 				type="tc.review.actions.ReplyAction">
 			<forward name="list" path="/review/reply_list.do"/>
 			<forward name="insert" path="/review/reply_result.do"/>
+			<forward name="delete" path="/review/reply_result.do"/>
 		</action>
 		
 	</action-mappings>

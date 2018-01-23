@@ -62,4 +62,18 @@
   	where review_no=#review_no#
   </delete>
   
+  <select id="selectAvg" parameterClass="String" resultClass="avgScore">
+  	select round(avg(review_possibility),1) avg_possibility, round(avg(review_welSal),1) avg_welSal,
+  		   round(avg(review_balance),1) avg_balance,round(avg(review_culture),1) avg_culture,round(avg(review_manager),1) avg_manager
+	from review
+	where company_id=#company_id#
+  </select>
+  
+  <select id="selectAvgAll" parameterClass="String" resultClass="double">
+	select round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all
+	from review
+	where company_id=#company_id#
+	group by company_id;
+  </select>
+  
 </sqlMap>
