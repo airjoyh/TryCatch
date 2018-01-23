@@ -65,10 +65,5 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	where rank<6;
 	
 	
-	select company_id,company_name,round( avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5),1) avg_all,
-	RANK() OVER(order by avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5 desc) as rank
-	from review natural join company_info
-	group by company_id,company_name;
-	
 	
   	    
