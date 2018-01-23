@@ -5,7 +5,7 @@
 	*                          navbar                             *
 	*                                                             *
 	************************************************************-->
-	<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-right: 2em;padding-left: 2em;">
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-right: 2em;padding-left: 2em; ">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"

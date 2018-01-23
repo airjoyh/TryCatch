@@ -5,10 +5,24 @@
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- bootstrap3 for trycatch -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- main.js 연결 -->
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/cmain.js"></script>
+
+<!-- Custom jQuery -->
+<script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
+
+
+<!-- Custom styles -->
+<link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
+<link href="${initParam.rootPath }/css/trycatch.css" rel="stylesheet">
 <%--C태그를 사용하기 위한 라이브러리 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -61,7 +75,7 @@
     	<div class="container">
     	<table class="table table-hover" id="ilist" border="1px dashed">
     		<thead>
-    		  <tr>
+    		  <tr bgcolor="orange">
     		  	<th style="width: 10%;">글번호</th>
     		  	<th style="width: 50%;">제목</th>
     		  	<th style="width: 10%;">작성자</th>
@@ -104,6 +118,6 @@
 		</div>
 	 </div>
     </form>
-
+<%@include file="../main/footer.jsp" %>
   </body>
 </html>
