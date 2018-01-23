@@ -99,200 +99,259 @@
 
 		</div>
 	</div>
-	<!--***********************************************************
-   *                                                             *
-   *                       joinmodal                             *
-   *                                                             *
-   ************************************************************-->
+    <!--***********************************************************
+    *                                                             *
+    *                         Join modal - 이한별                                          *
+    *                                                             *
+    ************************************************************-->
+
 	<div class="modal fade" id="joinModal" role="dialog">
-		<div class="container">
+		<div class="modal-dialog">
+
+
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title text-muted">회원가입</h4>
+					<h4 class="modal-title text-muted ">기업 회원가입</h4>
 				</div>
 
-				<div id="modalpadding" class="modal-body">
-					<form name="joinForm" action="join.do" method="POST">
+
+				<div class="modal-body" id="modalpadding">
+					<form action="comjoin.do" method="post" name="com_joinForm">
+						
 						<div class="form-group">
-							<div class="row">
-								<div class="col-md-9">
-									<label for="exampleInputId">아이디</label> <input
-										class="form-control" name="company_id" id="company_id"
-										type="text" aria-describedby="idHelp" placeholder="아이디을 입력하세요">
-								</div>
-								<div class="col-md-3">
-									<br> <input type="button" value="중복확인" onclick="IdCheck()">
-									<p id="idCheck"></p>
+							<div class="input-group">
+								<input class="form-control" id="company_id" name="company_id"
+									type="text" placeholder="아이디를 입력하세요" equired autofocus>
+								<div class="input-group-btn">
+									<button class="btn btn-defalt" type="button"
+										onclick="requestIdCheck()">중복확인</button>
 								</div>
 							</div>
-
-							<div class="row">
-								<div class="col-md-6">
-									<!-- <label for="pwd"></label> -->
-									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="glyphicon glyphicon-lock"></i></span> <input
-											class="form-control" id="company_pass" name="company_pass"
-											type="password" style="font-family: 'arial'"
-											placeholder="비밀번호를 입력하세요">
-									</div>
-								</div>
-
-								<div class="col-md-6">
-									<input class="form-control" id="company_pass2"
-										name="company_pass2" type="password"
-										style="font-family: 'arial'" placeholder="비밀번호 확인">
-								</div>
+							<div id="idCheck"></div>
+						</div>
+						
+						<br>
+						<div class="row">
+							<div class="col-md-6 form-group">
+								<div class="input-group">
+									<span class="input-group-addon"> <i
+										class="glyphicon glyphicon-lock"></i></span> <input
+										class="form-control" id="company_pass" name="company_pass"
+										type="password" style="font-family: 'arial'"
+										placeholder="비밀번호를 입력하세요">
+							 </div>	
+							</div>	
+							
+							<div class="col-md-6 form-group">
+							   <input class="form-control" id="company_pass2"
+									name="company_pass2" type="password"
+									style="font-family: 'arial'" placeholder="비밀번호 확인">
+							   
 							</div>
-							<div class="form-group">
-								<div class="row">
-									<label for="exampleInputCompanyname">기업명</label> <input
-										class="form-control" name="company_name" id="company_name" size="5"
+						</div>
+                       
+                       <br>
+						<div class="row">
+							<div class="col-md-12 form-group">
+								<div class="input-group">
+									<span class="input-group-addon">Name</span> <input
+										class="form-control" id="company_name" name="company_name"
 										type="text" aria-describedby="nameHelp"
 										placeholder="기업명을 입력하세요">
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-row">
-									<div class="col-md-6">
-										<label for="companyBuild">기업 설립년도</label>
-										<p>
-											Date: <input type="text" name="company_year"
-												id="company_year" size="30px">
-										</p>
-									</div>
-									<div class="col-md-6">
-										<label for="exampleInputCompanyname">매출액</label> <input
-											class="form-control" name="company_turnover"
-											id="company_turnover" type="text" size="10px"
-											placeholder="매출액을 입력하세요">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-							  <div class="form-row">
-								<label for="exampleInputCompanyname" style="text-align: left;">기업규모</label> <input
-									class="form-control" name="company_size" id="company_size"
-									type="text" aria-describedby="nameHelp"
-									placeholder="기업규모를 입력하세요">
-							  </div>		
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">사업자 등록번호</label>
-								<div class="form-row">
-									<div class="col-md-12">
-										<input class="form-control" name="company_number"
-											id="company_number" type="text" size="15">
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">기업주소</label> <input
-									class="form-control" name="company_addr" id="company_addr"
-									type="text" aria-describedby="nameHelp"
-									placeholder="기업주소를 입력하세요">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">기업사이트</label> <input
-									class="form-control" name="company_site" id="company_site"
-									type="text" aria-describedby="nameHelp"
-									placeholder="기업사이트를 입력하세요">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">기업소개</label> <br>
-								<textarea rows="3" cols="81" name="company_intro"
-									id="company_intro" placeholder="기업소개를 하세요"></textarea>
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">채용인원수</label> <input
-									class="form-control" name="company_hireNumber"
-									id="company_hireNumber" type="text" size="10"
-									placeholder="채용할 인원수를 입력하시오"> <br>
-								<fieldset>
-									<label for="job">산업군</label> 
-									<select id="company_line" name="company_line">
-										<option value="==선택==">==선택==</option>
-										<optgroup label="사무직">
-											<option value="frontend_developer">Front-End Developer</option>
-											<option value="php_developor">PHP Developer</option>
-											<option value="python_developer">Python Developer</option>
-											<option value="rails_developer"> Rails Developer</option>
-											<option value="web_designer">Web Designer</option>
-											<option value="WordPress_developer">WordPress Developer</option>
-										</optgroup>
-										<optgroup label="Mobile">
-											<option value="Android_developer">Androild Developer</option>
-											<option value="iOS_developer">iOS Developer</option>
-											<option value="mobile_designer">Mobile Designer</option>
-										</optgroup>
-										<optgroup label="Business">
-											<option value="business_owner">Business Owner</option>
-											<option value="freelancer">Freelancer</option>
-										</optgroup>
-										<optgroup label="Other">
-											<option value="secretary">Secretary</option>
-											<option value="maintenance">Maintenance</option>
-										</optgroup>
-									</select> <br> <label>요구스킬</label><br> 
-									<input type="checkbox" value="skill_java" name="skill_java" checked="checked"><label
-										class="light" for="java">Java</label>
-								    <input type="checkbox" value="skill_jquery" name="skill_jquery"><label
-										class="light" for="jquery">jQuery</label> 
-								    <input type="checkbox" value="skill_python" name="skill_python"><label class="light" for="python">Python</label>
-									<input type="checkbox"  value="skill_xml"
-										name="skill_xml"><label class="light" for="xml">XML</label>
-									<input type="checkbox"  value="skill_css"
-										name="skill_css"><label class="light" for="css">CSS</label>
-									<input type="checkbox"  value="skill_pro"
-										name="skill_pro"><label class="light" for="pro">Programming</label>
+						</div>
 
-								</fieldset>
-
-								<div class="form-group">
-									<label for="exampleInputCompanyname">담당자 이름</label> <input
-										class="form-control" name="manager_name" id="manager_name"
-										type="text" aria-describedby="nameHelp"
-										placeholder="채용담당자명 입력">
-								</div>
-								<div class="form-group">
-									<div class="form-row">
-										<label for="exampleInputPassword1">담당자 이메일</label> <input
-											class="form-control" name="manager_email" id="manager_email"
-											type="text" placeholder="채용담당자 이메일 입력하세요">
-									</div>
+                       <br>
+						<div class="row">
+							<div class="col-md-6 form-group">
+								<p>기업 설립년도를 선택하세요</p>
+								<div class="input-group">
+									<span class="input-group-addon"> <i
+										class="glyphicon glyphicon-calendar"></i></span> <input
+										class="form-control" id="company_year" name="company_year"
+										type="month">
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">소속팀 이름</label> <input
-									class="form-control" name="team_name" id="team_name"
-									type="text" aria-describedby="nameHelp"
-									placeholder="채용 소속팀 이름 입력">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputCompanyname">담당자 전화번호</label>
-								<div class="form-row">
-									<div class="col-md-12">
-										<input class="form-control" name="manager_tel"
-											id="manager_tel" type="text" size="15">
-									</div>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<div class="col-md-6">
-									<a class="btn btn-primary btn-block"
-										href="javascript:validateCheck()">회원가입</a>
-								</div>
-								<div class="col-md-6">
-									<a class="btn btn-danger btn-block" type="reset"
-										href="javascript:">취소</a>
-								</div>
-							</div>
+						<div class="col-md-6 form-group">
+						  <p style="color:white">매출액을 입력해주세요</p>
+						   <div class="input-group">
+						     <span class="input-group-addon">Sales</span>
+							 <input class="form-control" id="company_turnover" name="company_turnover" 
+							        type="text" placeholder="매출액을 입력하세요">
+						   </div>
+						</div>
+						</div>
+                       
+                        <br>
+                        <div class="row">
+						<div class="form-group">
+						  <div class="col-md-5 form-group">
+						  <label for="company_size">기업 규모</label>
+						  <div class="input-group">
+						     <span class="input-group-addon">Scale</span>
+						     <select class="form-control" id="company_size" name="company_size">
+						        <option>==선택==</option>
+						        <option value="large">대기업 (1000명 이상)</option>
+						        <option value="middle">중견기업 (500명 이상)</option>
+						        <option value="small">중소기업 (50명 이상)</option>
+						        <option value="tooSmall">소기업 (50명 미만)</option>
+						     </select>			
+						  </div>
+						  </div>   
+						</div>
+                        </div>
+                       
+						<br>
+						<div class="row">
+						<div class="col-md-12 form-group">
+						   <div class="input-group">
+						     <span class="input-group-addon">Number</span>
+							 <input class="form-control" id="company_number" name="company_number" 
+							        type="text" placeholder="사업자 등록번호를 입력하세요">
+						   </div>   
+						</div>
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						    <span class="input-group-addon">Address</span>
+							<input class="form-control" id="company_addr" name="company_addr" 
+							       type="text" placeholder="기업 주소를 입력하세요">
+						   </div>		
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						     <span class="input-group-addon">Site</span>
+							 <input class="form-control" id="company_site" name="company_site" 
+							        type="text" placeholder="기업 홈페이지 주소를 입력하세요">
+					       </div>			
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+							<label for="company_intro">기업 소개</label><br>
+							<textarea class="form-control" cols="67" rows="5" id="company_intro"
+							          name="company_intro" placeholder="기업 소개글을 입력하세요"></textarea>
+						   </div>
+						</div>
+                       
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
+							<input class="form-control" id="company_hireNumber" name="company_hireNumber" 
+							       type="text" placeholder="채용할  인원수를 입력하세요">
+					       </div>			
+						</div>
+                       
+                       <br>
+                       <div class="row">
+					    <div class="col-md-9 form-group">
+					    <label for="company_size">기업 산업군</label>		
+						  <div class="input-group">
+							<span class="input-group-addon">
+							<i class="glyphicon glyphicon-collapse-down"></i></span>
+							<select class="form-control" id="company_line" name="company_line">
+								<option selected="selected" class="text-primary">==선택==</option>
+								<optgroup label="사무직">
+									<option value="frontend_developer">Front-End Developer</option>
+									<option value="php_developor">PHP Developer</option>
+									<option value="python_developer">Python Developer</option>
+									<option value="rails_developer"> Rails Developer</option>
+									<option value="web_designer">Web Designer</option>
+									<option value="WordPress_developer">WordPress Developer</option>
+								</optgroup>
+								<optgroup label="Mobile">
+									<option value="Android_developer">Androild Developer</option>
+									<option value="iOS_developer">iOS Developer</option>
+									<option value="mobile_designer">Mobile Designer</option>
+								</optgroup>
+								<optgroup label="Business">
+									<option value="business_owner">Business Owner</option>
+									<option value="freelancer">Freelancer</option>
+								</optgroup>
+								<optgroup label="Other">
+									<option value="secretary">Secretary</option>
+									<option value="maintenance">Maintenance</option>
+								</optgroup>
+							</select>
+						   </div>	
+						 </div>
+					   </div>	
+						
+						<br>
+						<div class="row">
+						 <div class="col-md-11 form-group">
+						  <div class="input-group">
+							<label>요구스킬</label><br>
+							<p>다중 선택 가능 합니다.</p>
+							
+							<div class="form-control">
+                            <input type="checkbox" id="company_skill" value="skill_java" name="company_skill"><label class="light" for="java">Java</label>
+                            <input type="checkbox" id="company_skill" value="skill_jquery" name="company_skill"><label class="light" for="jquery">jQuery</label>
+                            <input type="checkbox" id="company_skill" value="skill_python" name="company_skill"><label class="light" for="python">Python</label>
+                            <input type="checkbox" id="company_skill" value="skill_xml" name="company_skill"><label class="light" for="xml">XML</label>
+                            <input type="checkbox" id="company_skill" value="skill_css" name="company_skill"><label class="light" for="css">CSS</label>
+                            <input type="checkbox" id="company_skill" value="skill_pro" name="company_skill"><label class="light" for="pro">Programming</label>
+                            </div>
+                         </div>
+                         </div>	
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						    <span class="input-group-addon">Name</span>
+							<input class="form-control" id="manager_name" name="manager_name" 
+							       type="text" placeholder="담당자의 이름을 입력하세요">
+						   </div>		
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						    <span class="input-group-addon">E-mail</span>
+							 <input class="form-control" id="manager_email" name="manager_email" 
+							        type="text" placeholder="담당자의 이메일을 입력해주세요">
+						   </div>		
+						</div>
+						 
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						    <span class="input-group-addon">Name</span>
+							 <input class="form-control" id="team_name" name="team_name" 
+							        type="text" placeholder="채용 소속팀 이름을 입력해주세요">
+						   </div>		
+						</div>
+						
+						<br>
+						<div class="form-group">
+						   <div class="input-group">
+						     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+							  <input class="form-control id="manager_tel" name="manager_tel" 
+							         type="text" placeholder="담당자의 전화번호를 입력해주세요">
+					       </div>			
+						</div>
 					</form>
 				</div>
-				<div class="text-center">
-					<a class="d-block small mt-2" /></a>
+
+
+				
+				<div class="modal-footer">
+					<a class="btn btn-primary btn-block"
+						href="javascript:validateCheck()">완료</a>
 				</div>
+				
+
+
 			</div>
 		</div>
-	</div> 
+	</div>
+	<!-- ///////////////////////여기까지 회원가입 모달입니다///////////////////////////////////////// --> 
