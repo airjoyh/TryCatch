@@ -64,7 +64,7 @@
 			</form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a data-toggle="modal" data-target="#joinModal"> <span
-						class="glyphicon glyphicon-user">Sign Up</span>
+						class="glyphicon glyphicon-user">Sign Up</span> 
 				</a></li>
 				<li id='loginout'><a data-toggle="modal"
 					data-target="#loginModal"><span

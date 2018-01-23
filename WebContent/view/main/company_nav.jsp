@@ -205,7 +205,7 @@
                        
 						<br>
 						<div class="row">
-						<div class="col-md-12 form-group">
+						<div class="col-md-12 form-group"> 
 						   <div class="input-group">
 						     <span class="input-group-addon">Number</span>
 							 <input class="form-control" id="company_number" name="company_number" 
