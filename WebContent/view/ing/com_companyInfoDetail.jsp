@@ -7,7 +7,7 @@
 <script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 
-<title>TryCatch_companyInfoDetail</title>
+<title>TryCatch_companyInfo</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- bootstrap3 for trycatch -->
@@ -21,14 +21,14 @@
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 
-<%-- <!-- Custom styles -->
-<link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet"> --%>
-
 <!-- Custom styles -->
+<%-- <link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet"> --%>
 <link href="../../css/com_companyInfo.css" rel="stylesheet">
+
+
 </head>
 <body>
-	<section>
+
 		<!--***********************************************************
 		*                                                             *
 		*                            nav                              *
@@ -37,136 +37,118 @@
 		<div>
 			<jsp:include page="../main/nav.jsp" />
 		</div>
-	</section>
-	<hr><hr><hr><hr>
+	
 	<section>
-	  <div class="py-5">
-	    <div class="container">
-	      <div class="row">
-	        <div class="col-md-9">
-	        	<div align="left">
-			        <select id="job" name="company_star">
-			          <option value="">====선택====</option>
-			            <option value="review_possibility">승진기회 및 기능</option>
-			            <option value="review_welSal">복지와 급여</option>
-			            <option value="review_balance">업무와 삶의 균형</option>
-			            <option value="review_culture"> 사내문화</option>
-			            <option value="review_manager">경영진</option>
-			        </select> 
-	        	</div>
-	        </div>
-	        <div class="col-md-3">        
-	        </div>
-	      </div>
-	      <div class="row">
-	        <div class="col-md-9">
-	          <table>
-				<tbody>
-					<tr>
-						<th>순위</th>
-						<th>이미지</th>
-						<th colspan="4">회사정보</th>
-						<th>평점순위</th>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td><img alt="회사1" src="../../image/facebook.jpg"></td>
-						<td colspan="4">페이스북코리아(유) 기업리뷰 | 연봉정보 | 면접정보</td>
-						<td>
-							<span class="star-input">
-								<span class="input">
-						    	<input type="radio" name="star-input" value="1" id="p1">
-						    	<label for="p1">1</label>
-						    	<input type="radio" name="star-input" value="2" id="p2">
-						    	<label for="p2">2</label>
-						    	<input type="radio" name="star-input" value="3" id="p3">
-						    	<label for="p3">3</label>
-						    	<input type="radio" name="star-input" value="4" id="p4">
-						    	<label for="p4">4</label>
-						    	<input type="radio" name="star-input" value="5" id="p5">
-						    	<label for="p5">5</label>
-						  		</span>
-						  		<output for="star-input"><b>0</b>점</output>						
-							</span>						
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><img alt="회사2" src="../../image/kepico.jpg"></td>
-						<td colspan="4">현대케피코 기업리뷰 | 연봉정보 | 면접정보</td>
-						<td>
-							<span class="star-input">
-								<span class="input">
-						    	<input type="radio" name="star-input" value="1" id="p6">
-						    	<label for="p6">1</label>
-						    	<input type="radio" name="star-input" value="2" id="p7">
-						    	<label for="p7">2</label>
-						    	<input type="radio" name="star-input" value="3" id="p8">
-						    	<label for="p8">3</label>
-						    	<input type="radio" name="star-input" value="4" id="p9">
-						    	<label for="p9">4</label>
-						    	<input type="radio" name="star-input" value="5" id="p10">
-						    	<label for="p10">5</label>
-						  		</span>
-						  		<output for="star-input"><b>0</b>점</output>						
-							</span>						
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><img alt="회사3" src="../../image/ksd.jpg"></td>
-						<td colspan="4">한국예탁결제원 기업리뷰 | 연봉정보 | 면접정보</td>
-						<td>
-							<span class="star-input">
-								<span class="input">
-						    	<input type="radio" name="star-input" value="1" id="p1">
-						    	<label for="p1">1</label>
-						    	<input type="radio" name="star-input" value="2" id="p2">
-						    	<label for="p2">2</label>
-						    	<input type="radio" name="star-input" value="3" id="p3">
-						    	<label for="p3">3</label>
-						    	<input type="radio" name="star-input" value="4" id="p4">
-						    	<label for="p4">4</label>
-						    	<input type="radio" name="star-input" value="5" id="p5">
-						    	<label for="p5">5</label>
-						  		</span>
-						  		<output for="star-input"><b>0</b>점</output>						
-							</span>						
-						</td>
-					</tr>
-				</tbody>
-	          </table>
-			  <div align="center">
-				 <ul class="pagination">
-				   <li>
-					<a href="#" aria-label="Previous">
-					<span aria-hidden="true">&laquo;</span>
-					</a>
-					</li>
+	<!--***********************************************************
+	*                                                             *
+	*                           후기게시판-상현                                                    *
+	*                                                             *
+	************************************************************-->
+	<div class="container" style="background-color: #ffffff;">
+		<div class="row"
+			style="padding-top: 3em; padding-left: 4em; padding-right: 4em; padding-bottom: 2em;margin-bottom: 1em;">
+			<h3>기업후기게시판</h3>
+			<hr>
+		</div>
+		<div class="row"
+			style="padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-12">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th style="width: 15%;">기업명</th>
+							<th style="width: 45%;">기업규모</th>
+							<th style="width: 10%;">매출액</th>
+							<th style="width: 20%;">산업군</th>
+							<th style="width: 10%;">후기</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>페이스북코리아</td>
+							<td>대기업</td>
+							<td>연매출액 40억???</td>
+							<td>IT/웹/통신</td>
+							<td><span class="badge">22</span></td>
+						</tr>
+						<tr>
+							<td>현대케피코(주)</td>
+							<td>중기업</td>
+							<td>연매출액 110억???</td>
+							<td>제조/화학</td>
+							<td><span class="badge">20</span></td>
+						</tr>
+						<tr>
+							<td>현대하이스코</td>
+							<td>대기업</td>
+							<td>연매출액 240억???</td>
+							<td>IT/웹/통신</td>
+							<td><span class="badge">5</span></td>
+						</tr>
+					</tbody>
+				</table>
+			<hr>
+			</div>
+		</div>
+		<div class="row"
+			style="padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-5">
+				<ul class="pagination">
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
 					<li><a href="#">1</a></li>
 					<li><a href="#">2</a></li>
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>
 					<li><a href="#">5</a></li>
-					<li>
-					<a href="#" aria-label="Next">
-					<span aria-hidden="true">&raquo;</span>
-					</a>
-				   </li>
-				 </ul>
-			  </div>								
-	        </div>
-	        <div class="col-md-3">
-	          <div>
-	        	<img alt="첫번째 회사" src="../../image/ksd.jpg">
-	          </div> 	
-	        </div>
-	      </div>
-	    </div>
-      </div>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</div>
+			<form class="bs-example bs-example-form" role="form">
+					<div class="col-sm-5" style="margin-top: 1.5em">
+						<div class="input-group">
+							<input type="text" class="form-control taco-input">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown">
+									검색조건 <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu pull-right taco">
+									<li><a href="#">제목</a></li>
+									<li><a href="#">작성자</a></li>
+									<li><a href="#">제목+작성자</a></li>
+								</ul>
+							</div>
+							<!-- /btn-group -->
+						</div>
+						<!-- /input-group -->
+					</div>
+					<!-- /.col-lg-4 -->
+			</form>
+			<!--<div class="col-sm-4" style="margin-top: 1.5em">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search"
+						name="search">
+					<span class="input-group-addon">
+						<button class="btn btn-default" type="submit">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+						
+					</span>
+				</div>  
+			</div> -->
+			<div class="col-sm-2" style="margin-top: 1.5em">
+				<a class="btn btn-info pull-right"
+					href="control.do?action=inputForm">글쓰기</a>
+			</div>
+		</div>
+
+	</div>
+	
 	</section>
-<!-- star js -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="../../js/com_companyInfoDetail.js"></script>
+
 </body>
 </html>
