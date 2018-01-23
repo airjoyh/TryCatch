@@ -67,15 +67,14 @@ public class ReviewAction extends Action {
 			request.setAttribute("list", listMap.get("list")); //listMap에 있는 키값 셋
 			request.setAttribute("reply_cnt", listMap.get("reply_cnt_list")); //listMap에 있는 키값 셋
 			request.setAttribute("avg_all", dao.selectAvgAll(company_id));
-			
 			AvgScoreDTO avgdto = dao.selectAvg(company_id);
 			request.setAttribute("avg", avgdto);
+			System.err.println(avgdto);
 			
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-			
 			
 			forward = mapping.findForward("list");
 

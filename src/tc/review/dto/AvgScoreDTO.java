@@ -1,7 +1,8 @@
 package tc.review.dto;
 
 public class AvgScoreDTO {
-
+	private String company_id;
+	private String company_name;
 	private double avg_possibility;
 	private double avg_welSal;
 	private double avg_balance;
@@ -12,14 +13,20 @@ public class AvgScoreDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AvgScoreDTO(double avg_possibility, double avg_welSal, double avg_balance, double avg_culture,
-			double avg_manager) {
-		super();
-		this.avg_possibility = avg_possibility;
-		this.avg_welSal = avg_welSal;
-		this.avg_balance = avg_balance;
-		this.avg_culture = avg_culture;
-		this.avg_manager = avg_manager;
+	public String getCompany_id() {
+		return company_id;
+	}
+
+	public void setCompany_id(String company_id) {
+		this.company_id = company_id;
+	}
+
+	public String getCompany_name() {
+		return company_name;
+	}
+
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 
 	public double getAvg_possibility() {
@@ -64,8 +71,9 @@ public class AvgScoreDTO {
 
 	@Override
 	public String toString() {
-		return "AvgScoreDTO [avg_possibility=" + avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance="
-				+ avg_balance + ", avg_culture=" + avg_culture + ", avg_manager=" + avg_manager + "]";
+		return "AvgScoreDTO [company_id=" + company_id + ", company_name=" + company_name + ", avg_possibility="
+				+ avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance=" + avg_balance + ", avg_culture="
+				+ avg_culture + ", avg_manager=" + avg_manager + "]";
 	}
 
 }

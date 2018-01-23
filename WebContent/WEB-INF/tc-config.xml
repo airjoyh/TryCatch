@@ -219,6 +219,14 @@
 			<forward name="delete" path="/review/reply_result.do"/>
 		</action>
 		
+		<!-- 기업 순위폼 -->
+		<action path="/com/rank"
+				forward="/view/company/company_rank.jsp"/>
+				
+		<!-- 기업 게시판폼 -->
+		<action path="/com/list"
+				forward="/view/company/company_list.jsp"/>
+		
 	</action-mappings>
 
 	<!--  사용자 정의 RequestProcessor등록  -->
