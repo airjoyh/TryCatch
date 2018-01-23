@@ -32,13 +32,15 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		console.log("msg>>>"+msg)
 		var loginout = document.getElementById('loginout');
 		//var msg ='${loginState }';
+		
+		//var mypage = document.getElementById('mypage');
 
 		//세션이 연결되어있을 때 로그인
 		alert("로그인 상태: " + msg);
 		if (msg == "login") {//로그인 상태일때!
 			//loginout.innerHTML = '<a href="logout.do">로그아웃</a>';
-			loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>'
-		 	//flag=true;
+			loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>';
+			//flag=true;
 		} else {//로그인 상태가 아닐때!
 			//loginout.innerHTML = '<a data-toggle="modal" data-target="#loginModal">로그인</a>';
 			//flag=false;

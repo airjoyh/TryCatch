@@ -36,11 +36,11 @@
 				</form>
 				<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">마이페이지 <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">회원정보수정</a></li>
-						<li><a href="#">마이포트폴리오</a></li>
-					</ul></li>
+               data-toggle="dropdown" href="#" style="color: #ffffff">마이페이지 <span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a data-toggle="modal" href="#">회원정보수정</a></li>
+                  <li><a href="#">마이포트폴리오</a></li>
+               </ul></li>
 				<li><a data-toggle="modal" data-target="#registerModal"> <span
 							class="glyphicon glyphicon-user" style="color: #ffffff">Sign Up</span>
 					</a></li>
