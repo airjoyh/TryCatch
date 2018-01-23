@@ -342,7 +342,7 @@
 												+ '<li class="glyphicon glyphicon-king">'
 												+ $('#awardName').val()
 												+ '</li></button>');
-		$('#awardName').val('');
+		$('#awardName').val(''); 
 	});
 	
 	$('#pfAdd').click(function() {
