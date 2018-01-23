@@ -3,14 +3,30 @@ package tc.review.dto;
 public class AvgScoreDTO {
 	private String company_id;
 	private String company_name;
+	private int rank;
 	private double avg_possibility;
 	private double avg_welSal;
 	private double avg_balance;
 	private double avg_culture;
 	private double avg_manager;
+	private double avg_all;
 
 	public AvgScoreDTO() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public AvgScoreDTO(String company_id, String company_name, int rank, double avg_possibility, double avg_welSal,
+			double avg_balance, double avg_culture, double avg_manager, double avg_all) {
+		super();
+		this.company_id = company_id;
+		this.company_name = company_name;
+		this.rank = rank;
+		this.avg_possibility = avg_possibility;
+		this.avg_welSal = avg_welSal;
+		this.avg_balance = avg_balance;
+		this.avg_culture = avg_culture;
+		this.avg_manager = avg_manager;
+		this.avg_all = avg_all;
 	}
 
 	public String getCompany_id() {
@@ -27,6 +43,14 @@ public class AvgScoreDTO {
 
 	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	public double getAvg_possibility() {
@@ -69,11 +93,19 @@ public class AvgScoreDTO {
 		this.avg_manager = avg_manager;
 	}
 
+	public double getAvg_all() {
+		return avg_all;
+	}
+
+	public void setAvg_all(double avg_all) {
+		this.avg_all = avg_all;
+	}
+
 	@Override
 	public String toString() {
-		return "AvgScoreDTO [company_id=" + company_id + ", company_name=" + company_name + ", avg_possibility="
-				+ avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance=" + avg_balance + ", avg_culture="
-				+ avg_culture + ", avg_manager=" + avg_manager + "]";
+		return "AvgScoreDTO [company_id=" + company_id + ", company_name=" + company_name + ", rank=" + rank
+				+ ", avg_possibility=" + avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance=" + avg_balance
+				+ ", avg_culture=" + avg_culture + ", avg_manager=" + avg_manager + ", avg_all=" + avg_all + "]";
 	}
 
 }

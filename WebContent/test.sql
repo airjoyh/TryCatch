@@ -29,28 +29,44 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	
 	--------------------------------------------------------------------------------
 	
-	select company_id,company_name,round(avg(review_possibility)) avg_possibility,RANK() OVER(order by avg(review_possibility) desc) as rk
-	from review natural join company_info
-	group by company_id,company_name;
-
-	select company_id,company_name,round(avg(review_welSal)) avg_welSal,RANK() OVER(order by avg(review_welSal) desc) as rk
-	from review natural join company_info
-	group by company_id,company_name;
+	select company_id,company_name,avg_possibility,rank 
+	from (select company_id,company_name,round(avg(review_possibility),1) avg_possibility,RANK() OVER(order by avg(review_possibility) desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
 	
-	select company_id,company_name,round(avg(review_balance)) avg_balance,RANK() OVER(order by avg(review_balance) desc) as rk
-	from review natural join company_info
-	group by company_id,company_name;
 	
-	select company_id,company_name,round(avg(review_culture)) avg_culture,RANK() OVER(order by avg(review_culture) desc) as rk
-	from review natural join company_info
-	group by company_id,company_name;
-
-	select company_id,company_name,round(avg(review_manager)) avg_manager,RANK() OVER(order by avg(review_manager) desc) as rk
-	from review natural join company_info
-	group by company_id,company_name;
+	select company_id,company_name,avg_welSal,rank 
+	from (select company_id,company_name,round(avg(review_welSal),1) avg_welSal,RANK() OVER(order by avg(review_welSal) desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
 	
-	select company_id,company_name,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5) avg_all,
-	RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rk
+	select company_id,company_name,avg_balance,rank 
+	from (select company_id,company_name,round(avg(review_balance),1) avg_balance,RANK() OVER(order by avg(review_balance) desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
+	
+	
+	select company_id,company_name,avg_culture,rank 
+	from (select company_id,company_name,round(avg(review_culture),1) avg_culture,RANK() OVER(order by avg(review_culture) desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
+	
+	
+	select company_id,company_name,avg_manager,rank 
+	from (select company_id,company_name,round(avg(review_manager),1) avg_manager,RANK() OVER(order by avg(review_manager) desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
+	
+	
+	select company_id,company_name,avg_all,rank 
+	from (select company_id,company_name,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all,
+	RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
+	from review natural join company_info group by company_id,company_name)
+	where rank<6;
+	
+	
+	select company_id,company_name,round( avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5),1) avg_all,
+	RANK() OVER(order by avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5 desc) as rank
 	from review natural join company_info
 	group by company_id,company_name;
 	

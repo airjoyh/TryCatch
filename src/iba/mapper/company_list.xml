@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+       "http://www.ibatis.com/dtd/sql-map-2.dtd" >
+<!-- review.xml(sql문을 저장) -->       
+<sqlMap namespace="company_list">
+	<select id="findTotalRank" resultClass="avgScore"><![CDATA[
+		select company_id,company_name,avg_all,rank 
+		from (select company_id,company_name,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all,
+		RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
+		from review natural join company_info group by company_id,company_name)
+		where rank<6
+	]]></select>
+  
+</sqlMap>

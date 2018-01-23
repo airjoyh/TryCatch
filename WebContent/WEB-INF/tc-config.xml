@@ -226,6 +226,11 @@
 		<!-- 기업 게시판폼 -->
 		<action path="/com/list"
 				forward="/view/company/company_list.jsp"/>
+				
+		<!-- 기업 순위 액션 -->
+		<action path="/com/control"
+				type="tc.company.actions.RankListAction">
+		</action>
 		
 	</action-mappings>
 
