@@ -21,5 +21,11 @@
    select company_id,company_pass,company_name,company_year,company_line,company_skill,company_size,company_turnover,company_number,company_addr,company_site,company_intro,company_hireNumber,manager_name,manager_email,team_name,manager_tel
    from company_info
    </select>
+   
+   <select id="select" parameterClass="String" resultClass="comInfo">
+   	select company_id,company_name,company_year,company_site,company_addr,company_size,company_turnover,company_line,company_skill,company_intro
+	from company_info
+	where company_id=#company_id#
+   </select>
 
 </sqlMap>

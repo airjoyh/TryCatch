@@ -62,10 +62,10 @@ public class ReviewDAO {
 		return listMap;
 	}// selectAll
 
-	public int selectCount() {
+	public int selectCount(String company_id) {
 		int count = 0;
 		try {
-			count = (Integer) sqlMap.queryForObject("review.selectCount");
+			count = (Integer) sqlMap.queryForObject("review.selectCount",company_id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

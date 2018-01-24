@@ -131,15 +131,15 @@
 			                        padding-left: 3em; padding-right: 3em;">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_site" style="text-align: right;">기업사이트</label>
-						<div></div>
+						<label id="company_name" style="text-align: right;">기업명</label>
+						<div>${cominfo.company_name }</div>
 					</div>
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_addr">기업주소</label>
-						<div></div>
+						<label id="company_year">설립 년도</label>
+						<div>${cominfo.company_year }</div>
 					</div>
 				</div>			
 			</div>		
@@ -147,15 +147,15 @@
 			                        padding-left: 3em; padding-right: 3em;">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_size">기업 규모</label>
-						<div></div>
+						<label id="company_site">기업 사이트</label>
+						<div>${cominfo.company_site }</div>
 					</div>
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_year">설립년도</label>
-						<div></div>
+						<label id="company_addr">기업 주소</label>
+						<div>${cominfo.company_addr }</div>
 					</div>
 				</div>			
 			</div>		
@@ -163,15 +163,15 @@
 			                        padding-left: 3em; padding-right: 3em;">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_hireNumber">채용할 인원 수</label>
-						<div></div>
+						<label id="company_size">기업 규모</label>
+						<div>${cominfo.company_size }</div>
 					</div>
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_turnover">매출액</label>
-						<div></div>
+						<label id="company_turnover">매출액</label>
+						<div>${cominfo.company_turnover }</div>
 					</div>
 				</div>			
 			</div>		
@@ -179,15 +179,15 @@
 			                        padding-left: 3em; padding-right: 3em;">
 				<div class="col-sm-6">
 					<div class="form-group">
-						<label id="com_line">산업군</label>
-						<div></div>
+						<label id="company_line">산업군</label>
+						<div>${cominfo.company_line }</div>
 					</div>
 				</div>
 				
 				<div class="col-sm-6">
 					<div class="form-group">
 						<label id="com_skill">요구하는 스킬</label>
-						<div></div>
+						<div>${cominfo.company_skill }</div>
 					</div>
 				</div>			
 			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
@@ -195,7 +195,7 @@
 				<div class="col-sm-12">
 					<div class="form-group">
 						<label id="com_intro">기업소개</label>
-						<div></div>
+						<div>${cominfo.company_intro }</div>
 					</div>
 				</div>		
 			</div>		
@@ -351,21 +351,21 @@
 			</div>
 		</div>
 		    	<div align="right">
-		<a class="btn btn-default pull-right" id="write" href="control.do?action=inputForm">글쓰기</a>
+		<a class="btn btn-default pull-right" id="write" href="${initParam.rootPath }/review/control.do?action=inputForm">글쓰기</a>
 		</div>
 		<div align="center">		    
 		<c:if test="${startPage<5 }">
 		이전
 		</c:if>
 		<c:if test="${startPage>5 }">
-		<a href="control.do?company_id=sdjsdj&page=${startPage-5 }">이전</a>
+		<a href="control.do?company_id=${cominfo.company_id }&page=${startPage-5 }">이전</a>
 		</c:if> 
 		<c:forEach begin="${startPage }" end="${endPage }" var="i">
-   	  		[<a href="control.do?company_id=sdjsdj&page=${i }">${i }</a>]
+   	  		[<a href="control.do?company_id=${cominfo.company_id }&page=${i }">${i }</a>]
 		</c:forEach>
 		<c:choose>
 		  <c:when test="${endPage<totalPage }">
-		    <a href="control.do?company_id=sdjsdj&page=${startPage+5 }">다음</a>
+		    <a href="control.do?company_id=${cominfo.company_id }&page=${startPage+5 }">다음</a>
 		  </c:when>
 		  <c:otherwise>다음</c:otherwise>
 		</c:choose>
@@ -403,10 +403,10 @@
 					</span>
 				</div>  
 			</div> -->
-			<div class="col-sm-2" style="margin-top: 1.5em">
+			<!-- <div class="col-sm-2" style="margin-top: 1.5em">
 				<a class="btn btn-info pull-right"
 					href="control.do?action=inputForm">글쓰기</a>
-			</div>
+			</div> -->
 		</div>
 
 	</div>

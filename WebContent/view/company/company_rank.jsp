@@ -55,7 +55,7 @@
 						<li class="list-group-item">
 						<label for="a_${total.rank}">
 							<font style="color: teal;font-size: large;">${total.rank}위</font>
-							<a href="" style="text-decoration: none; color: black;">${total.company_name }</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${total.company_id }" style="text-decoration: none; color: black;">${total.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>

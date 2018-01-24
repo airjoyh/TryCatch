@@ -12,6 +12,8 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import tc.company.dao.ComInfoDAO;
+import tc.company.dto.ComInfoDTO;
 import tc.review.dao.ReplyDAO;
 import tc.review.dao.ReviewDAO;
 import tc.review.dto.AvgScoreDTO;
@@ -33,7 +35,7 @@ public class ReviewAction extends Action {
 		if (action == null || action.equals("list")) {
 			System.out.println("action=null or list");
 			String pageStr = request.getParameter("page");
-
+			String company_id = request.getParameter("company_id");
 
 			if (pageStr == null) {// 페이지 정보가 없을 때
 				page = 1;
@@ -42,7 +44,7 @@ public class ReviewAction extends Action {
 			}
 
 			ReviewDAO dao = new ReviewDAO();
-			int totalRecord = dao.selectCount();// 총 조회된 수
+			int totalRecord = dao.selectCount(company_id);// 총 조회된 수
 			int totalPage = totalRecord / displayRecord;// 32/10 --> 3페이지
 			// 23 = 115/5
 			// 23 = 116/5
@@ -59,9 +61,16 @@ public class ReviewAction extends Action {
 			if (totalRecord % displayRecord > 0) {// 나머지가 있을 때
 				totalPage++;// 4페이지
 			}
-			String company_id = request.getParameter("company_id");
-
 			
+			
+			
+			//기업 정보 관련
+			ComInfoDAO cominfodao = new ComInfoDAO();
+			ComInfoDTO cominfodto = cominfodao.select(company_id);
+			request.setAttribute("cominfo", cominfodto);
+			System.err.println(cominfodto);
+			
+			//후기 게시판 관련
 			Map<String, Object>  listMap = dao.selectPage(company_id, page, displayRecord);
 			
 			request.setAttribute("list", listMap.get("list")); //listMap에 있는 키값 셋
@@ -142,7 +151,7 @@ public class ReviewAction extends Action {
 				page = Integer.parseInt(pageStr);
 			}
 
-			int totalRecord = dao.selectCount();// 총 조회된 수
+			int totalRecord = dao.selectCount(company_id);// 총 조회된 수
 			int totalPage = totalRecord / displayRecord;// 32/10 --> 3페이지
 			// 23 = 115/5
 			// 23 = 116/5
