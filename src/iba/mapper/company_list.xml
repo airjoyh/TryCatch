@@ -68,5 +68,9 @@
 			))
     	where rn between #start# and #end#
 	</select>
+	
+	<select id="selectCount" resultClass="int">
+		select count(*) from company_info 
+	</select>
   	
 </sqlMap>

@@ -19,7 +19,7 @@ public class RankAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println("RankListAction >>> excute()");
+		System.out.println("RankAction >>> excute()");
 		
 		ComRankDAO rankdao = new ComRankDAO();
 		request.setAttribute("total", rankdao.find_totalRank());

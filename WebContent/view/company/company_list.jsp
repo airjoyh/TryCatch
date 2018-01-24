@@ -25,6 +25,8 @@
 <%-- <link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet"> --%>
 <link href="../../css/com_companyInfo.css" rel="stylesheet">
 
+<%--C태그를 사용하기 위한 라이브러리 --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 </head>
 <body>
@@ -41,7 +43,7 @@
 	<section>
 	<!--***********************************************************
 	*                                                             *
-	*                           후기게시판-상현                                                    *
+	*                           기업게시판-상현                                                    *
 	*                                                             *
 	************************************************************-->
 	<div class="container" style="background-color: #ffffff;">
@@ -56,57 +58,47 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th style="width: 15%;">기업명</th>
-							<th style="width: 45%;">기업규모</th>
-							<th style="width: 10%;">매출액</th>
+							<th style="width: 10%;">순위</th>
+							<th style="width: 35%;">기업명</th>
+							<th style="width: 20%;">기업규모</th>
+							<th style="width: 20%;">매출액</th>
 							<th style="width: 20%;">산업군</th>
 							<th style="width: 10%;">후기</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>페이스북코리아</td>
-							<td>대기업</td>
-							<td>연매출액 40억???</td>
-							<td>IT/웹/통신</td>
-							<td><span class="badge">22</span></td>
-						</tr>
-						<tr>
-							<td>현대케피코(주)</td>
-							<td>중기업</td>
-							<td>연매출액 110억???</td>
-							<td>제조/화학</td>
-							<td><span class="badge">20</span></td>
-						</tr>
-						<tr>
-							<td>현대하이스코</td>
-							<td>대기업</td>
-							<td>연매출액 240억???</td>
-							<td>IT/웹/통신</td>
-							<td><span class="badge">5</span></td>
-						</tr>
+					<c:forEach items="${list }" var="avgScore">
+					<tr>
+						<td style="width: 10%;"><a href="">${avgScore.rank }</a></td>
+						<td style="width: 35%;"><a href="">${avgScore.company_name }</a></td>
+						<td style="width: 20%;"><a href="">${avgScore.company_size }</a></td>
+						<td style="width: 20%;"><a href="">${avgScore.company_turnover }</a></td>
+						<td style="width: 20%;"><a href="">${avgScore.company_line }</a></td>
+						<td><span class="badge">0</span></td>
+					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			<hr>
 			</div>
 		</div>
-		<div class="row"
-			style="padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-5">
-				<ul class="pagination">
-					<li><a href="#" aria-label="Previous"> <span
-							aria-hidden="true">&laquo;</span>
-					</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"> <span
-							aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</div>
+		<div align="center">		    
+		<c:if test="${startPage<5 }">
+		이전
+		</c:if>
+		<c:if test="${startPage>5 }">
+		<a href="listInfo.do?action=${action }&page=${startPage-5 }">이전</a>
+		</c:if> 
+		<c:forEach begin="${startPage }" end="${endPage }" var="i">
+   	  		[<a href="listInfo.do?action=${action }&page=${i }">${i }</a>]
+		</c:forEach>
+		<c:choose>
+		  <c:when test="${endPage<totalPage }">
+		    <a href="listInfo.do?action=${action }&page=${startPage+5 }">다음</a>
+		  </c:when>
+		  <c:otherwise>다음</c:otherwise>
+		</c:choose>
+		</div>
 			<form class="bs-example bs-example-form" role="form">
 					<div class="col-sm-5" style="margin-top: 1.5em">
 						<div class="input-group">
@@ -140,13 +132,10 @@
 					</span>
 				</div>  
 			</div> -->
-			<div class="col-sm-2" style="margin-top: 1.5em">
-				<a class="btn btn-info pull-right"
-					href="control.do?action=inputForm">글쓰기</a>
-			</div>
+			
 		</div>
 
-	</div>
+
 	
 	</section>
 

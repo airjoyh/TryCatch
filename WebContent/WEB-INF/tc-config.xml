@@ -230,7 +230,13 @@
 		<!-- 기업 순위 액션 -->
 		<action path="/com/rankInfo"
 				type="tc.company.actions.RankAction">
-			<forward name="rankList" path="/com/rank.do"></forward>
+			<forward name="rankList" path="/com/rank.do"/>
+		</action>
+		
+		<!-- 기업 리스트 액션 -->
+		<action path="/com/listInfo"
+				type="tc.company.actions.ListAction">
+			<forward name="list" path="/com/list.do"/>
 		</action>
 		
 	</action-mappings>

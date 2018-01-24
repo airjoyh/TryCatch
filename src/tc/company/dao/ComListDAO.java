@@ -137,5 +137,17 @@ public class ComListDAO {
 		
 		return list;
 	}
+	
+	public int selectCount() {
+		int count = 0;
+		try {
+			count = (Integer) sqlMap.queryForObject("company_list.selectCount");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count;
+
+	}
 
 }
