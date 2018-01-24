@@ -11,6 +11,9 @@ $(function(){
 	  	loadReplyList();
 	  	//replyWriterCheck(no);
 */	  	
+	
+		writerCheck();
+		loadReplyList();
 		/***************************************  
 		*                                      *
 		*               별점주기js                * 
@@ -165,6 +168,7 @@ $(function(){
   	//게시글 작성자 아이디와 로그인 아이디 일치 여부 체크
   	function writerCheck(){
   		var login_id='${login_id}';
+  		alert(login_id)
   		var writer_id = document.postForm.writer_id.value;
   		
   		var no = document.getElementById('no').innerHTML;
