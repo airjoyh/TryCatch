@@ -18,7 +18,13 @@ public class RankListAction extends Action{
 		System.out.println("RankListAction >>> excute()");
 		
 		ComListDAO dao = new ComListDAO();
-		request.setAttribute("totalRank", dao.findTotalRank());
+		request.setAttribute("total", dao.find_totalRank());
+		request.setAttribute("possibility", dao.find_possibilityRank());
+		request.setAttribute("welSal", dao.find_welSalRank());
+		request.setAttribute("balance", dao.find_balanceRank());
+		request.setAttribute("culture", dao.find_cultureRank());
+		request.setAttribute("manager", dao.find_managerRank());
+		
 		
 		return mapping.findForward("rankList");
 	}
