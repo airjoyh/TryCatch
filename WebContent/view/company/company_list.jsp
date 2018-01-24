@@ -17,6 +17,29 @@
 <script type="text/javascript" src=""></script>
 <!-- Custom jQuery -->
 <script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var action='${action }';
+		var msg = '';
+		var title = document.getElementById('title');
+		//alert(action);
+		if(action=='total'){
+			msg= '총 평점';
+			//alert(msg);
+		}else if(action=='possibility'){
+			msg='승진 기회 및 가능성';
+		}else if(action=='welSal'){
+			msg='복지 및 급여';
+		}else if(action=='balance'){
+			msg='업무와 삶의 균형';
+		}else if(action=='culture'){
+			msg='사내문화';
+		}else if(action=='manager'){
+			msg='경영진';
+		}
+		title.innerHTML='기업 '+msg+' 순위 게시판';
+	});
+</script>
 
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
@@ -49,7 +72,7 @@
 	<div class="container" style="background-color: #ffffff;">
 		<div class="row"
 			style="padding-top: 3em; padding-left: 4em; padding-right: 4em; padding-bottom: 2em;margin-bottom: 1em;">
-			<h3>기업후기게시판</h3>
+			<h3 id="title"></h3>
 			<hr>
 		</div>
 		<div class="row"
@@ -59,22 +82,22 @@
 					<thead>
 						<tr>
 							<th style="width: 10%;">순위</th>
-							<th style="width: 35%;">기업명</th>
+							<th style="width: 25%;">기업명</th>
 							<th style="width: 20%;">기업규모</th>
 							<th style="width: 20%;">매출액</th>
 							<th style="width: 20%;">산업군</th>
-							<th style="width: 10%;">후기</th>
+							<th style="width: 20%;">후기</th>
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list }" var="avgScore">
+					<c:forEach items="${list }" var="avgScore" varStatus="stat">
 					<tr>
 						<td style="width: 10%;"><a href="">${avgScore.rank }</a></td>
-						<td style="width: 35%;"><a href="">${avgScore.company_name }</a></td>
+						<td style="width: 25%;"><a href="">${avgScore.company_name }</a></td>
 						<td style="width: 20%;"><a href="">${avgScore.company_size }</a></td>
 						<td style="width: 20%;"><a href="">${avgScore.company_turnover }</a></td>
 						<td style="width: 20%;"><a href="">${avgScore.company_line }</a></td>
-						<td><span class="badge">0</span></td>
+						<td><span class="badge">${review_cnt.get(stat.index) }</span></td>
 					</tr>
 					</c:forEach>
 					</tbody>

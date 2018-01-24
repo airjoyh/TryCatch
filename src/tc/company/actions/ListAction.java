@@ -1,5 +1,7 @@
 package tc.company.actions;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -50,9 +52,12 @@ public class ListAction extends Action{
 		
 		if(action.equals("total")) {
 			System.out.println("action=total");
-			
 			request.setAttribute("action", "total");
-			request.setAttribute("list", dao.find_totalList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_totalList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -61,8 +66,13 @@ public class ListAction extends Action{
 			forward = mapping.findForward("list");
 			
 		}else if(action.equals("possibility")) {
+			System.out.println("action=possibility");
 			request.setAttribute("action", "possibility");
-			request.setAttribute("list", dao.find_possibilityList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_possibilityList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -71,8 +81,13 @@ public class ListAction extends Action{
 			forward = mapping.findForward("list");
 			
 		}else if(action.equals("welSal")) {
+			System.out.println("action=welSal");
 			request.setAttribute("action", "welSal");
-			request.setAttribute("list", dao.find_welSalList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_welSalList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -81,8 +96,13 @@ public class ListAction extends Action{
 			forward = mapping.findForward("list");
 			
 		}else if(action.equals("balance")) {
+			System.out.println("action=balance");
 			request.setAttribute("action", "balance");
-			request.setAttribute("list", dao.find_balanceList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_balanceList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -91,8 +111,13 @@ public class ListAction extends Action{
 			forward = mapping.findForward("list");
 			
 		}else if(action.equals("culture")) {
+			System.out.println("action=culture");
 			request.setAttribute("action", "culture");
-			request.setAttribute("list", dao.find_cultureList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_cultureList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
@@ -101,15 +126,19 @@ public class ListAction extends Action{
 			forward = mapping.findForward("list");
 			
 		}else if(action.equals("manager")) {
+			System.out.println("action=manager");
 			request.setAttribute("action", "manager");
-			request.setAttribute("list", dao.find_managerList(page, displayRecord));
+			
+			Map<String, Object>  listMap = dao.find_managerList(page, displayRecord);
+			System.out.println(listMap.get("review_cnt_list"));
+			request.setAttribute("list", listMap.get("list"));
+			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	
 			request.setAttribute("totalPage", totalPage);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
 			
 			forward = mapping.findForward("list");
-			
 		}
 		
 		return forward;
