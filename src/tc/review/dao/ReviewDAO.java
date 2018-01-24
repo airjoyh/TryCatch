@@ -99,10 +99,15 @@ public class ReviewDAO {
 	}
 
 	public double selectAvgAll(String company_id) {
-		double avg_all = 0;
+		double avg_all = 0.0;
 
 		try {
-			avg_all = (double) sqlMap.queryForObject("review.selectAvgAll", company_id);
+
+			//System.out.println("sqlMap="+sqlMap+", company_id="+company_id);
+			Object ob = sqlMap.queryForObject("review.selectAvgAll", company_id);
+			//System.out.println("ob="+ob);
+			if(ob!=null)//null로 출력되지 않으면 --> 만약 null로 출력되면 디폴트 값인 0.0이 나온다.
+			   avg_all = (double)ob; //sqlMap.queryForObject("review.selectAvgAll", company_id);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

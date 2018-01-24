@@ -63,8 +63,11 @@
   </delete>
   
   <select id="selectAvg" parameterClass="String" resultClass="avgScore">
-  	select round(avg(review_possibility),1) avg_possibility, round(avg(review_welSal),1) avg_welSal,
-  		   round(avg(review_balance),1) avg_balance,round(avg(review_culture),1) avg_culture,round(avg(review_manager),1) avg_manager
+  	select nvl(round(avg(review_possibility),1),0.0) avg_possibility, 
+  	       nvl(round(avg(review_welSal),1),0.0) avg_welSal,
+  		   nvl(round(avg(review_balance),1),0.0) avg_balance,
+  		   nvl(round(avg(review_culture),1),0.0) avg_culture,
+  		   nvl(round(avg(review_manager),1),0.0) avg_manager
 	from review
 	where company_id=#company_id#
   </select>

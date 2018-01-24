@@ -162,7 +162,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 			//f.submit();//<form>태그내의 action속성의 URL로 폼데이터를 전송!!
 			//중복확인 체크
 			var idCheck = document.getElementById('idCheck').innerHTML;
-			  alert(idCheck);
+			  //alert(idCheck);
 			if (idCheck.indexOf('사용가능한 아이디입니다.') >= 0) {
 				f.submit(); 
 

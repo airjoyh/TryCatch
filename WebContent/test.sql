@@ -64,6 +64,8 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	from review natural join company_info group by company_id,company_name)
 	where rank<6;
 	
+	-----------------------------------------------------------------------
+	select * from user_constraints where table_name='review';
 	
 	
   	    

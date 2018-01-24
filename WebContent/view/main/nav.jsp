@@ -17,7 +17,7 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav" >
-					<li><a href="#" style="color: #ffffff">기업</a></li>
+					<li><a href="${initParam.rootPath }/com/info.do" style="color: #ffffff">기업</a></li>
 					<li><a href="#" style="color: #ffffff">콘테스트</a></li>
 					<!-- 수정 요망 company_id-->
 					<li><a href="${initParam.rootPath }/review/control.do?company_id=sdjsdj" style="color: #ffffff">후기</a></li>
