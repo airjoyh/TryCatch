@@ -3,48 +3,6 @@
        "http://www.ibatis.com/dtd/sql-map-2.dtd" >
 <!-- review.xml(sql문을 저장) -->       
 <sqlMap namespace="company_list">
-	<select id="find_totalRank" resultClass="avgScore"><![CDATA[
-		select company_id,company_name,avg_all,rank 
-		from (select company_id,company_name,nvl(round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1),0.0) avg_all,
-		RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-	]]></select>
 	
-	<select id="find_possibilityRank" resultClass="avgScore"><![CDATA[
-		select company_id,company_name,avg_possibility,rank 
-		from (select company_id,company_name,nvl(round(avg(review_possibility),1),0.0) avg_possibility,
-		RANK() OVER(order by avg(review_possibility) desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-	]]></select>
-  
-  	<select id="find_welSalRank" resultClass="avgScore"><![CDATA[
-  		select company_id,company_name,avg_welSal,rank 
-		from (select company_id,company_name,nvl(round(avg(review_welSal),1),0.0) avg_welSal,RANK() OVER(order by avg(review_welSal) desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-  	]]></select>
-  	
-  	<select id="find_balanceRank" resultClass="avgScore"><![CDATA[
-  		select company_id,company_name,avg_balance,rank 
-		from (select company_id,company_name,nvl(round(avg(review_balance),1),0.0) avg_balance,RANK() OVER(order by avg(review_balance) desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-  	]]></select>
-  	
-  	<select id="find_cultureRank" resultClass="avgScore"><![CDATA[
-  		select company_id,company_name,avg_culture,rank 
-		from (select company_id,company_name,nvl(round(avg(review_culture),1),0.0) avg_culture,RANK() OVER(order by avg(review_culture) desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-  	]]></select>
-  	
-  	<select id="find_managerRank" resultClass="avgScore"><![CDATA[
-  		select company_id,company_name,avg_manager,rank 
-		from (select company_id,company_name,nvl(round(avg(review_manager),1),0.0) avg_manager,RANK() OVER(order by avg(review_manager) desc) as rank 
-		from review natural join company_info group by company_id,company_name)
-		where rank<6
-  	]]></select>
   	
 </sqlMap>

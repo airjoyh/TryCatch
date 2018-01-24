@@ -68,7 +68,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 			
@@ -92,7 +92,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 			
@@ -116,7 +116,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 			
@@ -168,7 +168,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 			
@@ -192,7 +192,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
+					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg">전체보기</button></li>
 				</ul>
 			</div>
 		</div>

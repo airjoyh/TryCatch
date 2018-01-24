@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import tc.company.dao.ComListDAO;
+import tc.company.dao.ComRankDAO;
 import tc.review.dto.AvgScoreDTO;
 
 public class RankListAction extends Action{
@@ -20,18 +21,18 @@ public class RankListAction extends Action{
 			HttpServletResponse response) throws Exception {
 		System.out.println("RankListAction >>> excute()");
 		
-		ComListDAO dao = new ComListDAO();
-		request.setAttribute("total", dao.find_totalRank());
-		request.setAttribute("possibility", dao.find_possibilityRank());
+		ComRankDAO rankdao = new ComRankDAO();
+		request.setAttribute("total", rankdao.find_totalRank());
+		request.setAttribute("possibility", rankdao.find_possibilityRank());
 		/*List<AvgScoreDTO> list_possi = dao.find_possibilityRank();
 		for(int i=0; i<list_possi.size(); i++) {
 			System.out.println(list_possi.get(i).getRank());
 		}*/
 		
-		request.setAttribute("welSal", dao.find_welSalRank());
-		request.setAttribute("balance", dao.find_balanceRank());
-		request.setAttribute("culture", dao.find_cultureRank());
-		request.setAttribute("manager", dao.find_managerRank());
+		request.setAttribute("welSal", rankdao.find_welSalRank());
+		request.setAttribute("balance", rankdao.find_balanceRank());
+		request.setAttribute("culture", rankdao.find_cultureRank());
+		request.setAttribute("manager", rankdao.find_managerRank());
 		
 		
 		return mapping.findForward("rankList");

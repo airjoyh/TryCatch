@@ -65,7 +65,20 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	where rank<6;
 	
 	-----------------------------------------------------------------------
-	select * from user_constraints where table_name='review';
+	select review_no,review_title,review_writer,review_wdate,review_count,company_id
+  	from (select review_no,review_title,review_writer,review_wdate,review_count,company_id,rownum rn
+  		from(select review_no,review_title,review_writer,review_wdate,review_count,company_id 
+  		  from review where company_id=#company_id#
+  		  order by review_no desc)) 
+  	where rn between #start# and #end#
+	
+	select company_name,company_size,company_turnover,company_line
+	from (select company_name,company_size,company_turnover,company_line,rownum rn
+		from(select company_name,company_size,company_turnover,company_line
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			order by avg(review_welSal) desc))
+    where rn between #start# and #end#;
 	
 	
   	    

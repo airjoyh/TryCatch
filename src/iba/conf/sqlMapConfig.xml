@@ -35,5 +35,5 @@
   <sqlMap resource="./iba/mapper/review.xml"/> 
   <sqlMap resource="./iba/mapper/comInfo.xml"/> 
   <sqlMap resource="./iba/mapper/review_reply.xml"/> 
-  <sqlMap resource="./iba/mapper/company_list.xml"/> 
+  <sqlMap resource="./iba/mapper/company_rank.xml"/> 
 </sqlMapConfig>
