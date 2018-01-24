@@ -21,9 +21,6 @@
 <script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 
-<!-- Custom jQuery -->
-
-
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 <link href="${initParam.rootPath }/css/trycatch.css" rel="stylesheet">
