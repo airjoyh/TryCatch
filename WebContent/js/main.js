@@ -21,6 +21,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		});
 	  }
 	}//initForm
+
 	
 	function logout(){
 		location.href="logout.do";
@@ -179,4 +180,51 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 			}
 		}
 
+	} //validateCheck
+	function upValidateCheck() {//자바 스크립트 유효성 검사
+		//빈값체크, 숫자체크, 문자열 조합
+		var f = document.joinUpForm; //f: <from>엘리먼트
+		var pass = f.up_pass.value;
+		var pass2 = f.up_pass2.value;
+		
+		var up_phoneExp = /(01[0|1|6|9|7])[-](\d{3}|\d{4})[-](\d{4}$)/g;
+		//패턴 안에서는 역슬래쉬 하나!!!!!!!
+		
+		var up_addr = f.up_addr.value;
+		var up_emailExp = /^[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+		var up_prio = f.up_prio.value;
+		
+		if (f.up_pass.value == '') {
+			alert('비밀번호를 입력하세요!');
+			f.up_pass.focus();
+		} else if (f.up_pass2.value == '') {
+			alert('비밀번호 확인을 입력하세요!');
+			f.up_pass2.focus();
+		} else if (f.up_pass.value !== f.up_pass2.value) {
+			alert('비밀번호가 일치하지 않습니다.');
+			f.up_pass.value = '';
+			f.up_pass2.value = '';
+			f.up_pass.focus();
+		} else if (f.up_name.value == '') {
+			alert('이름을 입력하세요.');
+			f.up_name.focus();
+		} else if (!(up_phoneExp.test(f.up_phone.value))) {
+			alert('핸드폰 번호를 올바르게 입력하세요.');
+			f.up_phone.value = '';
+			f.up_phone.focus();
+		} else if (!up_emailExp.test(f.up_email.value)) {
+			alert('잘못된 이메일 형식입니다.');
+			f.up_email.value = '';
+			f.up_email.focus();
+		} else if (f.up_addr.value == '') {
+			alert('주소를 입력하세요.');
+			f.up_addr.focus();
+			
+		} else if (f.up_prio.value == '원하는 기업조건을 선택하세요') {
+			alert('원하는 기업조건을 선택하세요');
+			f.up_prio.focus();
+		} else {
+			f.submit();
+		}
+		
 	} //validateCheck

@@ -25,14 +25,27 @@
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 <link href="${initParam.rootPath }/css/trycatch.css" rel="stylesheet">
 
-<style type="text/css">
-#modalpadding {
-	padding-top: 30px;
-	padding-left: 40px;
-	padding-right: 40px;
-	padding-bottom: 30px;
-}
-</style>
+<script type="text/javascript">
+$(function(){
+    $('#joinUpM').click(function(){
+    	alert('${upinfo.user_id}');
+   
+    	$('#up_id').val('${upinfo.user_id}');
+    	$('#up_pass').val('${upinfo.user_pass}');
+    	$('#up_name').val('${upinfo.user_name}');
+    	$('#up_email').val('${upinfo.user_email}');
+    	$('#up_phone').val('${upinfo.user_phone}');
+    	$('#up_addr').val('${upinfo.user_addr}');
+    	$('#up_prio').val('${upinfo.user_prio}');
+       
+    });
+    
+    $('').click(function(){
+    	
+    });
+    
+ });
+</script>
 </head>
 <body style="background-color: #f4f4f4;">
 <%@include file="nav.jsp" %>

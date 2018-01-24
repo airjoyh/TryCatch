@@ -32,12 +32,44 @@
 	padding-bottom: 30px;
 }
 </style>
+<script type="text/javascript">
+<script>
+$(function(){
+  // Add scrollspy to <body>
+  $('body').scrollspy({target: ".navbar", offset: 50});   
+
+  // Add smooth scrolling on all links inside the navbar
+  $("#myNavbar a").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 1000, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    }  // End if
+  });
+});
+</script>
+</script>
 
 </head>
-<body>
+<body data-spy="scroll" data-target=".indicator" data-offset="50">
 <!-- com-nav -->
 <%@include file="com_nav.jsp" %>
-
+<div class="indicator" id="indicator">
+<span class="icon-bar"></span>
+</div>
 <div class="container-fluid" style="z-index: -2;position: fixed; width:100%; margin: auto;">
 	<img alt="기업배경" src="${initParam.rootPath }/image/building/building_9.jpg" style="width: 100%; height: auto;">
 </div>

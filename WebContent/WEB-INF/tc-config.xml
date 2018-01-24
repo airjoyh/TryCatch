@@ -101,6 +101,12 @@
 			<forward name="insert" path="/user/main.do" redirect="true"/>		
 		</action>
 		
+		<!-- 유저업데이트 액션 -->
+		<action path="/user/update"
+		        type="tc.user.actions.UpdateAction">
+		 	<forward name="update" path="/user/main.do" redirect="true"></forward>       
+		</action>
+		
 		<!-- 유저 id중복확인 ajax -->
 		<action path="/user/idCheckResponse"
 				forward="/view/user/idCheckResponse.jsp"/>

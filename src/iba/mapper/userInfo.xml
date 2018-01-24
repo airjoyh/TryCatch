@@ -20,4 +20,15 @@
    <select id="selectId" parameterClass="String" resultClass="int">
    		select count(*) from user_info where user_id=#user_id#
    </select>
+   
+    <select id="selectUp" resultClass="userInfo" parameterClass="String">
+      select user_id,user_pass,user_name,user_email,user_phone,user_addr,user_prio from user_info
+      where user_id=#user_id#  
+   </select>
+   
+   <update id="update" parameterClass="userInfo">
+    update user_info set user_pass=#user_pass#,user_name=#user_name#,
+    user_email=#user_email#,user_phone=#user_phone#,user_addr=#user_addr#,user_prio=#user_prio#
+   </update>
+   
 </sqlMap>

@@ -37,6 +37,9 @@ public class LoginAction extends Action {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginState", "login");// 세션을 login상태로 만들어준다.
 			session.setAttribute("login_id", login_id); //로그인한 아이디를 세션으로 유지
+			UserInfoDTO dto = userinfodao.selectUp(login_id);
+			System.out.println("["+dto.getUser_prio()+"]");
+			session.setAttribute("upinfo", dto);
 			
 			request.setAttribute("login", "success");// loginCheckResponse.jsp에서 받을 데이터, ajax
 

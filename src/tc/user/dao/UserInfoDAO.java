@@ -48,12 +48,12 @@ public class UserInfoDAO {
 
 	public boolean selectLogin(String login_id, String login_pass) {
 		try {
-			
+
 			Map<String, String> map = new HashMap<>();
 			map.put("login_id", login_id);
 			map.put("login_pass", login_pass);
-			
-			int count = (int) sqlMap.queryForObject("userInfo.selectLogin",map);
+
+			int count = (int) sqlMap.queryForObject("userInfo.selectLogin", map);
 			if (count > 0) {
 				return true;
 			}
@@ -64,10 +64,10 @@ public class UserInfoDAO {
 		return false;
 
 	}
-	
+
 	public boolean selectId(String user_id) {
 		try {
-			int count = (int) sqlMap.queryForObject("userInfo.selectId",user_id);
+			int count = (int) sqlMap.queryForObject("userInfo.selectId", user_id);
 			if (count > 0) {
 				return true;
 			}
@@ -75,8 +75,29 @@ public class UserInfoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;		
-		
+		return false;
+
+	}
+
+	public boolean update(UserInfoDTO userinfo) {
+		try {
+			int t = sqlMap.update("userInfo.update", userinfo);
+			if (t == 1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	public UserInfoDTO selectUp(String user_id) {
+		UserInfoDTO userinfo = null;
+		try {
+			userinfo = (UserInfoDTO) sqlMap.queryForObject("userInfo.selectUp", user_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return userinfo;
 	}
 
 }
