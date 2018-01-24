@@ -335,52 +335,41 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>뭔가 잘못됐어</td>
-							<td>Anna</td>
-							<td>2018.01.21</td>
-							<td>44</td>
-							<td><span class="badge">2</span></td>
-						</tr>
-						<tr >
-							<td>2</td>
-							<td>할게너무많아</td>
-							<td>Debbie</td>
-							<td>2018.01.21</td>
-							<td>33</td>
-							<td><span class="badge">0</span></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>미쳐돌아버린다 리얼</td>
-							<td>John</td>
-							<td>2018.01.21</td>
-							<td>33</td>
-							<td><span class="badge">0</span></td>
-						</tr>
+					<c:forEach items="${list }" var="review" varStatus="stat">
+					<tr>
+						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_no }</a></td>
+						<td style="width: 50%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_title }</a></td>
+						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_writer }</a></td>
+						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_wdate }</a></td>
+						<td id="count" style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_count }</a></td>
+						<td><span class="badge">${reply_cnt.get(stat.index) }</span></td>
+					</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			<hr>
 			</div>
 		</div>
-		<div class="row"
-			style="padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-5">
-				<ul class="pagination">
-					<li><a href="#" aria-label="Previous"> <span
-							aria-hidden="true">&laquo;</span>
-					</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#" aria-label="Next"> <span
-							aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</div>
+		    	<div align="right">
+		<a class="btn btn-default pull-right" id="write" href="control.do?action=inputForm">글쓰기</a>
+		</div>
+		<div align="center">		    
+		<c:if test="${startPage<5 }">
+		이전
+		</c:if>
+		<c:if test="${startPage>5 }">
+		<a href="control.do?company_id=sdjsdj&page=${startPage-5 }">이전</a>
+		</c:if> 
+		<c:forEach begin="${startPage }" end="${endPage }" var="i">
+   	  		[<a href="control.do?company_id=sdjsdj&page=${i }">${i }</a>]
+		</c:forEach>
+		<c:choose>
+		  <c:when test="${endPage<totalPage }">
+		    <a href="control.do?company_id=sdjsdj&page=${startPage+5 }">다음</a>
+		  </c:when>
+		  <c:otherwise>다음</c:otherwise>
+		</c:choose>
+		</div>
 			<form class="bs-example bs-example-form" role="form">
 					<div class="col-sm-5" style="margin-top: 1.5em">
 						<div class="input-group">
