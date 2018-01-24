@@ -138,7 +138,7 @@
 		</div>
 		<hr>
 		<div class="row" >
-		<div class="col-sm-12" style="padding-top:3em;padding-bottom: 3em;">
+		<div class="col-sm-12" style="padding-top:2em;padding-bottom: 3em;">
 			<div class="col-sm-6" style="padding-top: 1.2em;">
 			  <img alt="상세페이지" src="${initParam.rootPath }/image/monitor/dark_pc.jpg" width="100%">
 			</div>
@@ -160,7 +160,7 @@
 		</div>
 		</div>
 		<hr>
-		<div class="row" style="padding-top:3em;padding-bottom: 3em;">
+		<div class="row" style="padding-top:2em;padding-bottom: 3em;">
 		<div class="col-sm-12">
 			<div class="col-sm-5">
 			 <h2 style="font-weight: 600; color: gray;line-height: 130%;">

@@ -5,7 +5,7 @@
 	*                             footer                          *
 	*                                                             *
 	************************************************************-->
-	<footer class="footer text-center" style="margin-top: 2em;">
+	<footer class="footer text-center">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
