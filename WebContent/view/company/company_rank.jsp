@@ -55,7 +55,7 @@
 						<li class="list-group-item">
 						<label for="a_${total.rank}">
 							<font style="color: teal;font-size: large;">${total.rank}위</font>
-							<font class="companyName_a">${total.company_name }</font>
+							<a href="" style="text-decoration: none; color: black;">${total.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
@@ -78,7 +78,7 @@
 						<li class="list-group-item">
 						<label for="b_${possibility.rank}">
 							<font style="color: teal;font-size: large;">${possibility.rank}위</font>
-							<font class="companyName_b">${possibility.company_name}</font>
+							<a href="" style="text-decoration: none; color: black;">${possibility.company_name}</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge b${possibility.rank}" style="background-color: teal;"><b>${possibility.avg_possibility }</b>/5점</span>
@@ -101,7 +101,7 @@
 						<li class="list-group-item">
 						<label for="c_${welSal.rank }">
 							<font style="color: teal;font-size: large;">${welSal.rank}위</font>
-							<font class="companyName_c">${welSal.company_name }</font>
+							<a href="" style="text-decoration: none; color: black;">${welSal.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge c${welSal.rank}" style="background-color: teal;"><b>${welSal.avg_welSal }</b>/5점</span>
@@ -128,7 +128,7 @@
 						<li class="list-group-item">
 						<label for="d_${balance.rank}">
 							<font style="color: teal;font-size: large;">${balance.rank}위</font>
-							<font class="companyName_d">${balance.company_name}</font>
+							<a href="" style="text-decoration: none; color: black;">${balance.company_name}</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge d${balance.rank}" style="background-color: teal;"><b>${balance.avg_balance}</b>/5점</span>
@@ -151,7 +151,7 @@
 						<li class="list-group-item">
 						<label for="e_${culture.rank }">
 							<font style="color: teal;font-size: large;">${culture.rank }위</font>
-							<font class="companyName_e">${culture.company_name }</font>
+							<a href="" style="text-decoration: none; color: black;">${culture.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge e${culture.rank }" style="background-color: teal;"><b>${culture.avg_culture }</b>/5점</span>
@@ -174,7 +174,7 @@
 						<li class="list-group-item">
 						<label for="f_${manager.rank }">
 							<font style="color: teal;font-size: large;">${manager.rank }위</font>
-							<font class="companyName_f">${manager.company_name }</font>
+							<a href="" style="text-decoration: none; color: black;">${manager.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge f${manager.rank }" style="background-color: teal;"><b>${manager.avg_manager }</b>/5점</span>
