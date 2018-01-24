@@ -59,39 +59,39 @@
 	  	 	<br><br>
 	  	 	<form id="postForm" name="postForm" method="POST">
 	  	 		<div id="board" align="center">
-	  	 			<table id="tdetail" border="3" bordercolor="lightgray" >
+	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width: 500px; column-span: 1;">
 	  	 				<tr>
 	  	 					<td style="text-align: center;">글번호</td>
 	  	 					<!-- 컨트롤러에서 받아온 ArrayList detailAll에서 정보를 뽑는다. -->
-	  	 					<td id="no">${review.review_no }</td>
+	  	 					<td id="no" style="text-align: center;">${review.review_no }</td>
 	  	 				</tr>
 	  	 				<tr>
 	  	 					<td style="text-align: center;">제목</td>
-	  	 					<td id="title">${review.review_title }</td>
+	  	 					<td id="title" style="text-align: center;">${review.review_title }</td>
 	  	 				</tr>
 				        <tr>
 				            <td style="text-align: center;">글쓴이</td>
-				            <td>${review.review_writer }</td>
+				            <td style="text-align: center;">${review.review_writer }</td>
 				        </tr>
 				        <tr>
 				            <td style="text-align: center;">조회</td>
-				            <td>${review.review_count }</td>
+				            <td style="text-align: center;">${review.review_count }</td>
 				        </tr>
 				        <tr>
 				            <td style="text-align: center;">작성일시</td>
-				            <td>${review.review_wdate }</td>
+				            <td style="text-align: center;">${review.review_wdate }</td>
 				        </tr>
 				        <tr>
 				        	<td style="text-align: center;">기업 장점</td>
-            				<td>${review.review_strong }</td>		        	
+            				<td style="text-align: center;">${review.review_strong }</td>		        	
 				        </tr>	  	 				
 				        <tr>
 				        	<td style="text-align: center;">기업 단점</td>
-            				<td>${review.review_weak }</td>		        	
+            				<td style="text-align: center;">${review.review_weak }</td>		        	
 				        </tr>	  	 				
 				        <tr>
 				        	<td style="text-align: center;">경영진에 바라는점</td>
-            				<td>${review.review_toCEO }</td>		        	
+            				<td style="text-align: center;">${review.review_toCEO }</td>		        	
 				        </tr>
 				        <tr>
 				        	<td style="text-align: center;">별점</td>
