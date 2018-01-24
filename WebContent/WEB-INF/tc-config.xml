@@ -228,7 +228,7 @@
 				forward="/view/company/company_list.jsp"/>
 				
 		<!-- 기업 순위 액션 -->
-		<action path="/com/info"
+		<action path="/com/rankInfo"
 				type="tc.company.actions.RankListAction">
 			<forward name="rankList" path="/com/rank.do"></forward>
 		</action>

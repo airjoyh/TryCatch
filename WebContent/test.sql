@@ -65,19 +65,63 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	where rank<6;
 	
 	-----------------------------------------------------------------------
-	select review_no,review_title,review_writer,review_wdate,review_count,company_id
-  	from (select review_no,review_title,review_writer,review_wdate,review_count,company_id,rownum rn
-  		from(select review_no,review_title,review_writer,review_wdate,review_count,company_id 
-  		  from review where company_id=#company_id#
-  		  order by review_no desc)) 
-  	where rn between #start# and #end#
 	
-	select company_name,company_size,company_turnover,company_line
-	from (select company_name,company_size,company_turnover,company_line,rownum rn
-		from(select company_name,company_size,company_turnover,company_line
+	select company_name,company_size,company_turnover,company_line,rank,avg_all
+	from (select company_name,company_size,company_turnover,company_line,avg_all,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all,
+					RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
 			from company_info natural join review 
 			group by company_name,company_size,company_turnover,company_line
-			order by avg(review_welSal) desc))
+			))
+    where rn between #start# and #end#;
+	
+	
+	select company_name,company_size,company_turnover,company_line,rank,avg_possibility
+	from (select company_name,company_size,company_turnover,company_line,avg_possibility,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round(avg(review_possibility),1) avg_possibility,
+					RANK() OVER(order by avg(review_possibility) desc) as rank 
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			))
+    where rn between #start# and #end#;
+	
+    
+	select company_name,company_size,company_turnover,company_line,rank,avg_welSal
+	from (select company_name,company_size,company_turnover,company_line,avg_welSal,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round(avg(review_welSal),1) avg_welSal,
+					RANK() OVER(order by avg(review_welSal) desc) as rank 
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			))
+    where rn between #start# and #end#;
+    
+    
+    select company_name,company_size,company_turnover,company_line,rank,avg_balance
+	from (select company_name,company_size,company_turnover,company_line,avg_balance,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round(avg(review_balance),1) avg_balance,
+					RANK() OVER(order by avg(review_balance) desc) as rank 
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			))
+    where rn between #start# and #end#;
+    
+    
+    select company_name,company_size,company_turnover,company_line,rank,avg_culture
+	from (select company_name,company_size,company_turnover,company_line,avg_culture,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round(avg(review_culture),1) avg_culture,
+					RANK() OVER(order by avg(review_culture) desc) as rank 
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			))
+    where rn between #start# and #end#;
+    
+    select company_name,company_size,company_turnover,company_line,rank,avg_manager
+	from (select company_name,company_size,company_turnover,company_line,avg_manager,rank,rownum rn
+		from(select company_name,company_size,company_turnover,company_line,round(avg(review_manager),1) avg_manager,
+					RANK() OVER(order by avg(review_manager) desc) as rank 
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line
+			))
     where rn between #start# and #end#;
 	
 	

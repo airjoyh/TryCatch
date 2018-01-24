@@ -3,6 +3,9 @@ package tc.review.dto;
 public class AvgScoreDTO {
 	private String company_id;
 	private String company_name;
+	private String company_size;
+	private String company_turnover;
+	private String company_line;
 	private int rank;
 	private double avg_possibility;
 	private double avg_welSal;
@@ -15,11 +18,15 @@ public class AvgScoreDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AvgScoreDTO(String company_id, String company_name, int rank, double avg_possibility, double avg_welSal,
-			double avg_balance, double avg_culture, double avg_manager, double avg_all) {
+	public AvgScoreDTO(String company_id, String company_name, String company_size, String company_turnover,
+			String company_line, int rank, double avg_possibility, double avg_welSal, double avg_balance,
+			double avg_culture, double avg_manager, double avg_all) {
 		super();
 		this.company_id = company_id;
 		this.company_name = company_name;
+		this.company_size = company_size;
+		this.company_turnover = company_turnover;
+		this.company_line = company_line;
 		this.rank = rank;
 		this.avg_possibility = avg_possibility;
 		this.avg_welSal = avg_welSal;
@@ -43,6 +50,30 @@ public class AvgScoreDTO {
 
 	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
+	}
+
+	public String getCompany_size() {
+		return company_size;
+	}
+
+	public void setCompany_size(String company_size) {
+		this.company_size = company_size;
+	}
+
+	public String getCompany_turnover() {
+		return company_turnover;
+	}
+
+	public void setCompany_turnover(String company_turnover) {
+		this.company_turnover = company_turnover;
+	}
+
+	public String getCompany_line() {
+		return company_line;
+	}
+
+	public void setCompany_line(String company_line) {
+		this.company_line = company_line;
 	}
 
 	public int getRank() {
@@ -103,9 +134,11 @@ public class AvgScoreDTO {
 
 	@Override
 	public String toString() {
-		return "AvgScoreDTO [company_id=" + company_id + ", company_name=" + company_name + ", rank=" + rank
-				+ ", avg_possibility=" + avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance=" + avg_balance
-				+ ", avg_culture=" + avg_culture + ", avg_manager=" + avg_manager + ", avg_all=" + avg_all + "]";
+		return "AvgScoreDTO [company_id=" + company_id + ", company_name=" + company_name + ", company_size="
+				+ company_size + ", company_turnover=" + company_turnover + ", company_line=" + company_line + ", rank="
+				+ rank + ", avg_possibility=" + avg_possibility + ", avg_welSal=" + avg_welSal + ", avg_balance="
+				+ avg_balance + ", avg_culture=" + avg_culture + ", avg_manager=" + avg_manager + ", avg_all=" + avg_all
+				+ "]";
 	}
 
 }
