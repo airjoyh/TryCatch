@@ -120,7 +120,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		} else if (!company_turnoverExp.test(f.company_turnover.value)) {
 			alert("매출액을 입력하세요.");
 			f.company_turnover.focus();
-		} else if (!company_sizeExp.test(f.company_size.value)) {
+		} else if ( $("select[name=company_size]").val()=='==선택==') {
 			alert("기업 규모를 입력하세요.");
 			f.company_size.focus();
 		} else if (!company_numberExp.test(f.company_number.value)) {

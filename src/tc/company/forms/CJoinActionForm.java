@@ -239,7 +239,7 @@ public class CJoinActionForm extends ActionForm {
 			
 			errs.add("noJoin", new ActionMessage("join", "요구하는 스킬을 선택하시오."));
 
-		} else if (company_size.equals("")|| !company_size.matches("^[0-9]{1,7}$")) {
+		} else if (company_size.equals("==선택==")) {
 			errs.add("noJoin", new ActionMessage("join", "기업 규모를 입력하시오."));
 
 		} else if (company_turnover.equals("")|| !company_turnover.matches("^[0-9]{1,14}$")) {

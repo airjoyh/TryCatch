@@ -222,7 +222,7 @@
 						  <div class="input-group">
 						     <span class="input-group-addon">Scale</span>
 						     <select class="form-control" id="company_size" name="company_size">
-						        <option>==선택==</option>
+						        <option value="==선택==">==선택==</option>
 						        <option value="large">대기업 (1000명 이상)</option>
 						        <option value="middle">중견기업 (500명 이상)</option>
 						        <option value="small">중소기업 (50명 이상)</option>
@@ -283,7 +283,7 @@
                        <br>
                        <div class="row">
 					    <div class="col-md-9 form-group">
-					    <label for="company_size">기업 산업군</label>		
+					    <label for="company_line">기업 산업군</label>		
 						  <div class="input-group">
 							<span class="input-group-addon">
 							<i class="glyphicon glyphicon-collapse-down"></i></span>
@@ -323,12 +323,12 @@
 							<p>다중 선택 가능 합니다.</p>
 							
 							<div class="form-control">
-                            <input type="checkbox" id="company_skill" value="skill_java" name="skill_java"><label class="light" for="java">Java</label>
-                            <input type="checkbox" id="company_skill" value="skill_jquery" name="skill_jquery"><label class="light" for="jquery">jQuery</label>
-                            <input type="checkbox" id="company_skill" value="skill_python" name="skill_python"><label class="light" for="python">Python</label>
-                            <input type="checkbox" id="company_skill" value="skill_xml" name="skill_xml"><label class="light" for="xml">XML</label>
-                            <input type="checkbox" id="company_skill" value="skill_css" name="skill_css"><label class="light" for="css">CSS</label>
-                            <input type="checkbox" id="company_skill" value="skill_pro" name="skill_pro"><label class="light" for="pro">Programming</label>
+                            <input type="checkbox" id="skill_java" value="skill_java" name="skill_java"><label class="light" for="java">Java</label>
+                            <input type="checkbox" id="skill_jquery" value="skill_jquery" name="skill_jquery"><label class="light" for="jquery">jQuery</label>
+                            <input type="checkbox" id="skill_python" value="skill_python" name="skill_python"><label class="light" for="python">Python</label>
+                            <input type="checkbox" id="skill_xml" value="skill_xml" name="skill_xml"><label class="light" for="xml">XML</label>
+                            <input type="checkbox" id="skill_css" value="skill_css" name="skill_css"><label class="light" for="css">CSS</label>
+                            <input type="checkbox" id="skill_pro" value="skill_pro" name="skill_pro"><label class="light" for="pro">Programming</label>
                             </div>
                          </div>
                          </div>	
