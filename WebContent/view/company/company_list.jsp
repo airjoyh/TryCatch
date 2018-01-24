@@ -92,11 +92,11 @@
 					<tbody>
 					<c:forEach items="${list }" var="avgScore" varStatus="stat">
 					<tr>
-						<td style="width: 10%;"><a href="">${avgScore.rank }</a></td>
-						<td style="width: 25%;"><a href="">${avgScore.company_name }</a></td>
-						<td style="width: 20%;"><a href="">${avgScore.company_size }</a></td>
-						<td style="width: 20%;"><a href="">${avgScore.company_turnover }</a></td>
-						<td style="width: 20%;"><a href="">${avgScore.company_line }</a></td>
+						<td style="width: 10%;"><a href="${initParam.rootPath }/review/control.do?company_id=${avgScore.company_id }">${avgScore.rank }</a></td>
+						<td style="width: 25%;"><a href="${initParam.rootPath }/review/control.do?company_id=${avgScore.company_id }">${avgScore.company_name }</a></td>
+						<td style="width: 20%;"><a href="${initParam.rootPath }/review/control.do?company_id=${avgScore.company_id }">${avgScore.company_size }</a></td>
+						<td style="width: 20%;"><a href="${initParam.rootPath }/review/control.do?company_id=${avgScore.company_id }">${avgScore.company_turnover }</a></td>
+						<td style="width: 20%;"><a href="${initParam.rootPath }/review/control.do?company_id=${avgScore.company_id }">${avgScore.company_line }</a></td>
 						<td><span class="badge">${review_cnt.get(stat.index) }</span></td>
 					</tr>
 					</c:forEach>

@@ -79,7 +79,7 @@
 						<li class="list-group-item">
 						<label for="b_${possibility.rank}">
 							<font style="color: teal;font-size: large;">${possibility.rank}위</font>
-							<a href="" style="text-decoration: none; color: black;">${possibility.company_name}</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${possibility.company_id }" style="text-decoration: none; color: black;">${possibility.company_name}</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge b${possibility.rank}" style="background-color: teal;"><b>${possibility.avg_possibility }</b>/5점</span>
@@ -103,7 +103,7 @@
 						<li class="list-group-item">
 						<label for="c_${welSal.rank }">
 							<font style="color: teal;font-size: large;">${welSal.rank}위</font>
-							<a href="" style="text-decoration: none; color: black;">${welSal.company_name }</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${welSal.company_id }" style="text-decoration: none; color: black;">${welSal.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge c${welSal.rank}" style="background-color: teal;"><b>${welSal.avg_welSal }</b>/5점</span>
@@ -131,7 +131,7 @@
 						<li class="list-group-item">
 						<label for="d_${balance.rank}">
 							<font style="color: teal;font-size: large;">${balance.rank}위</font>
-							<a href="" style="text-decoration: none; color: black;">${balance.company_name}</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${balance.company_id }" style="text-decoration: none; color: black;">${balance.company_name}</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge d${balance.rank}" style="background-color: teal;"><b>${balance.avg_balance}</b>/5점</span>
@@ -155,7 +155,7 @@
 						<li class="list-group-item">
 						<label for="e_${culture.rank }">
 							<font style="color: teal;font-size: large;">${culture.rank }위</font>
-							<a href="" style="text-decoration: none; color: black;">${culture.company_name }</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${culture.company_id }" style="text-decoration: none; color: black;">${culture.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge e${culture.rank }" style="background-color: teal;"><b>${culture.avg_culture }</b>/5점</span>
@@ -179,7 +179,7 @@
 						<li class="list-group-item">
 						<label for="f_${manager.rank }">
 							<font style="color: teal;font-size: large;">${manager.rank }위</font>
-							<a href="" style="text-decoration: none; color: black;">${manager.company_name }</a>
+							<a href="${initParam.rootPath }/review/control.do?company_id=${manager.company_id }" style="text-decoration: none; color: black;">${manager.company_name }</a>
 						</label>
 						<label style="float: right;">
 							<span class="badge f${manager.rank }" style="background-color: teal;"><b>${manager.avg_manager }</b>/5점</span>
