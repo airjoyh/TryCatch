@@ -59,42 +59,43 @@
 	  	 	<br><br>
 	  	 	<form id="postForm" name="postForm" method="POST">
 	  	 		<div id="board" align="center">
-	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width: 500px; column-span: 1;">
-	  	 				<tr>
-	  	 					<td style="text-align: center;">글번호</td>
+<!-- 	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width: 600px; height: 950px"> -->
+	  	 			<table id="tdetail" border="3" bordercolor="lightgray" style="width:100% height: 90%">
+	  	 				<tr style="height: 50px">
+	  	 					<td style="text-align: center; font-weight: bold;">글번호</td>
 	  	 					<!-- 컨트롤러에서 받아온 ArrayList detailAll에서 정보를 뽑는다. -->
 	  	 					<td id="no" style="text-align: center;">${review.review_no }</td>
 	  	 				</tr>
-	  	 				<tr>
-	  	 					<td style="text-align: center;">제목</td>
+	  	 				<tr style="height: 50px">
+	  	 					<td style="text-align: center; font-weight: bold;">제목</td>
 	  	 					<td id="title" style="text-align: center;">${review.review_title }</td>
 	  	 				</tr>
-				        <tr>
-				            <td style="text-align: center;">글쓴이</td>
-				            <td style="text-align: center;">${review.review_writer }</td>
+				        <tr style="height: 50px">
+				            <td style="text-align: center; font-weight: bold;">글쓴이</td>
+				            <td style="text-align: center;" >${review.review_writer }</td>
 				        </tr>
-				        <tr>
-				            <td style="text-align: center;">조회</td>
+				        <tr style="height: 50px">
+				            <td style="text-align: center; font-weight: bold; ">조회</td>
 				            <td style="text-align: center;">${review.review_count }</td>
 				        </tr>
-				        <tr>
-				            <td style="text-align: center;">작성일시</td>
+				        <tr style="height: 50px">
+				            <td style="text-align: center; font-weight: bold;">작성일시</td>
 				            <td style="text-align: center;">${review.review_wdate }</td>
 				        </tr>
-				        <tr>
-				        	<td style="text-align: center;">기업 장점</td>
+				        <tr style="height: 150px">
+				        	<td style="text-align: center; font-weight: bold;">기업 장점</td>
             				<td style="text-align: center;">${review.review_strong }</td>		        	
 				        </tr>	  	 				
-				        <tr>
-				        	<td style="text-align: center;">기업 단점</td>
+				        <tr style="height: 150px">
+				        	<td style="text-align: center; font-weight: bold;">기업 단점</td>
             				<td style="text-align: center;">${review.review_weak }</td>		        	
 				        </tr>	  	 				
-				        <tr>
-				        	<td style="text-align: center;">경영진에 바라는점</td>
+				        <tr style="height: 150px">
+				        	<td style="text-align: center; font-weight: bold;">경영진에 바라는점</td>
             				<td style="text-align: center;">${review.review_toCEO }</td>		        	
 				        </tr>
 				        <tr>
-				        	<td style="text-align: center;">별점</td>
+				        	<td style="text-align: center; font-weight: bold;">별점</td>
 				        	<td>
 				        		<br>
 								<div>
@@ -188,7 +189,7 @@
 								</div>				        		
 				        	</td>
 				        </tr>
-				        <tr>
+				        <tr style="height: 50px">
 				        	<td></td>
 				        	<td align="center">
 				        	  <!-- 목록에서 글 번호를 받아 와서 수정 또는 삭제 화면으로 넘긴다. -->
