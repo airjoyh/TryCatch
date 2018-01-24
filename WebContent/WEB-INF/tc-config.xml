@@ -229,7 +229,7 @@
 				
 		<!-- 기업 순위 액션 -->
 		<action path="/com/rankInfo"
-				type="tc.company.actions.RankListAction">
+				type="tc.company.actions.RankAction">
 			<forward name="rankList" path="/com/rank.do"></forward>
 		</action>
 		

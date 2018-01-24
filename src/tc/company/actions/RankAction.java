@@ -14,7 +14,7 @@ import tc.company.dao.ComListDAO;
 import tc.company.dao.ComRankDAO;
 import tc.review.dto.AvgScoreDTO;
 
-public class RankListAction extends Action{
+public class RankAction extends Action{
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
