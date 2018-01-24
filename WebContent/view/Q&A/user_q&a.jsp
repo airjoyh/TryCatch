@@ -4,7 +4,7 @@
 <html lang="kr">
 <head>
 
-<title>TryCatch</title>
+<title>TryCatch</title> 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,45 +35,25 @@
 </head>
 
 
+<body style="background-color: #f4f4f4;">
 
-<body class="bg-dark" id="page-top">
- 
-
-
-<!-- //////////////////////////////////////////////////////////////////// -->
-
-    <div  id="navbarResponsive">
-      <div class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        
-        <div style="color:white">구직자 회원</div>
-        
-        <div class="nav-item"  data-placement="right" title="Dashboard">
-          <a class="nav-link" href="q&a.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text" style="color:black">구직자 회원</span>
-          </a>
-        </div>
-        
-        <div style="color:white">구직자 회원</div>
-        
-        <div class="nav-item"  data-placement="right" title="Dashboard">
-          <a class="nav-link" href="com_q&a.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text" style="color:black">기업 회원&nbsp;&nbsp;</span>
-          </a>
-        </div>
-        
-        </div>
-    </div>      
-
-<div class="container">
-<center>
-
-  <h1 style="color:white">Q&A</h1>
-  <hr>
-  <h3 style="color:white">구직자 전용 Q&A페이지 입니다.</h3>
-  <div class="panel-group" id="q_a">
-  
+ <!-- navbar -->
+<%@include file="/view/main/nav.jsp" %>
+       
+<div class="container" style="padding-top: 7em; padding-bottom: 5em;
+		                        padding-left: 12em; padding-right: 3em;">
+<!-- 탭공간  -->
+	<div style="padding-bottom:2em;">
+ 		 <h1>Q&amp;A</h1>
+  		 <hr>
+ 		 <h3>구직자 전용 Q&amp;A페이지 입니다.</h3>
+	</div>
+	
+	<div class="panel-group" id="q_a">
+  	<ul class="nav nav-tabs nav-justified" style="font-weight: bold;font-size: 1.2em;">
+		<li><a href="user_q&a.jsp" class="action">구직자 회원</a></li>
+		<li><a href="com_q&a.jsp">기업 회원</a></li>
+	</ul>
   
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -81,7 +61,7 @@
           <a data-toggle="collapse" data-parent="#q_a" href="#collapse1">Q. [회원가입/탈퇴] 회원가입은 무료인가요?</a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse in">
+      <div id="collapse1" class="panel-collapse collapse">
         <div class="panel-body">
           Try Catch 회원가입은 무료입니다.<br>
 
@@ -218,8 +198,9 @@
     </div>
     
  </div>
-  </center> 
+   
 </div>
-
+<!-- footer -->
+<%@include file="/view/main/footer.jsp" %>
 </body>
 </html>

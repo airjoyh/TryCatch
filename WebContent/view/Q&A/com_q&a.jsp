@@ -35,45 +35,25 @@
 </head>
 
 
-<body class="bg-dark" id="page-top">
+<body style="background-color: #f4f4f4;">
 
- 
-
-<!-- //////////////////////////////////////////////////////////////////// -->
-
-    <div  id="navbarResponsive" >
-      <div class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        
-        <div style="color:white">구직자 회원</div>
-        
-        <div class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="q&a.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text" style="color:black">구직자 회원</span>
-          </a>
-        </div>
-        
-        <div style="color:white">구직자 회원</div>
-        
-        <div class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="com_q&a.jsp">
-            <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text" style="color:black">기업 회원</span>
-          </a>
-        </div>
-        
-        </div>
-    </div>   
-
+ <!-- navbar -->
+<%@include file="/view/main/nav.jsp" %>
        
-<div class="container" id="panel">
-<center>
-
-  <h1 style="color:white">Q&A</h1>
-  <hr>
-  <h3 style="color:white">기업 전용 Q&A페이지 입니다.</h3>
-  <div class="panel-group" id="q_a">
-  
+<div class="container" style="padding-top: 7em; padding-bottom: 5em;
+		                        padding-left: 12em; padding-right: 3em;">
+<!-- 탭공간  -->
+	<div style="padding-bottom:2em;">
+		<h1>Q&amp;A</h1>
+		<hr>
+		<h3>기업 전용 Q&amp;A페이지 입니다.</h3>
+	</div>
+	
+	<div class="panel-group" id="q_a">
+  	<ul class="nav nav-tabs nav-justified" style="font-weight: bold;font-size: 1.2em;">
+		<li><a href="user_q&a.jsp" class="action">구직자 회원</a></li>
+		<li><a href="com_q&a.jsp">기업 회원</a></li>
+	</ul>
   
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -81,7 +61,7 @@
           <a data-toggle="collapse" data-parent="#q_a" href="#collapse1">Q. [회원가입/탈퇴] 기업회원 가입은 무료입니까?</a>
         </h4>
       </div>
-      <div id="collapse1" class="panel-collapse collapse in">
+      <div id="collapse1" class="panel-collapse collapse">
         <div class="panel-body">
           Try Catch에 기업회원으로 가입 하시는 데는 일체 비용이 들지 않습니다.<br>
                       즉, 회원가입은 무료입니다.<br>
@@ -184,9 +164,8 @@
     </div>
    
   </div>
-  </center> 
 </div>
-
-
+<!-- footer -->
+<%@include file="/view/main/footer.jsp" %>
 </body>
 </html>

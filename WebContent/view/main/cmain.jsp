@@ -43,11 +43,11 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">WebSiteName</a>
+				<a class="navbar-brand" href="#">TryCatch</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">기업</a></li>
-				<li><a href="#">콘테스트</a></li>
+				<li><a href="#">인재검색</a></li>
+				<li><a href="#">콘테스트개최</a></li>
 				<li><a href="${initParam.rootPath }/review/control.do">후기</a></li>
 				<li><a href="${initParam.rootPath }/view/Q&A/q&a.jsp">Q&amp;A</a></li>
 			</ul>
@@ -70,7 +70,7 @@
 					data-target="#loginModal"><span
 						class="glyphicon glyphicon-log-in">로그인</span> </a></li>
 				<li><a href=""> <span class="glyphicon glyphicon-briefcase"></span>
-						기업회원
+						개인회원
 				</a></li>
 			</ul>
 		</div>
