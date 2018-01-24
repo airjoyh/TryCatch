@@ -46,24 +46,24 @@
 	<div class="container"
 		style="background-color: #ffffff; margin-top: 2em">
 		<div class="row"
-			style="padding-top: 7em; padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
+			style="padding-top: 7em; padding-bottom: 2em; padding-left: 10em; padding-right: 10em;">
 			
 			<div class="col-sm-4">
-				<h2>총평점</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>총평점</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${total }" var="total">
 						<li class="list-group-item">
-						<label for="a_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_a">기업명</font>
+						<label for="a_${total.rank}">
+							<font style="color: teal;font-size: large;">${total.rank}위</font>
+							<font class="companyName_a">${total.company_name }</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge a${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge a${total.rank}" style="background-color: teal;"><b>${total.avg_all }</b>/5점</span>
 						</label>
-						<div class="progress" id="a_${num}">
+						<div class="progress" id="a_${total.rank}">
 							<div class="progress-bar progress-bar-warning"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${total.avg_all*20 }%">
 							</div>
 						</div>
 						</li>
@@ -72,21 +72,21 @@
 			</div>
 			
 			<div class="col-sm-4">
-				<h2>승진 기회 및 가능성</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>승진 기회 및 가능성</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${possibility }" var="possibility">
 						<li class="list-group-item">
-						<label for="b_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_b">기업명</font>
+						<label for="b_${possibility.rank}">
+							<font style="color: teal;font-size: large;">${possibility.rank}위</font>
+							<font class="companyName_b">${possibility.company_name}</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge b${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge b${possibility.rank}" style="background-color: teal;"><b>${possibility.avg_possibility }</b>/5점</span>
 						</label>
-						<div class="progress" id="b_${num}">
+						<div class="progress" id="b_${possibility.rank}">
 							<div class="progress-bar progress-bar-info"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${possibility.avg_possibility*20}%">
 							</div>
 						</div>
 						</li>
@@ -95,21 +95,21 @@
 			</div>
 			
 			<div class="col-sm-4">
-				<h2>복지 및 급여</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>복지 및 급여</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${welSal }" var="welSal">
 						<li class="list-group-item">
-						<label for="c_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_c">기업명</font>
+						<label for="c_${welSal.rank }">
+							<font style="color: teal;font-size: large;">${welSal.rank}위</font>
+							<font class="companyName_c">${welSal.company_name }</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge c${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge c${welSal.rank}" style="background-color: teal;"><b>${welSal.avg_welSal }</b>/5점</span>
 						</label>
-						<div class="progress" id="c_${num}">
+						<div class="progress" id="c_${welSal.rank}">
 							<div class="progress-bar progress-bar-info"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${welSal.avg_welSal*20 }%">
 							</div>
 						</div>
 						</li>
@@ -119,24 +119,24 @@
 		</div>
 		
 		<div class="row"
-			style="padding-top: 2em; padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
+			style="padding-top: 2em; padding-bottom: 2em; padding-left: 10em; padding-right: 10em;">
 			
 			<div class="col-sm-4">
-				<h2>업무와 삶의 균형</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>업무와 삶의 균형</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${balance }" var="balance">
 						<li class="list-group-item">
-						<label for="d_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_d">기업명</font>
+						<label for="d_${balance.rank}">
+							<font style="color: teal;font-size: large;">${balance.rank}위</font>
+							<font class="companyName_d">${balance.company_name}</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge d${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge d${balance.rank}" style="background-color: teal;"><b>${balance.avg_balance}</b>/5점</span>
 						</label>
-						<div class="progress" id="d_${num}">
+						<div class="progress" id="d_${balance.rank}">
 							<div class="progress-bar progress-bar-info"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${balance.avg_balance*20}%">
 							</div>
 						</div>
 						</li>
@@ -145,21 +145,21 @@
 			</div>
 			
 			<div class="col-sm-4">
-				<h2>사내문화</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>사내문화</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${culture }" var="culture">
 						<li class="list-group-item">
-						<label for="e_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_e">기업명</font>
+						<label for="e_${culture.rank }">
+							<font style="color: teal;font-size: large;">${culture.rank }위</font>
+							<font class="companyName_e">${culture.company_name }</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge e${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge e${culture.rank }" style="background-color: teal;"><b>${culture.avg_culture }</b>/5점</span>
 						</label>
-						<div class="progress" id="e_${num}">
+						<div class="progress" id="e_${culture.rank }">
 							<div class="progress-bar progress-bar-info"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${culture.avg_culture*20 }%">
 							</div>
 						</div>
 						</li>
@@ -168,21 +168,21 @@
 			</div>
 			
 			<div class="col-sm-4">
-				<h2>경영진</h2>
-				<ul class="list-group" style="padding-top: 1em">
-					<c:forEach begin="1" end="5" var="num">
+				<h3>경영진</h3>
+				<ul class="list-group" style="padding-top: 0.6em;padding-right: 1em;">
+					<c:forEach items="${manager }" var="manager">
 						<li class="list-group-item">
-						<label for="f_${num}">
-							<font style="color: teal;font-size: large;">${num}위</font>
-							<font class="companyName_f">기업명</font>
+						<label for="f_${manager.rank }">
+							<font style="color: teal;font-size: large;">${manager.rank }위</font>
+							<font class="companyName_f">${manager.company_name }</font>
 						</label>
 						<label style="float: right;">
-							<span class="badge f${num}" style="background-color: teal;"><b>4.7</b>/5점</span>
+							<span class="badge f${manager.rank }" style="background-color: teal;"><b>${manager.avg_manager }</b>/5점</span>
 						</label>
-						<div class="progress" id="f_${num}">
+						<div class="progress" id="f_${manager.rank }">
 							<div class="progress-bar progress-bar-info"
 								role="progressbar" aria-valuenow="90" aria-valuemin="0"
-								aria-valuemax="100" style="width: 77%">
+								aria-valuemax="100" style="width: ${manager.avg_manager*20 }%">
 							</div>
 						</div>
 						</li>

@@ -109,7 +109,7 @@ th {
 		<form action="control.do?action=insert" id="inputForm"
 			name="inputForm" method="post">
 			<!-- 나중에 기업아이디는 ${company_id}로 가져와야된다. -->
-			<input type="hidden" id="company_id" name="company_id" value="test123">
+			<input type="hidden" id="company_id" name="company_id" value="company5">
 			<table id="tcreate" border="1px dashed #EEEEEE">
 				<thead>
 					<tr>
