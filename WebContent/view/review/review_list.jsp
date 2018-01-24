@@ -30,7 +30,7 @@
   			}
   		});
   		
-  		
+  		$('#myTab a:last').tab('show'); 
   		
   	});
   	/* 검색창 드롭다운 메뉴 */
@@ -124,187 +124,188 @@
 			<li role="presentatioin"><a href="#review" aria-controls="review" role="tab"
 			data-toggle="tab">후기</a></li>
 		</ul>
-	</div>	
-	<div class="tab-content">
-	<div role="tabpanel" class="tab-pane active" id="comInfo" style="background-color: #ffffff; margin-top: 2em">
-		<div style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_site">기업사이트</label>
-					<div></div>
+		<div class="tab-content" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+		<div role="tabpanel" class="tab-pane active" id="comInfo" style="background-color: #ffffff; margin-top: 2em">
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_site" style="text-align: right;">기업사이트</label>
+						<div></div>
+					</div>
 				</div>
-			</div>
-			
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_addr">기업주소</label>
-					<div></div>
-				</div>
-			</div>			
-		</div>		
-		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_size">기업 규모</label>
-					<div></div>
-				</div>
-			</div>
-			
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_year">설립년도</label>
-					<div></div>
-				</div>
-			</div>			
-		</div>		
-		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_hireNumber">채용할 인원 수</label>
-					<div></div>
-				</div>
-			</div>
-			
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_turnover">매출액</label>
-					<div></div>
-				</div>
-			</div>			
-		</div>		
-		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_line">산업군</label>
-					<div></div>
-				</div>
-			</div>
-			
-			<div class="col-sm-6">
-				<div class="form-group">
-					<label id="com_skill">요구하는 스킬</label>
-					<div></div>
-				</div>
-			</div>			
-		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-12">
-				<div class="form-group">
-					<label id="com_intro">기업소개</label>
-					<div></div>
-				</div>
+				
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_addr">기업주소</label>
+						<div></div>
+					</div>
+				</div>			
 			</div>		
-		</div>		
-	  </div>
-	</div>
-	<!--***********************************************************
-	*                                                             *
-	*                           후기                                                                      *
-	*                                                             *
-	************************************************************-->		
-	  <div role="tabpanel" class="tab-pane" id="review" style="background-color: #ffffff; margin-top: 2em">	
- 		<!-- 평점란 -->
-		<div class="row" style="padding-top: 5em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">총평점</label>
-					<div class="progress" id="progress_1">
-						<div id="total" class="progress-bar progress-bar-warning" role="progressbar"
-							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: ${avg_all*20 }%">
-							<span class="sr-only">70% Complete</span>
-						</div>
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_size">기업 규모</label>
+						<div></div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg_all } / 5</div>
-
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">승진 기회 및 가능성</label>
-					<div class="progress" id="progress_1">
-						<div id="possibility" class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_possibility*20 }%">
-							<span class="sr-only">70% Complete</span>
-						</div>
+				
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_year">설립년도</label>
+						<div></div>
+					</div>
+				</div>			
+			</div>		
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_hireNumber">채용할 인원 수</label>
+						<div></div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_possibility } / 5</div>
+				
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_turnover">매출액</label>
+						<div></div>
+					</div>
+				</div>			
+			</div>		
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_line">산업군</label>
+						<div></div>
+					</div>
+				</div>
+				
+				<div class="col-sm-6">
+					<div class="form-group">
+						<label id="com_skill">요구하는 스킬</label>
+						<div></div>
+					</div>
+				</div>			
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-12">
+					<div class="form-group">
+						<label id="com_intro">기업소개</label>
+						<div></div>
+					</div>
+				</div>		
+			</div>		
+		  </div>
 		</div>
- 
-		<div class="row" style="padding-top: 1em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">복지 및 급여</label>
-					<div class="progress" id="progress_1">
-						<div id="welSal" class="progress-bar" role="progressbar"
-							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: ${avg.avg_welSal*20 }%">
-							<span class="sr-only">70% Complete</span>
+		<!--***********************************************************
+		*                                                             *
+		*                           후기                                                                      *
+		*                                                             *
+		************************************************************-->		
+		  <div role="tabpanel" class="tab-pane" id="review" style="background-color: #ffffff; margin-top: 2em">	
+	 		<!-- 평점란 -->
+			<div class="row" style="padding-top: 5em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">총평점</label>
+						<div class="progress" id="progress_1">
+							<div id="total" class="progress-bar progress-bar-warning" role="progressbar"
+								aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+								style="width: ${avg_all*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_welSal } / 5</div>
-
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">업무와 삶의 균형</label>
-					<div class="progress" id="progress_1">
-						<div id="balance" class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_balance*20 }%">
-							<span class="sr-only">70% Complete</span>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg_all } / 5</div>
+	
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">승진 기회 및 가능성</label>
+						<div class="progress" id="progress_1">
+							<div id="possibility" class="progress-bar" role="progressbar" aria-valuenow="90"
+								aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_possibility*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_possibility } / 5</div>
 			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_balance } / 5</div>
+	 
+			<div class="row" style="padding-top: 1em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">복지 및 급여</label>
+						<div class="progress" id="progress_1">
+							<div id="welSal" class="progress-bar" role="progressbar"
+								aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+								style="width: ${avg.avg_welSal*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_welSal } / 5</div>
+	
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">업무와 삶의 균형</label>
+						<div class="progress" id="progress_1">
+							<div id="balance" class="progress-bar" role="progressbar" aria-valuenow="90"
+								aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_balance*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_balance } / 5</div>
+			</div>
+	 
+			<div class="row" style="padding-top: 1em; padding-bottom: 2em;
+			                        padding-left: 3em; padding-right: 3em;">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">사내문화</label>
+						<div class="progress" id="progress_1">
+							<div id="culture" class="progress-bar" role="progressbar"
+								aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+								style="width: ${avg.avg_culture*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_culture } / 5</div>
+	
+				<div class="col-sm-4">
+					<div class="form-group">
+						<label for="progress_1">경영진</label>
+						<div class="progress" id="progress_1">
+							<div id="manager" class="progress-bar" role="progressbar" aria-valuenow="90"
+								aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_manager*20 }%">
+								<span class="sr-only">70% Complete</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_manager } / 5</div>
+			</div>  
+			</div>
 		</div>
- 
-		<div class="row" style="padding-top: 1em; padding-bottom: 2em;
-		                        padding-left: 3em; padding-right: 3em;">
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">사내문화</label>
-					<div class="progress" id="progress_1">
-						<div id="culture" class="progress-bar" role="progressbar"
-							aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-							style="width: ${avg.avg_culture*20 }%">
-							<span class="sr-only">70% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_culture } / 5</div>
-
-			<div class="col-sm-4">
-				<div class="form-group">
-					<label for="progress_1">경영진</label>
-					<div class="progress" id="progress_1">
-						<div id="manager" class="progress-bar" role="progressbar" aria-valuenow="90"
-							aria-valuemin="0" aria-valuemax="100" style="width: ${avg.avg_manager*20 }%">
-							<span class="sr-only">70% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-2" style="padding-top: 25px;">${avg.avg_manager } / 5</div>
-		</div>  
-		</div>
-	</div>
+	</div>	
  	<hr>
- 	<script type="text/javascript">
+<!--  	<script type="text/javascript">
  		$(function(){
 			$('#myTab a:last').tab('show')
  		});
- 	</script>	
+ 	</script> 	 -->
 
 
 
@@ -334,41 +335,52 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${list }" var="review" varStatus="stat">
-					<tr>
-						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_no }</a></td>
-						<td style="width: 50%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_title }</a></td>
-						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_writer }</a></td>
-						<td style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_wdate }</a></td>
-						<td id="count" style="width: 10%;"><a href="control.do?action=select&no=${review.review_no }">${review.review_count }</a></td>
-						<td><span class="badge">${reply_cnt.get(stat.index) }</span></td>
-					</tr>
-					</c:forEach>
+						<tr>
+							<td>1</td>
+							<td>뭔가 잘못됐어</td>
+							<td>Anna</td>
+							<td>2018.01.21</td>
+							<td>44</td>
+							<td><span class="badge">2</span></td>
+						</tr>
+						<tr >
+							<td>2</td>
+							<td>할게너무많아</td>
+							<td>Debbie</td>
+							<td>2018.01.21</td>
+							<td>33</td>
+							<td><span class="badge">0</span></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>미쳐돌아버린다 리얼</td>
+							<td>John</td>
+							<td>2018.01.21</td>
+							<td>33</td>
+							<td><span class="badge">0</span></td>
+						</tr>
 					</tbody>
 				</table>
 			<hr>
 			</div>
 		</div>
-		    	<div align="right">
-		<a class="btn btn-default pull-right" id="write" href="control.do?action=inputForm">글쓰기</a>
-		</div>
-		<div align="center">		    
-		<c:if test="${startPage<5 }">
-		이전
-		</c:if>
-		<c:if test="${startPage>5 }">
-		<a href="control.do?company_id=sdjsdj&page=${startPage-5 }">이전</a>
-		</c:if> 
-		<c:forEach begin="${startPage }" end="${endPage }" var="i">
-   	  		[<a href="control.do?company_id=sdjsdj&page=${i }">${i }</a>]
-		</c:forEach>
-		<c:choose>
-		  <c:when test="${endPage<totalPage }">
-		    <a href="control.do?company_id=sdjsdj&page=${startPage+5 }">다음</a>
-		  </c:when>
-		  <c:otherwise>다음</c:otherwise>
-		</c:choose>
-		</div>
+		<div class="row"
+			style="padding-bottom: 2em; padding-left: 3em; padding-right: 3em;">
+			<div class="col-sm-5">
+				<ul class="pagination">
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
+				</ul>
+			</div>
 			<form class="bs-example bs-example-form" role="form">
 					<div class="col-sm-5" style="margin-top: 1.5em">
 						<div class="input-group">
@@ -403,10 +415,13 @@
 				</div>  
 			</div> -->
 			<div class="col-sm-2" style="margin-top: 1.5em">
-				<a class="btn btn-info pull-right" id="write" href="control.do?action=inputForm">글쓰기</a>
+				<a class="btn btn-info pull-right"
+					href="control.do?action=inputForm">글쓰기</a>
 			</div>
 		</div>
 
+	</div>
+	
 	<!--***********************************************************
 	*                                                             *
 	*                             footer                          *
