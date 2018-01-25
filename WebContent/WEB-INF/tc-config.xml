@@ -245,6 +245,15 @@
 			<forward name="list" path="/com/list.do"/>
 		</action>
 		
+		<!-- 유저 Q&A 게시판 등록 -->
+		<action path="/user/faq"
+				forward="/view/FAQ/user_faq.jsp"/>
+		
+		<!-- 기업 Q&A 게시판 등록 -->
+		<action path="/com/faq"
+				forward="/view/FAQ/com_faq.jsp"/>
+		
+			
 	</action-mappings>
 
 	<!--  사용자 정의 RequestProcessor등록  -->
