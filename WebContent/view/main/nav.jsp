@@ -20,11 +20,8 @@
 			<ul class="nav navbar-nav">
 				<li><a href="${initParam.rootPath }/com/rankInfo.do"
 					style="color: #ffffff">기업</a></li>
-				<li><a href="#" style="color: #ffffff">콘테스트</a></li>
+				<li><a href="${initParam.rootPath }/view/Q&A/user_q&a.jsp" style="color: #ffffff">콘테스트</a></li>
 				<!-- 수정 요망 company_id-->
-				<li><a
-					href="${initParam.rootPath }/review/control.do?company_id=sdjsdj"
-					style="color: #ffffff">후기</a></li>
 				<li><a href="#" style="color: #ffffff">Q&amp;A</a></li>
 			</ul>
 			<form class="navbar-form navbar-left" action="/action_page.php">

@@ -70,8 +70,8 @@ $(function(){
 <div class="indicator" id="indicator">
 <span class="icon-bar"></span>
 </div>
-<div class="container-fluid" style="z-index: -2;position: fixed; width:100%; margin: auto;">
-	<img alt="기업배경" src="${initParam.rootPath }/image/building/building_9.jpg" style="width: 100%; height: auto;">
+<div class="container-fluid" style="z-index: -2;position: fixed;">
+	<img alt="기업배경" src="${initParam.rootPath }/image/building/building_9.jpg" style="max-width: 100%; height: auto;">
 </div>
 <div class="container-fluid" style="z-index: -1;">
 	<img alt="기업배경" src="${initParam.rootPath }/image/building/welcome1.png" style="width: 100%;">

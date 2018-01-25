@@ -17,6 +17,7 @@
 <script type="text/javascript" src=""></script>
 <!-- Custom jQuery -->
 <script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var action='${action }';
@@ -43,10 +44,7 @@
 
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
-
-<!-- Custom styles -->
-<%-- <link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet"> --%>
-<link href="../../css/com_companyInfo.css" rel="stylesheet">
+<link href="${initParam.rootPath }/css/com_companyInfo.css" rel="stylesheet">
 
 <%--C태그를 사용하기 위한 라이브러리 --%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -59,9 +57,7 @@
 		*                            nav                              *
 		*                                                             *
 		************************************************************-->
-		<div>
-			<jsp:include page="../main/nav.jsp" />
-		</div>
+		<%@include file="/view/main/nav.jsp" %>
 	
 	<section>
 	<!--***********************************************************
@@ -161,6 +157,6 @@
 
 	
 	</section>
-
+	<%@include file="/view/main/footer.jsp" %>
 </body>
 </html>
