@@ -229,7 +229,8 @@ function validateCheck() {
 <body style="background-color: #f4f4f4;">
 	<!-- nav -->
 	<%@include file="/view/main/nav.jsp"%>
-<form action="control.do?action=update" name="upForm" method="post">
+<form action="updel.do?action=update" name="upForm" method="post">
+	<input type="hidden" name="no" value="${review.review_no }">
 	<div class="container" style="background-image: url('${initParam.rootPath}/image/monitor/pencil.jpg');">
 		<div class="row" style="padding-top: 8em; padding-bottom: 1em; padding-right: 4em;padding-left: 4em">
 			<div class="col-sm-2"></div>
