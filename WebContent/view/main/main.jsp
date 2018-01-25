@@ -27,6 +27,7 @@
 
 <script type="text/javascript">
 $(function(){
+	/* alert('ready: '+$('#joinUpM').length)
     $('#joinUpM').click(function(){
     	alert('${upinfo.user_id}');
    
@@ -38,13 +39,37 @@ $(function(){
     	$('#up_addr').val('${upinfo.user_addr}');
     	$('#up_prio').val('${upinfo.user_prio}');
        
-    });
-    
-    $('').click(function(){
-    	
-    });
-    
+    }); */
  });
+function joinUpdate(){
+	//alert('로그인 id='+$('#login_id').val());
+	$.ajax({
+		//url:'info.do?login_id=sdjsdj',
+	    url:'info.do',
+		data:{
+			 login_id:'${upinfo.user_id}'
+		},
+		dataType:'json',
+		success:function(result){
+			$('#up_id').val(result.user_id);
+	    	$('#up_pass').val(result.user_pass);
+	    	$('#up_name').val(result.user_name);
+	    	$('#up_email').val(result.user_email);
+	    	$('#up_phone').val(result.user_phone);
+	    	$('#up_addr').val(result.user_addr);
+	    	$('#up_prio').val(result.user_prio);
+		}
+		
+	});
+	alert('>>>${upinfo.user_id}');
+	$('#up_id').val('${upinfo.user_id}');
+	$('#up_pass').val('${upinfo.user_pass}');
+	$('#up_name').val('${upinfo.user_name}');
+	$('#up_email').val('${upinfo.user_email}');
+	$('#up_phone').val('${upinfo.user_phone}');
+	$('#up_addr').val('${upinfo.user_addr}');
+	$('#up_prio').val('${upinfo.user_prio}');
+}
 </script>
 </head>
 <body style="background-color: #f4f4f4;">
