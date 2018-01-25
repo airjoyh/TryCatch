@@ -232,7 +232,7 @@
 				style="padding-top: 8em; padding-bottom: 1em; padding-right: 4em; padding-left: 4em">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-8">
-					<h1 style="font-weight: 600;">${param.company_id }후기 작정</h1>
+					<h1 style="font-weight: 600;">${param.company_id }후기 작성</h1>
 					<hr>
 				</div>
 			</div>
