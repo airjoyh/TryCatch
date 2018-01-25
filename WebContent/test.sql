@@ -65,15 +65,17 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	where rank<6;
 	
 	-----------------------------------------------------------------------
+	select company_name from company_info;
 	
-	select company_name,company_size,company_turnover,company_line,rank,avg_all
+	
+	select company_name,company_size,company_turnover,company_line,rank,nvl(avg_all,0.0)
 	from (select company_name,company_size,company_turnover,company_line,avg_all,rank,rownum rn
-		from(select company_name,company_size,company_turnover,company_line,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all,
+		from(select company_name,company_size,company_turnover,company_line,nvl(round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1),0.0) avg_all,
 					RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
-			from company_info natural join review 
+			from review natural join company_info
 			group by company_name,company_size,company_turnover,company_line
 			))
-    where rn between #start# and #end#;
+    where rn between 1 and 10;
 	
 	
 	select company_name,company_size,company_turnover,company_line,rank,avg_possibility

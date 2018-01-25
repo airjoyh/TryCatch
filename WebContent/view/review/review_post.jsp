@@ -217,6 +217,7 @@ $(function(){
 	  		alert("로그인 상태>>>"+loginState);
 	  		if(loginState!='login'){
 					alert('로그인하신 후에 이용 가능합니다.');
+					document.addForm.content.value='';
 			}else{
 		  		var no = document.addForm.no.value;
 		  		//alert("번호:"+no);
@@ -506,10 +507,10 @@ $(function(){
 				        	<td></td>
 				        	<td align="center">
 				              <input type="hidden" name="writer_id" value="${review.user_id }">
+							  <button><a href="control.do">목록으로</a></button>
 						      <div class="row">
 						        <div id="upDel" class="mybutton"></div> 
 						      </div>
-							  <button><a href="control.do">목록으로</a></button>
 							</td>
 				        </tr>	  	 				
 	  	 			</table>

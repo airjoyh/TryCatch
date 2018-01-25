@@ -22,13 +22,6 @@
   			
   		});
   		
-  		$('#write').click(function(){
-  			var loginState = '${loginState }';
-  			alert("로그인 상태>>>"+loginState);
-  			if(loginState!='login'){
-  				alert('로그인하신 후에 이용 가능합니다.');
-  			}
-  		});
   		
   		$('#myTab a:last').tab('show'); 
   		
@@ -39,6 +32,17 @@
   	    $('.taco-input').val(txt);
   	});
   	
+  	function loginCheck(){
+  		
+  		var loginState = '${loginState }';
+  		alert("로그인 상태>>>"+loginState);
+  		if(loginState!='login'){
+  			alert('로그인하신 후에 이용 가능합니다.');
+  		}else{
+  			location.href='${initParam.rootPath }/review/control.do?action=inputForm&company_id=${cominfo.company_id}';
+  		}
+  	}
+  		
   	
   	
   </script>
@@ -351,7 +355,7 @@
 			</div>
 		</div>
 		    	<div align="right">
-		<a class="btn btn-default pull-right" id="write" href="${initParam.rootPath }/review/control.do?action=inputForm">글쓰기</a>
+		<a class="btn btn-default pull-right" href="javascript:loginCheck()" id="write" >글쓰기</a>
 		</div>
 		<div align="center">		    
 		<c:if test="${startPage<5 }">

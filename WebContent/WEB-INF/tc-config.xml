@@ -204,7 +204,7 @@
 		<!-- 후기 게시글 수정,삭제 액션! -->
 		<action path="/review/updel"
 				type="tc.review.actions.ReviewUpDelAction">
-			<forward name="upForm" path="/review/upForm.do"/>
+			<forward name="upForm" path="/review/upForm.do" />
 			<forward name="update" path="/review/control.do" redirect="true"/>
 			<forward name="delete" path="/review/control.do" redirect="true"/>
 		</action>

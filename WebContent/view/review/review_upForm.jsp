@@ -27,7 +27,11 @@
 <script type="text/javascript">
 $(function() {
 
-
+	$('input:radio[name=possibility]:radio[value=${review.review_possibility }]').prop('checked',true);
+  	$('input:radio[name=welSal]:radio[value=${review.review_welSal }]').prop('checked',true);
+  	$('input:radio[name=balance]:radio[value=${review.review_balance }]').prop('checked',true);
+  	$('input:radio[name=culture]:radio[value=${review.review_culture }]').prop('checked',true);
+  	$('input:radio[name=manager]:radio[value=${review.review_manager }]').prop('checked',true);
 
 	/***************************************  
 	*                                      *
@@ -176,13 +180,56 @@ $(function() {
 	starRating5();
 	
 });
+
+
+function validateCheck() {
+	var f = document.upForm;
+	if($('form[name=upForm] input[name=title]').val()==''){
+		alert('제목을 입력하세요.');
+		f.title.focus();
+	
+	}else if($('form[name=upForm] input[name=writer]').val()==''){
+		alert('작성자를 입력하세요.');
+		f.writer.focus();
+		
+	}else if($('form[name=upForm] textarea[name=strong]').val()==''){
+		alert('기업의 장점을 입력하세요.');
+		f.strong.focus();
+		
+	}else if($('form[name=upForm] textarea[name=weak]').val()==''){
+		alert('기업의 단점을 입력하세요.');
+		f.weak.focus();
+		
+	}else if($('form[name=upForm] textarea[name=toCEO]').val()==''){
+		alert('경영진에게 바라는 점을 입력하세요.');
+		f.toCEO.focus();
+		
+	}else if(f.possibility.value==''){
+		alert('승진 기회 및 가능성에 대한 점수를 매겨주세요.');
+		
+	}else if(f.welSal.value==''){
+		alert('복지와 급여에 대한 점수를 매겨주세요.');
+		
+	}else if(f.balance.value==''){
+		alert('업무와 삶의 균형에 대한 점수를 매겨주세요..');
+		
+	}else if(f.culture.value==''){
+		alert('사내문화에 대한 점수를 매겨주세요.');
+		
+	}else if(f.manager.value==''){
+		alert('경영진에 대한 점수를 매겨주세요.');
+		
+	}else{
+		document.upForm.submit();
+	}
+}
 </script>
 
 </head>
 <body style="background-color: #f4f4f4;">
 	<!-- nav -->
 	<%@include file="/view/main/nav.jsp"%>
-
+<form action="control.do?action=update" name="upForm" method="post">
 	<div class="container" style="background-image: url('${initParam.rootPath}/image/monitor/pencil.jpg');">
 		<div class="row" style="padding-top: 8em; padding-bottom: 1em; padding-right: 4em;padding-left: 4em">
 			<div class="col-sm-2"></div>
@@ -204,14 +251,14 @@ $(function() {
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-modal-window"></i></span> <input
 							class="form-control" id="title" name="title" type="text"
-							placeholder="제목을 입력하세요">
+							value="${review.review_title }">
 					</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input class="form-control"
-							id="userName" name="userName" placeholder="닉네임을 입력하세요" readonly="readonly">
+							id="userName" name="userName" value="${review.review_writer }" readonly>
 					</div>
 				</div>
 			</div>
@@ -221,7 +268,7 @@ $(function() {
 				<div class="col-sm-8">
 					<div class="form-group">
 						<label for="good">해당 기업의 장점을 적어주세요</label> 
-						<textarea rows="10" class="form-control" id="good"></textarea>
+						<textarea name="strong" rows="10" class="form-control" id="good">${review.review_strong }</textarea>
 					</div>
 				</div>
 			</div>
@@ -231,7 +278,7 @@ $(function() {
 				<div class="col-sm-8">
 					<div class="form-group">
 						<label for="bad">해당 기업의 단점을 적어주세요</label> 
-						<textarea rows="10" class="form-control" id="bad"></textarea>
+						<textarea name="weak" rows="10" class="form-control" id="bad">${review.review_weak }</textarea>
 					</div>
 				</div>
 			</div>
@@ -241,7 +288,7 @@ $(function() {
 				<div class="col-sm-8">
 					<div class="form-group">
 						<label for="want">경영진에게 바라는점을 적어주세요</label> 
-						<textarea rows="10" class="form-control" id="want"></textarea>
+						<textarea name="toCEO" rows="10" class="form-control" id="want">${review.review_toCEO }</textarea>
 					</div>
 				</div>
 			</div>
@@ -253,86 +300,86 @@ $(function() {
 						<li class="list-group-item">승진기회 및 가능성
 						<span class="star-input" id="star-A" style="float: right;"> 
 						<span class="input"> 
-							<input type="radio" name="star-input1" id="p1" value="1"> 
+							<input type="radio" name="possibility" id="p1" value="1"> 
 							<label for="p1">1</label> 
-							<input type="radio" name="star-input1" id="p2" value="2"> 
+							<input type="radio" name="possibility" id="p2" value="2"> 
 							<label for="p2">2</label> 
-							<input type="radio" name="star-input1" id="p3" value="3"> 
+							<input type="radio" name="possibility" id="p3" value="3"> 
 							<label for="p3">3</label> 
-							<input type="radio" name="star-input1" id="p4" value="4"> 
+							<input type="radio" name="possibility" id="p4" value="4"> 
 							<label for="p4">4</label> 
-							<input type="radio" name="star-input1" id="p5" value="5"> 
+							<input type="radio" name="possibility" id="p5" value="5"> 
 							<label for="p5">5</label>
 						</span>  &nbsp;
-							<span class="badge" id="star-1"><b>0</b>점</span>
+							<span class="badge" id="star-1"><b>${review.review_possibility }</b>점</span>
 						</span>
 						</li>
 						<li class="list-group-item">복지 및 급여
 						<span class="star-input" id="star-B" style="float: right;"> 
 						<span class="input"> 
-							<input type="radio" name="star-input2" id="p6" value="1"> 
+							<input type="radio" name="welSal" id="p6" value="1"> 
 							<label for="p6">1</label> 
-							<input type="radio" name="star-input2" id="p7" value="2"> 
+							<input type="radio" name="welSal" id="p7" value="2"> 
 							<label for="p7">2</label> 
-							<input type="radio" name="star-input2" id="p8" value="3"> 
+							<input type="radio" name="welSal" id="p8" value="3"> 
 							<label for="p8">3</label> 
-							<input type="radio" name="star-input2" id="p9" value="4"> 
+							<input type="radio" name="welSal" id="p9" value="4"> 
 							<label for="p9">4</label> 
-							<input type="radio" name="star-input2" id="p10" value="5"> 
+							<input type="radio" name="welSal" id="p10" value="5"> 
 							<label for="p10">5</label>
 						</span>  &nbsp;
-							<span class="badge" id="star-2"><b>0</b>점</span>
+							<span class="badge" id="star-2"><b>${review.review_welSal }</b>점</span>
 						</span>
 						</li>
 						<li class="list-group-item">업무와 삶의 균형 
 						<span class="star-input" id="star-C" style="float: right;">
 						<span class="input"> 
-							<input type="radio" name="star-input3" id="p11" value="1"> 
+							<input type="radio" name="balance" id="p11" value="1"> 
 							<label for="p11">1</label> 
-							<input type="radio" name="star-input3" id="p12" value="2"> 
+							<input type="radio" name="balance" id="p12" value="2"> 
 							<label for="p12">2</label> 
-							<input type="radio" name="star-input3" id="p13" value="3"> 
+							<input type="radio" name="balance" id="p13" value="3"> 
 							<label for="p13">3</label> 
-							<input type="radio" name="star-input3" id="p14" value="4"> 
+							<input type="radio" name="balance" id="p14" value="4"> 
 							<label for="p14">4</label> 
-							<input type="radio" name="star-input3" id="p15" value="5"> 
+							<input type="radio" name="balance" id="p15" value="5"> 
 							<label for="p15">5</label>
 						</span>  &nbsp;
-							<span class="badge" id="star-3"><b>0</b>점</span>
+							<span class="badge" id="star-3"><b>${review.review_balance }</b>점</span>
 						</span>
 						</li>
 						<li class="list-group-item">사내문화 
 						<span class="star-input" id="star-D" style="float: right;">
 						<span class="input"> 
-							<input type="radio" name="star-input4" id="p16" value="1"> 
+							<input type="radio" name="culture" id="p16" value="1"> 
 							<label for="p16">1</label> 
-							<input type="radio" name="star-input4" id="p17" value="2"> 
+							<input type="radio" name="culture" id="p17" value="2"> 
 							<label for="p17">2</label> 
-							<input type="radio" name="star-input4" id="p18" value="3"> 
+							<input type="radio" name="culture" id="p18" value="3"> 
 							<label for="p18">3</label> 
-							<input type="radio" name="star-input4" id="p19" value="4"> 
+							<input type="radio" name="culture" id="p19" value="4"> 
 							<label for="p19">4</label> 
-							<input type="radio" name="star-input4" id="p20" value="5"> 
+							<input type="radio" name="culture" id="p20" value="5"> 
 							<label for="p20">5</label>
 						</span>  &nbsp;
-							<span class="badge" id="star-4"><b>0</b>점</span>
+							<span class="badge" id="star-4"><b>${review.review_culture }</b>점</span>
 						</span>
 						</li>
 						<li class="list-group-item">경영진
 						<span class="star-input" id="star-E" style="float: right;">
 						<span class="input"> 
-							<input type="radio" name="star-input5" id="p21" value="1"> 
+							<input type="radio" name="manager" id="p21" value="1"> 
 							<label for="p21">1</label> 
-							<input type="radio" name="star-input5" id="p22" value="2"> 
+							<input type="radio" name="manager" id="p22" value="2"> 
 							<label for="p22">2</label> 
-							<input type="radio" name="star-input5" id="p23" value="3"> 
+							<input type="radio" name="manager" id="p23" value="3"> 
 							<label for="p23">3</label> 
-							<input type="radio" name="star-input5" id="p24" value="4"> 
+							<input type="radio" name="manager" id="p24" value="4"> 
 							<label for="p24">4</label> 
-							<input type="radio" name="star-input5" id="p25" value="5"> 
+							<input type="radio" name="manager" id="p25" value="5"> 
 							<label for="p25">5</label>
 						</span>  &nbsp;
-							<span class="badge" id="star-5"><b>0</b>점</span>
+							<span class="badge" id="star-5"><b>${review.review_manager }</b>점</span>
 						</span>
 						</li>
 					</ul>
@@ -342,7 +389,7 @@ $(function() {
 			<div class="row">
 				<div class="col-sm-2"></div>
 				<div class="col-sm-4">
-					<button class="btn btn-info btn-block">완료</button>
+					<button class="btn btn-info btn-block" onclick="validateCheck()">완료</button>
 				</div>
 				<div class="col-sm-4">
 					<button class="btn btn-block">취소</button>
@@ -351,7 +398,7 @@ $(function() {
 
 		</div><!-- well -->
 	</div><!-- container -->
-	
+</form>	
 
 	<!-- footer -->
 	<%@include file="/view/main/footer.jsp"%>

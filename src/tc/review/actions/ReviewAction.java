@@ -36,7 +36,12 @@ public class ReviewAction extends Action {
 			System.out.println("action=null or list");
 			String pageStr = request.getParameter("page");
 			String company_id = request.getParameter("company_id");
-
+			if (company_id != null) {
+				session.setAttribute("company_id", company_id);
+			} else {
+				company_id = (String) session.getAttribute("company_id");
+			}
+           
 			if (pageStr == null) {// 페이지 정보가 없을 때
 				page = 1;
 			} else {
@@ -95,6 +100,12 @@ public class ReviewAction extends Action {
 			if (loginState == null || !loginState.equals("login")) {
 				System.out.println("로그인 안했을때");
 				
+				String company_id = request.getParameter("company_id");
+				if (company_id != null) {
+					session.setAttribute("company_id", company_id);
+				} else {
+					company_id = (String) session.getAttribute("company_id");
+				}
 				response.setContentType("text/html;charset=UTF-8");
 				response.getWriter().print("<script>alert('로그인하신 후에 이용 가능합니다.');</script>");
 				// 이 알림이 안뜨고 페이지가 이동된다. --> 해결함. but 위의 두줄은 필요없음
