@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 <!--***********************************************************
 	*                                                             *
 	*                          navbar                             *
@@ -15,40 +14,30 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="${initParam.rootPath }/user/main.do">TryCatch</a>
+			<a class="navbar-brand" href="#">TryCatch</a>
 		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="${initParam.rootPath }/com/rankInfo.do"
-					style="color: #ffffff">기업</a></li>
-				<li><a href="#" style="color: #ffffff">콘테스트</a></li>
-				<!-- 수정 요망 company_id-->
-				<li><a href="${initParam.rootPath }/user/faq.do" style="color: #ffffff">Q&amp;A</a></li>
-			</ul>
-			<form class="navbar-form navbar-left" action="/action_page.php">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search"
-						name="search">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-							<i class="glyphicon glyphicon-search"></i>
-						</button>
-					</div>
-				</div>
+<div class="collapse navbar-collapse" id="myNavbar">
+         <ul class="nav navbar-nav">
+            <li><a href="${initParam.rootPath }/com/rankInfo.do"
+               style="color: #ffffff">기업</a></li>
+            <li><a href="#" style="color: #ffffff">콘테스트</a></li>
+            <!-- 수정 요망 company_id-->
+            <li><a href="${initParam.rootPath }/user/faq.do" style="color: #ffffff">Q&amp;A</a></li>
+         </ul>
+         <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search"
+                  name="search">
+               <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit">
+                     <i class="glyphicon glyphicon-search"></i>
+                  </button>
+               </div>
+            </div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#" style="color: #ffffff">마이페이지 <span
-						class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a data-toggle="modal" data-target="#joinUpModal"
-							id="joinUpM">회원정보수정</a></li>
-						<li><a href="/tcb/view/user/portfolio.jsp">마이포트폴리오</a></li>
-					</ul></li>
-				<li><a data-toggle="modal" data-target="#registerModal"> <span
-						class="glyphicon glyphicon-user" style="color: #ffffff">Sign
-							Up</span>
-				</a></li>
+				<li class="dropdown" id="joinup"></li>
+				<li id="sign"></li>
 				<li id='loginout'><a data-toggle="modal"
 					data-target="#loginModal"><span
 						class="glyphicon glyphicon-log-in" style="color: #ffffff">로그인</span>
@@ -242,7 +231,7 @@
 				<form action="update.do" method="post" name="joinUpForm">
 					<div class="form-group">
 						<div class="input-group">
-							<input class="form-control" id="up_id" name="up_id" type="text"
+							<input class="form-control" id="up_id" name="up_id" type="text" 
 								readonly>
 							<div class="input-group-btn">
 								<button class="btn btn-info" type="button"
@@ -325,3 +314,4 @@
 
 	</div>
 </div>
+
