@@ -14,7 +14,7 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">TryCatch</a>
+			<a class="navbar-brand" href="${initParam.rootPath }/user/main.do">TryCatch</a>
 		</div>
 <div class="collapse navbar-collapse" id="myNavbar">
          <ul class="nav navbar-nav">
@@ -22,7 +22,7 @@
                style="color: #ffffff">기업</a></li>
             <li><a href="#" style="color: #ffffff">콘테스트</a></li>
             <!-- 수정 요망 company_id-->
-            <li><a href="${initParam.rootPath }/user/faq.do" style="color: #ffffff">Q&amp;A</a></li>
+            <li><a href="${initParam.rootPath }/user/faq.do" style="color: #ffffff">FAQ</a></li>
          </ul>
          <form class="navbar-form navbar-left" action="/action_page.php">
             <div class="input-group">
@@ -42,7 +42,7 @@
 					data-target="#loginModal"><span
 						class="glyphicon glyphicon-log-in" style="color: #ffffff">로그인</span>
 				</a></li>
-				<li><a href=""> <span class="glyphicon glyphicon-briefcase"
+				<li><a href="${initParam.rootPath }/com/main.do"> <span class="glyphicon glyphicon-briefcase"
 						style="color: #ffffff">기업회원</span>
 				</a></li>
 			</ul>

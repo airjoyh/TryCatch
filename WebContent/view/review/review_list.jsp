@@ -13,8 +13,12 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
   <title>Board List</title>
-  <script type="text/javascript">
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
+<script type="text/javascript">
   	$(document).ready(function(){
   		$('.initial').hide();
   		$('.initial').fadeln(6000);
@@ -48,10 +52,6 @@
   </script>
   
 <!-- Custom jQuery -->
-<script type="text/javascript"
-	src="${initParam.rootPath }/js/trycatch.js"></script>
-<script type="text/javascript"
-	src="${initParam.rootPath }/js/main.js"></script>
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 <link href="${initParam.rootPath }/css/trycatch.css" rel="stylesheet">

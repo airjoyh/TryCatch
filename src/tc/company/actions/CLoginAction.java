@@ -27,8 +27,9 @@ public class CLoginAction extends Action{
 	   ComInfoDAO dao = new ComInfoDAO();
 	    if(dao.selectLogin(login_id, login_pass)) {
 	    	HttpSession session= request.getSession();
-	    	session.setAttribute("loginState", "login");
-	        
+	    	session.setAttribute("com_loginState", "login");
+	        session.setAttribute("com_login_id", login_id);
+	    	
 	    	request.setAttribute("login","success");
 	    	System.out.println("success");
 	    }else {

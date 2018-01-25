@@ -55,7 +55,7 @@ public class ListAction extends Action{
 			request.setAttribute("action", "total");
 			
 			Map<String, Object>  listMap = dao.find_totalList(page, displayRecord);
-			System.out.println(listMap.get("review_cnt_list"));
+			System.out.println("ÈÄ±â °¹¼ö: "+ listMap.get("review_cnt_list"));
 			request.setAttribute("list", listMap.get("list"));
 			request.setAttribute("review_cnt", listMap.get("review_cnt_list"));
 			request.setAttribute("page", page);	

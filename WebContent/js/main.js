@@ -1,6 +1,6 @@
 $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		var now = new Date();
-		sendRequest('logincheck.do?n='+now.getMinutes()+now.getSeconds(), null , initForm, 'GET');
+		sendRequest('/tc/user/logincheck.do?n='+now.getMinutes()+now.getSeconds(), null , initForm, 'GET');
 		
 	});
 	

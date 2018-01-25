@@ -20,6 +20,7 @@
 
 <script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
 <%-- <script type="text/javascript" src="${initParam.rootPath }/js/review_post.js"></script> --%>
+<script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 <script type="text/javascript">
 $(function(){
 		//라디오버튼 점수체크해준다.

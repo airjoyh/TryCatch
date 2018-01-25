@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html lang="kr">
 <head>
-<script type="text/javascript" src="${initParam.rootPath }/js/jquery-3.js"></script>
-<script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
-<script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 
 <title>TryCatch_companyInfo</title>
 <meta charset="utf-8">
@@ -14,10 +11,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src=""></script>
 <!-- Custom jQuery -->
-<script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var action='${action }';
