@@ -50,59 +50,22 @@
 <!-- Custom jQuery -->
 <script type="text/javascript"
 	src="${initParam.rootPath }/js/trycatch.js"></script>
+<script type="text/javascript"
+	src="${initParam.rootPath }/js/main.js"></script>
 <!-- Custom styles -->
 <link href="${initParam.rootPath }/css/font.css" rel="stylesheet">
 <link href="${initParam.rootPath }/css/trycatch.css" rel="stylesheet">
 
 </head>
 <body style="background-color: #f4f4f4;">
+
 	<!--***********************************************************
-	*                                                             *
-	*                          navbar                             *
-	*                                                             *
-	************************************************************-->
-	<nav class="navbar navbar-inverse navbar-fixed-top" style="padding-right: 2em;padding-left: 2em;">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">TryCatch</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav" >
-					<li><a href="#" style="color: #ffffff">기업</a></li>
-					<li><a href="#" style="color: #ffffff">콘테스트</a></li>
-					<li><a href="${initParam.rootPath }/review/control.do" style="color: #ffffff">후기</a></li>
-					<li><a href="#" style="color: #ffffff">Q&amp;A</a></li>
-				</ul>
-				<form class="navbar-form navbar-left" action="/action_page.php">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search"
-							name="search">
-						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
-				</form>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a data-toggle="modal" data-target="#registerModal"> <span
-							class="glyphicon glyphicon-user" style="color: #ffffff">Sign Up</span>
-					</a></li>
-					<li id='loginout'><a data-toggle="modal"
-						data-target="#loginModal"><span
-							class="glyphicon glyphicon-log-in" style="color: #ffffff">로그인</span> </a></li>
-					<li><a href=""> <span
-							class="glyphicon glyphicon-briefcase" style="color: #ffffff">기업회원</span>
-					</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+		*                                                             *
+		*                            nav                              *
+		*                                                             *
+		************************************************************-->
+		<%@include file="/view/main/nav.jsp" %>
+		
 	<!--***********************************************************
 	*                                                             *
 	*                          기업베너                                                                 *

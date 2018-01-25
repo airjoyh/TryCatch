@@ -252,6 +252,10 @@
 		<!-- 기업 Q&A 게시판 등록 -->
 		<action path="/com/faq"
 				forward="/view/FAQ/com_faq.jsp"/>
+				
+		<!-- 유저 정보를 JSON출력 -->   
+      	<action path="/user/info"
+              type="tc.user.actions.UpdateInfoAction"></action>
 		
 			
 	</action-mappings>
