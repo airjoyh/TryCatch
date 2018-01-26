@@ -68,7 +68,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=total">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=total"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 			
@@ -92,7 +92,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=possibility">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=possibility"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 			
@@ -116,7 +116,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=welSal">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=welSal"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 		</div>
@@ -144,7 +144,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=balance">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=balance"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 			
@@ -168,7 +168,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=culture">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=culture"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 			
@@ -192,7 +192,7 @@
 						</div>
 						</li>
 					</c:forEach>
-					<li class="list-group-item"><button class="btn btn-default btn-block btn-lg"><a href="${initParam.rootPath }/com/listInfo.do?action=manager">전체보기</a></button></li>
+					<li class="list-group-item"><a href="${initParam.rootPath }/com/listInfo.do?action=manager"><button class="btn btn-default btn-block btn-lg">더보기</button></a></li>
 				</ul>
 			</div>
 		</div>

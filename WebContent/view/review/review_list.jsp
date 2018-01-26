@@ -74,8 +74,8 @@
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 10em; padding-bottom: 5em;
 		                        padding-left: 12em; padding-right: 3em; background-image: url('${initParam.rootPath }/image/building/building_5.jpg');">
-			<h1 style="color: white;font-weight: 700;">엔코아 아카데미</h1>
-			<h4 style="color: white;">기업소개 블라블라</h4>                        
+			<h1 style="color: white;font-weight: 700;">${cominfo.company_name }</h1>
+			<h4 style="color: white;">${cominfo.company_site }</h4>                        
 		</div>
 	</div>
 	<!--***********************************************************
