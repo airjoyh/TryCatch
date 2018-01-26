@@ -81,8 +81,9 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 					
 					showLoginout('login');//메인뷰에서 showLoginout함수를 실행하고 'login'($loginState)을 파라미터로 전달전달	
 					//window.close();
+					window.location.reload();
+					//만약 후기를 쓰기전 비로그인 상태면 로그인을 하고 새로고침을 해서 ${loginState }를 받게해주어야한다.
 					$('#loginModal').modal('toggle');//로그인 모달창 닫기
-
 				} else {//로그인 실패했을 때
 					alert('아이디 또는 비밀번호를 잘못입력하였습니다..');
 					document.loginForm.login_id.focus();
