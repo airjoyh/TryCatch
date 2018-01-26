@@ -1,6 +1,6 @@
 $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		var now = new Date();
-		sendRequest('logincheck.do?n='+now.getMinutes()+now.getSeconds(), null , initForm, 'GET');
+		sendRequest('/tc/com/logincheck.do?n='+now.getMinutes()+now.getSeconds(), null , initForm, 'GET');
 		
 	});
 	
@@ -21,7 +21,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 	  }
 	}
 	function logout() {
-		location.href = "logout.do";
+		location.href = "/tc/com/logout.do";
 		showLoginout('');
 	}
 
@@ -39,7 +39,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		var login_id = document.getElementById('login_id').value;
 		var login_pass = document.getElementById('login_pass').value;
 		alert(login_id + ', ' + login_pass);
-		sendRequest('login.do', 'login_id=' + login_id + '&login_pass='
+		sendRequest('/tc/com/login.do', 'login_id=' + login_id + '&login_pass='
 				+ login_pass, resultLoginCheck, 'POST');
 	}
 
@@ -62,7 +62,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 
 	function IdCheck() {//중복확인
 		var company_id = document.joinForm.company_id.value;
-		sendRequest('idCheck.do', 'company_id=' + company_id, resultIdCheck,
+		sendRequest('/tc/com/idCheck.do', 'company_id=' + company_id, resultIdCheck,
 				'POST');
 	}
 

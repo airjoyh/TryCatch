@@ -24,7 +24,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 
 	
 	function logout(){
-		location.href="logout.do";
+		location.href="/tc/user/logout.do";
 		showLoginout('');
 	}
 	
@@ -63,7 +63,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		var login_id = document.getElementById('login_id').value;
 		var login_pass = document.getElementById('login_pass').value;
 		//alert(login_id+', '+login_pass);
-		sendRequest('login.do', 'login_id=' + login_id + '&login_pass='
+		sendRequest('/tc/user/login.do', 'login_id=' + login_id + '&login_pass='
 				+ login_pass, resultLoginCheck, 'POST');
 		//login.do --> 로그인액션(login_id와 login_pass가 필요)--> login_id와 login_pass의 값을 전달한다.(POST), resultLoginCheck함수 실행, 
 	}
