@@ -19,7 +19,7 @@
 <link href="${initParam.rootPath }/css/review_post.css" rel="stylesheet">  
 
 <script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
-<%-- <script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script> --%>
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 <script type="text/javascript">
 $(function(){

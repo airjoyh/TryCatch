@@ -31,7 +31,7 @@
 		<p>원하는 기업같은거 쓰자 여기는 ㅋㅋㅋ</p>
 	</div>
 	<br>
-
+	<form>
 	<div class="container">
 		<div class="row">
 			<nav class="col-sm-3">
@@ -52,7 +52,7 @@
 						</div>
 						<div class="panel-body">
 							<hr>
-							<h5>나는 송다정입니다. 열심히해서 성공할거에요.</h5>
+							<h5>ex)나는 송다정입니다. 열심히해서 성공할거에요.</h5>
 							<hr>
 						</div>
 						<div class="panel-footer">
@@ -173,6 +173,8 @@
 
 		</div>
 	</div>
+	<button>완료</button>
+		</form>
 	<!--***********************************************************
 	*                                                             *
 	*                          modal text                         *
@@ -282,6 +284,7 @@
 
 		</div>
 	</div>
+	
 	<!--***********************************************************
 	*                                                             *
 	*                       modal portfolio                       *
@@ -318,9 +321,9 @@
 						href="">완료</a>
 				</div>
 			</div>
-
 		</div>
 	</div>
+
 	
 	<script type="text/javascript">
 	$('.nav').affix({
