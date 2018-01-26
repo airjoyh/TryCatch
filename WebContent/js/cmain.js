@@ -27,11 +27,15 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 
 	function showLoginout(msg) {
 		console.log("msg>>" + msg)
-		var loginout = document.getElementById('loginout');
-
+		var com_loginout = document.getElementById('com_loginout');
+		var csign = document.getElementById('csign');
+		
 		alert("로그인 상태:" + msg);
 		if (msg == "login") {
-			loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>'
+			com_loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>'
+		}else{
+			csign.innerHTML = '<a data-toggle="modal" data-target="#joinModal"><span class="glyphicon glyphicon-user">Sign Up</span></a>';
+			
 		}
 	}
 

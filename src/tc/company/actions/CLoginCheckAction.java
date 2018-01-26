@@ -13,8 +13,8 @@ public class CLoginCheckAction extends Action{
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Object loginState = request.getSession().getAttribute("loginState");
-		if(loginState==null || !loginState.equals("login")) {
+		Object com_loginState = request.getSession().getAttribute("com_loginState");
+		if(com_loginState==null || !com_loginState.equals("login")) {
 			response.getWriter().print("fail");			
 		}else {
 			response.getWriter().print("login");	

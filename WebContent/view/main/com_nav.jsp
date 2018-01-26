@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script type="text/javascript" src="${initParam.rootPath }/js/cmain.js"></script>    
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -22,10 +23,8 @@
 				</div>
 			</form>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a data-toggle="modal" data-target="#joinModal"> <span
-						class="glyphicon glyphicon-user">Sign Up</span> 
-				</a></li>
-				<li id='loginout'><a data-toggle="modal"
+				<li id="csign"></li>
+				<li id='com_loginout'><a data-toggle="modal"
 					data-target="#loginModal"><span
 						class="glyphicon glyphicon-log-in">로그인</span> </a></li>
 				<li><a href="${initParam.rootPath }/user/main.do"> <span class="glyphicon glyphicon-briefcase"></span>
