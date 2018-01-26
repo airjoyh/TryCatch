@@ -38,7 +38,7 @@
 <body style="background-color: #f4f4f4;">
 
  <!-- navbar -->
-<%@include file="/view/main/nav.jsp" %>
+<%@include file="/view/main/com_nav.jsp" %>
        
 <div class="container" style="padding-top: 7em; padding-bottom: 5em;
 		                        padding-left: 12em; padding-right: 3em;">
