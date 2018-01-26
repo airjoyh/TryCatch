@@ -33,6 +33,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 		alert("로그인 상태:" + msg);
 		if (msg == "login") {
 			com_loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>'
+			csign.innerHTML='';
 		}else{
 			csign.innerHTML = '<a data-toggle="modal" data-target="#joinModal"><span class="glyphicon glyphicon-user">Sign Up</span></a>';
 			

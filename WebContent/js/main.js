@@ -45,6 +45,7 @@ $(function(){//화면을 띄울 때(F5)마다 동작하는 function
 			//loginout.innerHTML = '<a href="logout.do">로그아웃</a>';
 			loginout.innerHTML = '<a href="javascript:logout()"><span class="glyphicon glyphicon-log-in">로그아웃</span></a>';
 			joinup.innerHTML='<a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: #ffffff">마이페이지 <span class="caret"></span></a> <ul class="dropdown-menu"><li><a data-toggle="modal" data-target="#joinUpModal" id="joinUpM" onclick="joinUpdate()">회원정보수정</a></li><li><a href="/tcb/view/user/portfolio.jsp">마이포트폴리오</a></li></ul>';
+			sign.innerHTML='';
 			//flag=true;
 		} else {//로그인 상태가 아닐때!
 			console.log(">>>not login")
