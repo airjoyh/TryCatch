@@ -68,11 +68,11 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	select company_name from company_info;
 	
 	
-	select company_name,company_size,company_turnover,company_line,rank,nvl(avg_all,0.0)
+	select company_name,company_size,company_turnover,company_line,rank,avg_all
 	from (select company_name,company_size,company_turnover,company_line,avg_all,rank,rownum rn
-		from(select company_name,company_size,company_turnover,company_line,nvl(round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1),0.0) avg_all,
-					RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5 desc) as rank 
-			from review natural join company_info
+		from(select company_name,company_size,company_turnover,company_line,round((avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5,1) avg_all,
+					RANK() OVER(order by (avg(review_possibility)+avg(review_welSal)+avg(review_balance)+avg(review_culture)+avg(review_manager))/5) desc) as rank 
+			from company_info natural join review
 			group by company_name,company_size,company_turnover,company_line
 			))
     where rn between 1 and 10;
@@ -91,11 +91,108 @@ select review_no,review_title,review_writer,review_wdate,review_count,company_id
 	select company_name,company_size,company_turnover,company_line,rank,avg_welSal
 	from (select company_name,company_size,company_turnover,company_line,avg_welSal,rank,rownum rn
 		from(select company_name,company_size,company_turnover,company_line,round(avg(review_welSal),1) avg_welSal,
-					RANK() OVER(order by avg(review_welSal) desc) as rank 
+					RANK() OVER(order by avg(review_welSal) desc) as rank
 			from company_info natural join review 
 			group by company_name,company_size,company_turnover,company_line
 			))
-    where rn between #start# and #end#;
+    where rn between 1 and 10;
+    
+    -- outer√ﬂ∞°--------------------------------------------------------------------------------
+    select company_name,company_size,company_turnover,company_line,nvl(round(avg(review_welSal),1),0.0) avg_welSal,
+					RANK() OVER(order by nvl(avg(review_welSal),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_name,company_size,company_turnover,company_line;
+			
+	 select company_id,company_name,company_size,company_turnover,company_line,nvl(round((avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5,1),0.0) avg_all,
+					RANK() OVER(order by nvl((avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5,0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_name,company_size,company_turnover,company_line;
+			
+			
+			
+			avg(review_possibility+review_welSal+review_balance+review_culture+review_manager)
+	-- √— ≈‰≈ª --
+	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_all
+			from (select company_id,company_name,company_size,company_turnover,company_line,avg_all,rank,rownum rn
+				from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round((avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5,1),0.0) avg_all,
+					RANK() OVER(order by nvl((avg(review_possibility+review_welSal+review_balance+review_culture+review_manager))/5,0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+   		 where rn between 1 and 10;
+			
+   	--possibility --
+   	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_possibility
+	from (select company_id,company_name,company_size,company_turnover,company_line,avg_possibility,rank,rownum rn
+		from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round(avg(review_possibility),1),0.0) avg_possibility,
+					RANK() OVER(order by nvl(avg(review_possibility),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+    where rn between 1 and 10;
+			
+    -- welSal--
+	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_welSal
+	from (select company_id,company_name,company_size,company_turnover,company_line,avg_welSal,rank,rownum rn
+		from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round(avg(review_welSal),1),0.0) avg_welSal,
+					RANK() OVER(order by nvl(avg(review_welSal),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+    where rn between 1 and 10;
+    
+    -- balance --
+	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_balance
+	from (select company_id,company_name,company_size,company_turnover,company_line,avg_balance,rank,rownum rn
+		from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round(avg(review_balance),1),0.0) avg_balance,
+					RANK() OVER(order by nvl(avg(review_balance),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+    where rn between 1 and 10;
+    
+     -- culture --
+	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_culture
+	from (select company_id,company_name,company_size,company_turnover,company_line,avg_culture,rank,rownum rn
+		from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round(avg(review_culture),1),0.0) avg_culture,
+					RANK() OVER(order by nvl(avg(review_culture),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+    where rn between 1 and 10;
+    
+     -- manager --
+	select company_id,company_name,company_size,company_turnover,company_line,rank,avg_manager
+	from (select company_id,company_name,company_size,company_turnover,company_line,avg_manager,rank,rownum rn
+		from(select company_info.company_id as company_id,company_name,company_size,company_turnover,company_line,nvl(round(avg(review_manager),1),0.0) avg_manager,
+					RANK() OVER(order by nvl(avg(review_manager),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_info.company_id,company_name,company_size,company_turnover,company_line
+			))
+    where rn between 1 and 10;
+    
+  -----------------------------------------------------------------------------------------------------------  
+    
+    select * from review;
+    
+    select company_name,company_size,company_turnover,company_line,round(avg(review_welSal),1) avg_welSal,
+					RANK() OVER(order by avg(review_welSal) desc) as rank
+			from company_info natural join review 
+			group by company_name,company_size,company_turnover,company_line;
+   
+	select company_name,company_size,company_turnover,company_line,nvl(round(avg(review_welSal),1),0.0) avg_welSal,
+					RANK() OVER(order by nvl(round(avg(review_welSal),1),0.0) desc) as rank
+			from company_info left outer join review 
+			on company_info.company_id = review.company_id
+			group by company_name,company_size,company_turnover,company_line;
     
     
     select company_name,company_size,company_turnover,company_line,rank,avg_balance

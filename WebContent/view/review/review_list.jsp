@@ -16,6 +16,7 @@
 
   <title>Board List</title>
 <script type="text/javascript" src="${initParam.rootPath }/js/ajax.js"></script>
+<script type="text/javascript" src="${initParam.rootPath }/js/ajax2.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/main.js"></script>
 <script type="text/javascript" src="${initParam.rootPath }/js/trycatch.js"></script>
 <script type="text/javascript">
